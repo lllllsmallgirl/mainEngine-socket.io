@@ -40,7 +40,7 @@ var btelegraph1lever = document.getElementById('btelegraph1lever'); //btelegraph
 var btext1 = document.getElementById('btelegraph1Text1');
 var disY = 0;
 var brmp = 0;
-
+var t=0
 btelegraph1lever.onmousedown = function (ev) {
 	var oEvent = ev || event;
 	disY = oEvent.clientY - btelegraph1lever.offsetTop;
@@ -48,7 +48,7 @@ btelegraph1lever.onmousedown = function (ev) {
 	document.onmousemove = function (ev) {
 		var oEvent = ev || event;
 
-		var t = oEvent.clientY - disY;
+		t = oEvent.clientY - disY;
 
 		if (t < -45) {
 			t = -45;

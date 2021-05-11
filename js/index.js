@@ -25,10 +25,10 @@ io.on('connection', (socket) => {
         io.emit('thandleclick',tx);
     });
 
-    // socket.on('btn effect',(ef)=>{
-    //     console.log('effect:',ef);
-    //     io.emit('btn effect',ef);
-    // })
+    socket.on('blever',(e1,e2,e3)=>{
+        // console.log('effect:',ef);
+        io.emit('blever',e1,e2,e3);
+    })
 
   });
 

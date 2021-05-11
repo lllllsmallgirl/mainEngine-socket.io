@@ -128,6 +128,12 @@ function calculate() {
 	if(lhandle1x % 2 == 0) {
 		if(thandlex % 2 == 0) {
 			//驾驶台控制
+			
+			// if(eeydx==0){
+			// 	ydx = brmp;
+			// }else{
+			// 	ydx = eeeydx
+			// }
 			ydx = brmp;
 			if(CriticalRPMX==1){/**临界转速避让 */
 				if(ydx<CriticalRPMmax.value&&ydx>CriticalRPMmin.value){
