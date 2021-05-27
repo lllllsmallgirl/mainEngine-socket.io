@@ -3,10 +3,10 @@ var app = require('express')();
 var http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
-app.use('/',require('express').static('/Users/zm/3.7 已上传至坚果/store的副本'));
+app.use('/',require('express').static('/Users/zm/Documents/GitHub/mainEngine-socket.io'));
 
 app.get('/', (req, res) => {
-    res.sendFile( '/Users/zm/3.7 已上传至坚果/store的副本/mainEngine.html');
+    res.sendFile( '/Users/zm/Documents/GitHub/mainEngine-socket.io/mainEngine.html'); //文件转移了 路径也要改！！！
     // res.sendFile(__dirname + '/img/ii.PNG');
     // console.log("Request for " + req.url + " received.");
   });
@@ -26,7 +26,7 @@ io.on('connection', (socket) => {
     });
 
     socket.on('blever',(e1,e2,e3)=>{
-        // console.log('effect:',ef);
+        console.log('e3',e3);
         io.emit('blever',e1,e2,e3);
     })
 

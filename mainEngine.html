@@ -1405,21 +1405,33 @@
 	        var eeydx=0
 			var eeeydx=0
 			btn1.addEventListener('click',function(){
-				console.log('我点了',thandlex)
+				console.log('点了E2B切换扳手',thandlex)
 				socket.emit('thandleclick',thandlex)
 			})
 			socket.on('thandleclick',function(tx){
+				if(tx % 2 ==1){
+					document.getElementById('thandle').style.transformOrigin = '31% 31%';
+					document.getElementById('thandle').style.transform = 'rotate(' + 0 + 'deg)';
+				}
+				if(tx % 2 ==0){
+					document.getElementById('thandle').style.transformOrigin = '31% 31%';
+					document.getElementById('thandle').style.transform = 'rotate(' + 90 + 'deg)';
+				}
 				thandlex = tx
+				controlLocation()
 			})
 	
-			btn2.addEventListener('click',function(){
+			btn2.addEventListener('mouseup',function(){
 				console.log('点击驾驶台滑块')
 				socket.emit('blever',brmp,ydx,t)
 			})
 			socket.on('blever',function(e1,e2,e3){
+				console.log('e3=',e3)
 				console.log('e1:',e1,'e2:',e2)
 				brmp = e1			
-				t = e3
+				// t = e3
+				subTelegraph(e3)
+				document.getElementById('btelegraph1lever').style.top = e3 - 450 + 'px'
 			})
 		</script>
 			<script type="text/javascript" src="js/calculate.js"></script>
