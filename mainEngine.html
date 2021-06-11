@@ -1399,9 +1399,10 @@
 
 		<script>
 			var socket = io()
-			var btn1 = document.getElementById('thandle')
+			var btn1 = document.getElementById('thandle')//驾驶台和集控室切换扳手
 	
-			var btn2 = document.getElementById('btelegraph1lever')
+			var btn2 = document.getElementById('btelegraph1lever')//驾驶台车钟手柄
+			var btn3 = document.getElementById('ttelegraph2lever')//集控车钟手柄
 	        var eeydx=0
 			var eeeydx=0
 			btn1.addEventListener('click',function(){
@@ -1432,6 +1433,46 @@
 				// t = e3
 				subTelegraph(e3)
 				document.getElementById('btelegraph1lever').style.top = e3 - 450 + 'px'
+			})
+
+			btn3.addEventListener('mousemove',function(){
+				console.log('点击集控车钟滑块')
+				socket.emit('tlever',trmp,ydx,tb)
+			})
+			socket.on('tlever',function(e1,e2,e3){
+				console.log('e3=',e3)
+				console.log('e1:',e1,'e2:',e2)
+				trmp = e1			
+				// t = e3
+				// subTelegraph(e3)
+				document.getElementById('ttelegraph2lever').style.top = e3  + 'px'
+				if (e3 >= -225 && e3 < -40) {
+					a = parseInt(60-(e3 + 40) * 40 / 185);
+					ttelegraph2watch.innerHTML = a;
+					speedLevelChange(a);
+					schematicX = 1; //气动逻辑为状态1：气动逻辑完成
+				};
+				if (e3 >= -40 && e3 < -20) {
+					ttelegraph2watch.innerHTML = 'START';
+					a=60;
+					schematicX = 2; //气动逻辑为状态2：开始空气起动
+					sdc2tx.drawImage(picMap, 306, 521, 123, 89, 72, 488, 155, 100); //速度车钟start位置
+				};
+				if (e3 >= -20 && e3 < 30) {
+					ttelegraph2watch.innerHTML = 'STOP';
+					schematicX = 1; //气动逻辑为状态1：气动逻辑完成
+					sdc2tx.drawImage(picMap, 180, 521, 123, 89, 73, 488, 155, 100); //速度车钟stop位置
+				};
+				if (e3 >= 30 && e3 < 50) {
+					ttelegraph2watch.innerHTML = 'START';
+					sdc2tx.drawImage(picMap, 306, 521, 123, 89, 72, 488, 155, 100); //速度车钟start位置
+				};
+				if (e3 >= 50 && e3 < 250) {
+					a = parseInt(-(e3 - 50) * 78 / 180);
+					ttelegraph2watch.innerHTML = e3;
+					speedLevelChange(-a);
+					schematicX = 1; //气动逻辑为状态1：气动逻辑完成
+				};
 			})
 		</script>
 			<script type="text/javascript" src="js/calculate.js"></script>

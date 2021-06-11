@@ -30,6 +30,11 @@ io.on('connection', (socket) => {
         io.emit('blever',e1,e2,e3);
     })
 
+    socket.on('tlever',(e1,e2,e3)=>{
+      console.log('e3',e3);
+      io.emit('tlever',e1,e2,e3);
+  })
+
   });
 
 

@@ -203,6 +203,7 @@ ttelegraph1lever.onmousedown = function (ev) {
 var ttelegraph2lever = document.getElementById('ttelegraph2lever');
 var ttelegraph2watch = document.getElementById('ttelegraph2watch');
 var trmp = 0;
+var tb = 0;
 ttelegraph2lever.onmousedown = function (ev) {
 	var oEvent = ev || event;
 
@@ -211,44 +212,44 @@ ttelegraph2lever.onmousedown = function (ev) {
 	document.onmousemove = function (ev) {
 		var oEvent = ev || event;
 
-		var t = oEvent.clientY - disY;
+		 tb = oEvent.clientY - disY;
 
-		if (t < -225) {
-			t = -225;
-		} else if (t > 230) {
-			t = 230;
+		if (tb < -225) {
+			tb = -225;
+		} else if (tb > 230) {
+			tb = 230;
 		}
 
-		ttelegraph2lever.style.top = t + 'px';
+		ttelegraph2lever.style.top = tb + 'px';
 
 		if (lhandle1x % 2 == 0) {
 			if (thandlex % 2 == 1) {
 				//驾驶台控制
 				var a = 0;
-				if (t >= -225 && t < -40) {
-					a = parseInt(60-(t + 40) * 40 / 185);
+				if (tb >= -225 && tb < -40) {
+					a = parseInt(60-(tb + 40) * 40 / 185);
 					ttelegraph2watch.innerHTML = a;
 					speedLevelChange(a);
 					schematicX = 1; //气动逻辑为状态1：气动逻辑完成
 				};
-				if (t >= -40 && t < -20) {
+				if (tb >= -40 && tb < -20) {
 					ttelegraph2watch.innerHTML = 'START';
 					a=60;
 					schematicX = 2; //气动逻辑为状态2：开始空气起动
 					sdc2tx.drawImage(picMap, 306, 521, 123, 89, 72, 488, 155, 100); //速度车钟start位置
 				};
-				if (t >= -20 && t < 30) {
+				if (tb >= -20 && tb < 30) {
 					ttelegraph2watch.innerHTML = 'STOP';
 					schematicX = 1; //气动逻辑为状态1：气动逻辑完成
 					sdc2tx.drawImage(picMap, 180, 521, 123, 89, 73, 488, 155, 100); //速度车钟stop位置
 				};
-				if (t >= 30 && t < 50) {
+				if (tb >= 30 && tb < 50) {
 					ttelegraph2watch.innerHTML = 'START';
 					sdc2tx.drawImage(picMap, 306, 521, 123, 89, 72, 488, 155, 100); //速度车钟start位置
 				};
-				if (t >= 50 && t < 250) {
-					a = parseInt(-(t - 50) * 78 / 180);
-					ttelegraph2watch.innerHTML = t;
+				if (tb >= 50 && tb < 250) {
+					a = parseInt(-(tb - 50) * 78 / 180);
+					ttelegraph2watch.innerHTML = tb;
 					speedLevelChange(-a);
 					schematicX = 1; //气动逻辑为状态1：气动逻辑完成
 				};
