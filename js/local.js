@@ -325,8 +325,9 @@ lbuttonStart.onmouseup = function () {
 	
 	console.log('airstop', lrmpx);
 }
-
+var lsio = 0
 $('#pstart').on('mousedown', function () {
+	lsio = 1;
 	startMove(this, 'opacity', 100);
 	if (value16x % 2 == 1 && value3x % 2 == 1 && value122x % 2 == 1 && value116x % 2 == 1 && valueMainx % 2 == 1 && lhandle1x % 2 == 1) {
 		airstart = 2;
@@ -337,6 +338,7 @@ $('#pstart').on('mousedown', function () {
 	}
 })
 $('#pstart').on('mouseup', function () {
+	lsio = 2
 	startMove(this, 'opacity', 0);
 	if(rmp < 15){
 		// alert("空气起动失败！");

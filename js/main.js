@@ -352,8 +352,10 @@ $('#pswitch3').on('click',function(){
 		startMove(this, 'opacity', 0);
 	}
 })
+var lbtn1sio = 0
 $('#touming3').on('click',function(){
 	if(y%2==1){
+		lbtn1sio = 1
 		$('#pswitch4').css('display', 'block');
 	
 			document.getElementById('glemergencyControlLed').style.backgroundColor = '#FF0000';
@@ -383,7 +385,7 @@ $('#touming3').on('click',function(){
 
 			document.getElementById('lhandle1').style.transformOrigin = '31% 31%';
 			document.getElementById('lhandle1').style.transform = 'rotate(' + 90 + 'deg)';
-			lhandle1x += 1;
+			// lhandle1x += 1;
 			// controlLocation();
 
 			document.getElementById('plcontrolRoomControlLed').style.backgroundColor = ' #085A13';
@@ -411,6 +413,7 @@ $('#touming3').on('click',function(){
 })
 $('#touming4').on('click', function () {
 	if(y%2==1){
+		lbtn1sio = 2
 		$('#pswitch4').css('display', 'none');
 		document.getElementById('plbcr').style.borderColor = '#FFC200';
 		document.getElementById('plecr').style.borderColor = 'white';
@@ -419,7 +422,7 @@ $('#touming4').on('click', function () {
 
 		document.getElementById('lhandle1').style.transformOrigin = '31% 31%';
 		document.getElementById('lhandle1').style.transform = 'rotate(' + 0 + 'deg)';
-		lhandle1x += 1;	
+		// lhandle1x += 1;	
 	}
 	if(y%2==0){//平衡参数landle1x，使其连续
 		lhandle1x+=1;
@@ -440,7 +443,7 @@ document.getElementById('wheelswitch').onclick = function () {
 		console.log('lhandle3x', lhandle3x);
 		document.getElementById('lhandle3').style.transformOrigin = '31% 31%';
 		document.getElementById('lhandle3').style.transform = 'rotate(' + 90 + 'deg)';
-		yy += 1;
+		// yy += 1;
 	}
 
 	if (wx % 2 == 0) {
@@ -457,7 +460,7 @@ document.getElementById('wheelswitch').onclick = function () {
 		// 	   $('#lhandle3').css('transform','rotate(' + 0 + 'deg)');
 
 		//    }
-		yy -= 1;
+		// yy -= 1;
 	}
 
 }
@@ -546,8 +549,9 @@ document.getElementById('impactwheel').onclick = function () {
 // 	lprintPancel1(lwheelx1x);
 // 	console.log('lwheelx1x', lwheelx1x)
 // }
-
+var sio = 0 ;
 document.getElementById('conBefore').onclick = function () { //原始状况
+	sio = 1;
 	wx = 0;ydx=0;
 	console.log('wx', wx);
 	impactwheelx = 0;
@@ -1449,6 +1453,7 @@ for (var i = 0; i < hPiced.length; i++) {
 //工况切换
 
 document.getElementById('conReadyC').onclick = function () { //备车完毕
+	sio = 2;
 	value16x = 1;
 	value122x = 1;
 	value3x = 1;
@@ -1594,6 +1599,7 @@ function onSea() { //航行状态
 //初始状态即为主机运行
 
 document.getElementById('conOnSea').onclick = function () {
+	sio = 3;
 	value16x = 1;
 	value122x = 1;
 	value3x = 1;

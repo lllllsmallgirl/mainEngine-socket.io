@@ -1474,6 +1474,705 @@
 					schematicX = 1; //气动逻辑为状态1：气动逻辑完成
 				};
 			})
+			var conbtn1 = document.getElementById('conBefore')//原始工况
+			conbtn1.addEventListener('click',function(){
+				console.log('点击原始工况')
+				socket.emit('conbeforeclick',sio)
+			})
+			socket.on('conbeforeclick',function(e1){
+				console.log('e1=',e1)
+			if(e1==1){
+				wx = 0;ydx=0;
+				console.log('wx', wx);
+				impactwheelx = 0;
+				console.log('imx', impactwheelx);
+				value16x = 0;
+				value122x = 0;
+				value3x = 0;
+				value116x = 0;
+				value118x = 0;
+				valueMainx = 0;
+				condition.style.display = 'none';
+				// conditionX+=1;
+				btelegraph1lever.style.top = '-335px';
+				z = 0;
+				$('#wheelstart').css('display', 'none');
+				$('#wheeloil1').css('display', 'none');
+				$('#wheeloil1.5').css('display', 'none');
+				$('#wheeloil2').css('display', 'none');
+				$('#wheeloil3').css('display', 'none');
+				$('#wheeloil4').css('display', 'none');
+				btelegraph1lever.style.top = '-330px';
+				ttelegraph1lever.style.top = '0px';
+				ttelegraph2lever.style.top = '0px';
+				ttelegraph2watch.innerHTML = 'STOP';
+
+				lshutdownLed.style.backgroundColor = ' #800000';
+				document.getElementById('lhandwheelDis').style.border = ''
+				document.getElementById('lhandwheelCon').style.border = '1px solid red'
+
+
+				startMove(document.getElementById('impactwheel'), 'opacity', 0);
+				startMove(document.getElementById('wheelswitch'), 'opacity', 0);
+
+				//调速器
+				$('#light1_1').css('opacity',0);
+				$('#light1_2').css('opacity',1);
+				$('#light2_1').css('opacity',0);
+				$('#light2_2').css('opacity',0);
+				$('#light2_3').css('opacity',1);
+				$('#light2_4').css('opacity',0);
+				$('#light2_5').css('opacity',0);
+				rmpxlim=80;
+				ydlim=92;
+
+
+				lhandle1x = 1; //机旁页面扳手 指向LOCAL
+				lhandle1.style.transformOrigin = '31% 31%';
+				lhandle1.style.transform = 'rotate(' + 90 + 'deg)';
+				lhandle2x = 1; //标识位 1为AHEAD 0为ASTERN
+				lhandle2.style.transformOrigin = '31% 31%';
+				lhandle2.style.transform = 'rotate(' + 90 + 'deg)';
+				lhandle3x = 0; //标识位 0为LOCK 1为UNLOCK
+				lhandle3.style.transformOrigin = '31% 31%';
+				lhandle3.style.transform = 'rotate(' + 0 + 'deg)';
+				thandlex = 0; //集控车钟页面扳手 指向BRIDGE
+				thandle.style.transformOrigin = '31% 31%';
+				thandle.style.transform = 'rotate(' + 90 + 'deg)';
+				controlLocation();
+				//机旁的手轮
+				lwheelx1x = 5; //
+				lprintPancel1(lwheelx1x);
+				lwheelx2x = 0; //
+				lprintPancel2(lwheelx2x);
+
+				bStandBy.style.backgroundColor = '#01D867';
+				bStandBy.innerHTML = 'FWE';
+				cStandBy.style.backgroundColor = '#01D867';
+				cStandBy.innerHTML = 'FWE';
+
+				yd = 0;
+				ydx = 0;
+				rmp = 0;
+				rmpx = 0;
+				brmp = 0;
+				trmp = 0;
+				lrmp = 0;
+				//	LED()
+				schematicX = 0;
+
+				briled = 5;
+				telled = 5;
+				locled = 5;
+				briLEDclear(briled);
+				telLEDclear(briled, telled);
+				lclearSpeedLed(briled, locled);
+			}
+
+			})
+
+			var conbtn2 = document.getElementById('conReadyC')//备车完毕
+			conbtn2.addEventListener('click',function(){
+				console.log('点击备车完毕')
+				socket.emit('conReadyCclick',sio)
+			})
+			socket.on('conReadyCclick',function(e1){
+				if (e1==2) {
+					value16x = 1;
+					value122x = 1;
+					value3x = 1;
+					value116x = 1;
+					value118x = 1;
+					valueMainx = 1;
+					condition.style.display = 'none';
+					btelegraph1lever.style.top = '-335px';
+					ttelegraph1lever.style.top = '0px';
+					ttelegraph2lever.style.top = '0px';
+					ttelegraph2watch.innerHTML = 'STOP';
+
+					lshutdownLed.style.backgroundColor = ' #800000';
+
+					//调速器
+					$('#light1_1').css('opacity',1);
+					$('#light1_2').css('opacity',0);
+					$('#light2_2').css('opacity',0);
+					$('#light2_3').css('opacity',0);
+
+
+					z = 0;
+					$('#wheelstart').css('display', 'none');
+					$('#wheeloil1').css('display', 'none');
+					$('#wheeloil1_5').css('display', 'none');
+					$('#wheeloil2').css('display', 'none');
+					$('#wheeloil3').css('display', 'none');
+					$('#wheeloil4').css('display', 'none');
+
+					lhandle3x=0;
+					wx=0;
+					yy=0;
+					startMove(document.getElementById('wheelswitch'), 'opacity', 0);
+
+					impactwheelx=0;
+					startMove(document.getElementById('impactwheel'), 'opacity', 0);
+
+
+					lhandle1x = 0; //机旁页面扳手 指向LOCAL
+					lhandle1.style.transformOrigin = '31% 31%';
+					lhandle1.style.transform = 'rotate(' + 0 + 'deg)';
+					lhandle2x = 1; //标识位 1为AHEAD 0为ASTERN
+					lhandle2.style.transformOrigin = '31% 31%';
+					lhandle2.style.transform = 'rotate(' + 90 + 'deg)';
+					lhandle3x = 0; //标识位 0为LOCK 1为UNLOCK
+					lhandle3.style.transformOrigin = '31% 31%';
+					lhandle3.style.transform = 'rotate(' + 0 + 'deg)';
+					thandlex = 0; //集控车钟页面扳手 指向BRIDGE
+					thandle.style.transformOrigin = '31% 31%';
+					thandle.style.transform = 'rotate(' + 90 + 'deg)';
+					controlLocation();
+					//机旁的手轮
+					lwheelx1x = 5; //
+					lprintPancel1(lwheelx1x);
+					lwheelx2x = 0; //
+					lprintPancel2(lwheelx2x);
+
+					bStandBy.style.backgroundColor = 'yellow';
+					bStandBy.innerHTML = 'Stand By';
+					cStandBy.style.backgroundColor = 'yellow';
+					cStandBy.innerHTML = 'Stand By';
+
+					//	LED()
+					controlLocation();
+					schematicX = 1;
+					lwheelx1x = 5;
+					lprintPancel1(lwheelx1x);
+
+					yd = 0;
+					ydx = 0;
+					rmp = 0;
+					rmpx = 0;
+					brmp = 0;
+					trmp = 0;
+					lrmp = 0;
+					//	LED()
+					schematicX = 1;
+
+					briled = 5;
+					telled = 5;
+					locled = 5;
+					briLEDclear(briled);
+					telLEDclear(briled, telled);
+					lclearSpeedLed(briled, locled);
+				}
+			})
+
+			var conbtn3 = document.getElementById('conOnSea')//主机运行
+			conbtn3.addEventListener('click',function(){
+				console.log('点击主机运行')
+				socket.emit('conOnSeaclick',sio)
+			})
+			socket.on('conOnSeaclick',function(e1){
+				if (e1==3) {
+					value16x = 1;
+					value122x = 1;
+					value3x = 1;
+					value116x = 1;
+					value118x = 1;
+					valueMainx = 1;
+					condition.style.display = 'none';
+					//车钟杠杆位置
+					btelegraph1lever.style.top = '-495px';
+					//车令位置
+					//LED()
+					//briLEDclear()
+
+					//调速器
+					$('#light1_1').css('opacity',1);
+					$('#light1_2').css('opacity',0);
+					$('#light2_2').css('opacity',1);
+					$('#light2_3').css('opacity',0);
+
+
+					subTelegraph(-30);
+					ttled1[0].style.background = '#00FF00';
+					ttled2[0].style.background = '#00FF00';
+					btled1[0].style.background = '#00FF00';
+					btled2[0].style.background = '#00FF00';
+
+					bStandBy.style.backgroundColor = '#01D867';
+					bStandBy.innerHTML = 'At Sea';
+					cStandBy.style.backgroundColor = '#01D867';
+					cStandBy.innerHTML = 'At Sea';
+
+					lshutdownLed.style.backgroundColor = ' #800000';
+
+					lhandle1x = 0; //机旁页面扳手 指向remote
+					lhandle1.style.transformOrigin = '31% 31%';
+					lhandle1.style.transform = 'rotate(' + 0 + 'deg)';
+					lhandle2x = 1; //标识位 1为AHEAD 0为ASTERN
+					lhandle2.style.transformOrigin = '31% 31%';
+					lhandle2.style.transform = 'rotate(' + 90 + 'deg)';
+					lhandle3x = 0; //标识位 0为LOCK 1为UNLOCK
+					lhandle3.style.transformOrigin = '31% 31%';
+					lhandle3.style.transform = 'rotate(' + 0 + 'deg)';
+					thandlex = 0; //集控车钟页面扳手 指向BRIDGE
+					thandle.style.transformOrigin = '31% 31%';
+					thandle.style.transform = 'rotate(' + 90 + 'deg)';
+					controlLocation();
+					//机旁的手轮
+					lwheelx1x = 0; //
+					lprintPancel1(lwheelx1x);
+					lwheelx2x = 0; //
+					lprintPancel2(lwheelx2x);
+
+
+					//rmpx=61;
+					brmp = 90;
+					ydx = 90;
+					schematicX = 1;
+					lwheelx1x = 5;
+					lprintPancel1(lwheelx1x);
+				}
+			})
+
+			var wheelbtn1 = document.getElementById('wheeltouming')//调油手轮右侧
+			wheelbtn1.addEventListener('click',function(){
+				console.log('机旁三维加油')
+				socket.emit('wheeltoumingclick',z)
+			})
+			socket.on('wheeltoumingclick',function(e1){
+				if (e1 == 1) {
+			$('#wheelstart').css('display', 'block');
+			$('#wheeloil1').css('display', 'none');
+			$('#wheeloil1_5').css('display', 'none');
+			$('#wheeloil2').css('display', 'none');
+			$('#wheeloil3').css('display', 'none');
+			$('#wheeloil4').css('display', 'none');
+
+			$('#panel_s').css('display', 'block');
+			$('#panel').css('display', 'none');
+			$('#panel_1').css('display', 'none');
+			$('#panel_2').css('display', 'none');
+			$('#panel_3').css('display', 'none');
+			$('#panel_4').css('display', 'none');
+			$('#panel_5').css('display', 'none');
+			lrmp = 30;
+			lwheelx2x = 4;
+			lprintPancel2(4);
+
+		}
+		if (e1 == 2) {
+			$('#wheelstart').css('display', 'none');
+			$('#wheeloil1').css('display', 'block');
+			$('#wheeloil1_5').css('display', 'none');
+			$('#wheeloil2').css('display', 'none');
+			$('#wheeloil3').css('display', 'none');
+			$('#wheeloil4').css('display', 'none');
+
+			$('#panel_s').css('display', 'none');
+			$('#panel').css('display', 'none');
+			$('#panel_1').css('display', 'block');
+			$('#panel_2').css('display', 'none');
+			$('#panel_3').css('display', 'none');
+			$('#panel_4').css('display', 'none');
+			$('#panel_5').css('display', 'none');
+			lrmp = 50;
+			lwheelx2x = 5;
+			lprintPancel2(5);
+		}
+		if (e1 == 3) {
+			$('#wheelstart').css('display', 'none');
+			$('#wheeloil1').css('display', 'none');
+			$('#wheeloil1_5').css('display', 'block');
+			$('#wheeloil2').css('display', 'none');
+			$('#wheeloil3').css('display', 'none');
+			$('#wheeloil4').css('display', 'none');
+
+			$('#panel_s').css('display', 'none');
+			$('#panel').css('display', 'none');
+			$('#panel_1').css('display', 'none');
+			$('#panel_2').css('display', 'block');
+			$('#panel_3').css('display', 'none');
+			$('#panel_4').css('display', 'none');
+			$('#panel_5').css('display', 'none');
+			lrmp = 60;
+			lwheelx2x = 7;
+			lprintPancel2(7);
+		}
+		if (e1 == 4) {
+			$('#wheelstart').css('display', 'none');
+			$('#wheeloil1').css('display', 'none');
+			$('#wheeloil1_5').css('display', 'none');
+			$('#wheeloil2').css('display', 'block');
+			$('#wheeloil3').css('display', 'none');
+			$('#wheeloil4').css('display', 'none');
+
+			$('#panel_s').css('display', 'none');
+			$('#panel').css('display', 'none');
+			$('#panel_1').css('display', 'none');
+			$('#panel_2').css('display', 'none');
+			$('#panel_3').css('display', 'block');
+			$('#panel_4').css('display', 'none');
+			$('#panel_5').css('display', 'none');
+			lrmp = 70;
+			lwheelx2x = 8;
+			lprintPancel2(8);
+		}
+		if (e1 == 5) {
+			$('#wheelstart').css('display', 'none');
+			$('#wheeloil1').css('display', 'none');
+			$('#wheeloil1_5').css('display', 'none');
+			$('#wheeloil2').css('display', 'none');
+			$('#wheeloil3').css('display', 'block');
+			$('#wheeloil4').css('display', 'none');
+
+			$('#panel_s').css('display', 'none');
+			$('#panel').css('display', 'none');
+			$('#panel_1').css('display', 'none');
+			$('#panel_2').css('display', 'none');
+			$('#panel_3').css('display', 'none');
+			$('#panel_4').css('display', 'block');
+			$('#panel_5').css('display', 'none');
+			lrmp = 80;
+			lwheelx2x = 9;
+			lprintPancel2(9);
+		}
+		if (e1 == 6) {
+			$('#wheelstart').css('display', 'none');
+			$('#wheeloil1').css('display', 'none');
+			$('#wheeloil1_5').css('display', 'none');
+			$('#wheeloil2').css('display', 'none');
+			$('#wheeloil3').css('display', 'none');
+			$('#wheeloil4').css('display', 'block');
+
+			$('#panel_s').css('display', 'none');
+			$('#panel').css('display', 'none');
+			$('#panel_1').css('display', 'none');
+			$('#panel_2').css('display', 'none');
+			$('#panel_3').css('display', 'none');
+			$('#panel_4').css('display', 'none');
+			$('#panel_5').css('display', 'block');
+			lrmp = 90;
+			lwheelx2x = 11;
+			lprintPancel2(11);
+		}
+		if (e1 >= 6) {
+			e1 = 6;
+		}
+			})
+
+			var wheelbtn2 = document.getElementById('wheeltoumingleft')//调油手轮左侧
+			wheelbtn2.addEventListener('click',function(){
+				console.log('机旁三维减油')
+				socket.emit('wheeltoumingleftclick',z)
+			})
+			socket.on('wheeltoumingleftclick',function(e1){
+				if (e1 == 1) {
+			$('#wheelstart').css('display', 'block');
+			$('#wheeloil1').css('display', 'none');
+			$('#wheeloil1_5').css('display', 'none');
+			$('#wheeloil2').css('display', 'none');
+			$('#wheeloil3').css('display', 'none');
+			$('#wheeloil4').css('display', 'none');
+
+			$('#panel_s').css('display', 'block');
+			$('#panel').css('display', 'none');
+			$('#panel_1').css('display', 'none');
+			$('#panel_2').css('display', 'none');
+			$('#panel_3').css('display', 'none');
+			$('#panel_4').css('display', 'none');
+			$('#panel_5').css('display', 'none');
+			lrmp = 30;
+			lwheelx2x = 4;
+			lprintPancel2(4);
+		}
+		if (e1 == 2) {
+			$('#wheelstart').css('display', 'none');
+			$('#wheeloil1').css('display', 'block');
+			$('#wheeloil1_5').css('display', 'none');
+			$('#wheeloil2').css('display', 'none');
+			$('#wheeloil3').css('display', 'none');
+			$('#wheeloil4').css('display', 'none');
+
+			$('#panel_s').css('display', 'none');
+			$('#panel').css('display', 'none');
+			$('#panel_1').css('display', 'block');
+			$('#panel_2').css('display', 'none');
+			$('#panel_3').css('display', 'none');
+			$('#panel_4').css('display', 'none');
+			$('#panel_5').css('display', 'none');
+			lrmp = 50;
+			lwheelx2x = 5;
+			lprintPancel2(5);
+		}
+		if (e1 == 3) {
+			$('#wheelstart').css('display', 'none');
+			$('#wheeloil1').css('display', 'none');
+			$('#wheeloil1_5').css('display', 'block');
+			$('#wheeloil2').css('display', 'none');
+			$('#wheeloil3').css('display', 'none');
+			$('#wheeloil4').css('display', 'none');
+
+			$('#panel_s').css('display', 'none');
+			$('#panel').css('display', 'none');
+			$('#panel_1').css('display', 'none');
+			$('#panel_2').css('display', 'block');
+			$('#panel_3').css('display', 'none');
+			$('#panel_4').css('display', 'none');
+			$('#panel_5').css('display', 'none');
+			lrmp = 60;
+			lwheelx2x = 7;
+			lprintPancel2(7);
+		}
+		if (e1 == 4) {
+			$('#wheelstart').css('display', 'none');
+			$('#wheeloil1').css('display', 'none');
+			$('#wheeloil1_5').css('display', 'none');
+			$('#wheeloil2').css('display', 'block');
+			$('#wheeloil3').css('display', 'none');
+			$('#wheeloil4').css('display', 'none');
+
+			$('#panel_s').css('display', 'none');
+			$('#panel').css('display', 'none');
+			$('#panel_1').css('display', 'none');
+			$('#panel_2').css('display', 'none');
+			$('#panel_3').css('display', 'block');
+			$('#panel_4').css('display', 'none');
+			$('#panel_5').css('display', 'none');
+			lrmp = 70;
+			lwheelx2x = 8;
+			lprintPancel2(8);
+		}
+		if (e1 == 5) {
+			$('#wheelstart').css('display', 'none');
+			$('#wheeloil1').css('display', 'none');
+			$('#wheeloil1_5').css('display', 'none');
+			$('#wheeloil2').css('display', 'none');
+			$('#wheeloil3').css('display', 'block');
+			$('#wheeloil4').css('display', 'none');
+
+			$('#panel_s').css('display', 'none');
+			$('#panel').css('display', 'none');
+			$('#panel_1').css('display', 'none');
+			$('#panel_2').css('display', 'none');
+			$('#panel_3').css('display', 'none');
+			$('#panel_4').css('display', 'block');
+			$('#panel_5').css('display', 'none');
+			lrmp = 80;
+			lwheelx2x = 9;
+			lprintPancel2(9);
+		}
+		if (e1 == 6) {
+			$('#wheelstart').css('display', 'none');
+			$('#wheeloil1').css('display', 'none');
+			$('#wheeloil1_5').css('display', 'none');
+			$('#wheeloil2').css('display', 'none');
+			$('#wheeloil3').css('display', 'none');
+			$('#wheeloil4').css('display', 'block');
+
+			$('#panel_s').css('display', 'none');
+			$('#panel').css('display', 'none');
+			$('#panel_1').css('display', 'none');
+			$('#panel_2').css('display', 'none');
+			$('#panel_3').css('display', 'none');
+			$('#panel_4').css('display', 'none');
+			$('#panel_5').css('display', 'block');
+			lrmp = 90;
+			lwheelx2x = 11;
+			lprintPancel2(11);
+		}
+		if (e1 == 0) {
+			$('#wheelstart').css('display', 'none');
+			$('#wheeloil1').css('display', 'none');
+			$('#wheeloil1.5').css('display', 'none');
+			$('#wheeloil2').css('display', 'none');
+			$('#wheeloil3').css('display', 'none');
+			$('#wheeloil4').css('display', 'none');
+
+			$('#panel_s').css('display', 'none');
+			$('#panel').css('display', 'block');
+			$('#panel_1').css('display', 'none');
+			$('#panel_2').css('display', 'none');
+			$('#panel_3').css('display', 'none');
+			$('#panel_4').css('display', 'none');
+			$('#panel_5').css('display', 'none');
+		}
+		if (e1 <= 0) {
+			e1 = 0;
+		}
+			})
+
+			var lstartbtn = document.getElementById('pstart')//机旁起动按钮按下
+			lstartbtn.addEventListener('mousedown',function(){
+				console.log('机旁空气起动')
+				socket.emit('pstartclick',lsio)
+			})
+			socket.on('pstartclick',function(e1){
+				if(e1 == 1){
+					startMove(lstartbtn, 'opacity', 100);
+	if (value16x % 2 == 1 && value3x % 2 == 1 && value122x % 2 == 1 && value116x % 2 == 1 && valueMainx % 2 == 1 && lhandle1x % 2 == 1) {
+		airstart = 2;
+		//LED()
+		schematicX = 1;}
+				}
+			})
+
+			lstartbtn.addEventListener('mouseup',function(){ //机旁起动按钮松开
+				console.log('机旁空气起动')
+				socket.emit('pstartup',lsio)
+			})
+			socket.on('pstartup',function(e1){
+				if(e1 == 2){
+					startMove(lstartbtn, 'opacity', 0);
+					if(rmp < 15){
+						// alert("空气起动失败！");
+						airstart = 1;
+						yd=0;
+					}
+					else{
+						// alert("空气起动成功！");
+						airstart = 2;
+					}
+				}
+			})
+		
+			var lbtn1 = document.getElementById('touming3')
+			lbtn1.addEventListener('click',function(){
+				console.log('切换扳手')
+				socket.emit('lbtn1click',lbtn1sio)
+			})
+			socket.on('lbtn1click',function(e1){
+				if(e1 == 1){
+					$('#pswitch4').css('display', 'block');
+	
+					document.getElementById('glemergencyControlLed').style.backgroundColor = '#FF0000';
+					document.getElementById('glbridgeControlLed').style.backgroundColor = '#085A13';
+					document.getElementById('glcontrolRoomControlLed').style.backgroundColor = ' #085A13';
+
+					document.getElementById('plemergencyControlLed').style.backgroundColor = '#FF0000';
+					document.getElementById('plbridgeControlLed').style.backgroundColor = '#085A13';
+					document.getElementById('plcontrolRoomControlLed').style.backgroundColor = ' #085A13';
+
+					document.getElementById('olemergencyControlLed').style.backgroundColor = '#FF0000';
+					document.getElementById('olbridgeControlLed').style.backgroundColor = '#085A13';
+					document.getElementById('olcontrolRoomControlLed').style.backgroundColor = ' #085A13';
+
+					document.getElementById('tlemergencyControlLed').style.backgroundColor = '#FF0000';
+					document.getElementById('tlbridgeControlLed').style.backgroundColor = '#085A13';
+					document.getElementById('tlcontrolRoomControlLed').style.backgroundColor = ' #085A13';
+
+					document.getElementById('plbcr').style.borderColor = 'white';
+					document.getElementById('plecr').style.borderColor = 'white';
+					document.getElementById('plloc').style.borderColor = '#FFC200';
+
+					document.getElementById('lemergencyControlLed').style.backgroundColor = '#FF0000';
+					document.getElementById('lbridgeControlLed').style.backgroundColor = '#085A13';
+					// document.getElementById('lcontrolRoomControlLed').style.backgroundColor = ' #085A13';
+
+
+					document.getElementById('lhandle1').style.transformOrigin = '31% 31%';
+					document.getElementById('lhandle1').style.transform = 'rotate(' + 90 + 'deg)';
+					lhandle1x += 1;
+					// controlLocation();
+
+					document.getElementById('plcontrolRoomControlLed').style.backgroundColor = ' #085A13';
+					document.getElementById('olcontrolRoomControlLed').style.backgroundColor = ' #085A13';
+					document.getElementById('glcontrolRoomControlLed').style.backgroundColor = ' #085A13';
+					document.getElementById('tlcontrolRoomControlLed').style.backgroundColor = ' #085A13';
+					document.getElementById('lcontrolRoomControlLed').style.backgroundColor = ' #085A13';
+					document.getElementById('lemergencyControlLed').style.backgroundColor = '#FF0000';
+					document.getElementById('lbcrled').style.backgroundColor = 'white';
+					document.getElementById('lecrled').style.backgroundColor = 'white';
+					document.getElementById('llocled').style.backgroundColor = '#FFC200';
+					document.getElementById('plbcrled').style.backgroundColor = 'white';
+					document.getElementById('plecrled').style.backgroundColor = 'white';
+					document.getElementById('pllocled').style.backgroundColor = '#FFC200';
+					document.getElementById('plbcr').style.borderColor = 'white';
+					document.getElementById('plecr').style.borderColor = 'white';
+					document.getElementById('plloc').style.borderColor = '#FFC200';
+					document.getElementById('lbcr').style.borderColor = 'white';
+					document.getElementById('lecr').style.borderColor = 'white';
+					document.getElementById('lloc').style.borderColor = '#FFC200';
+				}
+			})
+			var lbtn2 = document.getElementById('touming4')
+			lbtn2.addEventListener('click',function(){
+				console.log('切换扳手2')
+				socket.emit('lbtn2click',lbtn1sio)
+			})
+			socket.on('lbtn2click',function(e1){
+				if(e1 == 2){
+					$('#pswitch4').css('display', 'none');
+					document.getElementById('plbcr').style.borderColor = '#FFC200';
+					document.getElementById('plecr').style.borderColor = 'white';
+					document.getElementById('plloc').style.borderColor = 'white';
+					document.getElementById('pllocled').style.backgroundColor = 'white';
+
+					document.getElementById('lhandle1').style.transformOrigin = '31% 31%';
+					document.getElementById('lhandle1').style.transform = 'rotate(' + 0 + 'deg)';
+					lhandle1x += 1;	
+				}
+			})
+
+			var lbtn3 = document.getElementById('wheelswitch')
+			lbtn3.addEventListener('click',function(){
+				console.log('锁紧手柄')
+				socket.emit('lbtn3click',wx)
+			})
+			socket.on('lbtn3click',function(e1){
+				if (e1 % 2 == 1) {
+				startMove(lbtn3, 'opacity', 100);
+				lhandle3x = e1;
+				console.log('lhandle3x', lhandle3x);
+				document.getElementById('lhandle3').style.transformOrigin = '31% 31%';
+				document.getElementById('lhandle3').style.transform = 'rotate(' + 90 + 'deg)';
+				yy += 1;
+	}
+				if (e1 % 2 == 0) {
+					startMove(lbtn3, 'opacity', 0);
+					lhandle3x = e1 - 2;
+					console.log('lhandle3x', lhandle3x);
+					document.getElementById('lhandle3').style.transformOrigin = '31% 31%';
+					document.getElementById('lhandle3').style.transform = 'rotate(' + 0 + 'deg)';
+					yy -= 1;
+				}
+			})
+
+			var lbtn4 = document.getElementById('impactwheel')
+			lbtn4.addEventListener('click',function(){
+				console.log('手动/遥控切换手轮')
+				socket.emit('lbtn4click',impactwheelx)
+			})
+			socket.on('lbtn4click',function(e1){
+				if (e1 % 2 == 1) {
+				startMove(lbtn4, 'opacity', 100);
+				document.getElementById('lhandwheelDis').style.border = '1px solid red'
+				document.getElementById('lhandwheelCon').style.border = ''
+
+				lwheelx1x = 0;
+				var lw1c = document.getElementById("lwheel1canvas");
+				var lw1ctx = lw1c.getContext("2d");
+				lw1ctx.clearRect(0, 0, 140, 11);
+				lw1ctx.beginPath();
+				lw1ctx.rect(0, 0, 0, 11);
+				lw1ctx.fillStyle = "red"
+				lw1ctx.fill();
+
+			}
+			if (e1 % 2 == 0) {
+				startMove(lbtn4, 'opacity', 0);
+				document.getElementById('lhandwheelDis').style.border = ''
+				document.getElementById('lhandwheelCon').style.border = '1px solid red'
+
+				lwheelx1x = 5;
+				var lw1c = document.getElementById("lwheel1canvas");
+				var lw1ctx = lw1c.getContext("2d");
+				lw1ctx.clearRect(0, 0, 140, 11);
+				lw1ctx.beginPath();
+				lw1ctx.rect(0, 0, 140, 11);
+				lw1ctx.fillStyle = "red"
+				lw1ctx.fill();
+			}
+			})
 		</script>
 			<script type="text/javascript" src="js/calculate.js"></script>
 

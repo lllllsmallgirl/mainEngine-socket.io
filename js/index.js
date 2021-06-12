@@ -35,6 +35,61 @@ io.on('connection', (socket) => {
       io.emit('tlever',e1,e2,e3);
   })
 
+  socket.on('conbeforeclick',(e1)=>{
+    console.log('sio',e1);
+    io.emit('conbeforeclick',e1);
+})
+
+      socket.on('conReadyCclick',(e1)=>{
+        console.log('sio',e1);
+        io.emit('conReadyCclick',e1);
+      })
+
+      socket.on('conOnSeaclick',(e1)=>{
+        console.log('sio',e1);
+        io.emit('conOnSeaclick',e1);
+      })
+
+      socket.on('wheeltoumingclick',(e1)=>{
+        
+        io.emit('wheeltoumingclick',e1);
+      })
+
+      socket.on('wheeltoumingleftclick',(e1)=>{
+        
+        io.emit('wheeltoumingleftclick',e1);
+      })
+
+      socket.on('pstartclick',(e1)=>{
+        
+        io.emit('pstartclick',e1);
+      })
+
+      socket.on('pstartup',(e1)=>{
+        
+        io.emit('pstartup',e1);
+      })
+
+      socket.on('lbtn1click',(e1)=>{
+        
+        io.emit('lbtn1click',e1);
+      })
+
+      socket.on('lbtn2click',(e1)=>{
+        
+        io.emit('lbtn2click',e1);
+      })
+
+      socket.on('lbtn3click',(e1)=>{
+        
+        io.emit('lbtn3click',e1);
+      })
+
+      socket.on('lbtn4click',(e1)=>{
+        
+        io.emit('lbtn4click',e1);
+      })
+
   });
 
 
