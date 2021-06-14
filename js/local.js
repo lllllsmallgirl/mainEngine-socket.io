@@ -159,14 +159,14 @@ var lhandle1x = 0; //标识位 0为REMOTE 1为LOCAL
 lhandle1.onclick = function () {
 	console.log(lhandle1x)
 	if (lhandle1x % 2 == 0) {
-		this.style.transformOrigin = '31% 31%';
-		this.style.transform = 'rotate(' + 90 + 'deg)';
-		lhandle1x += 1;
+		// this.style.transformOrigin = '31% 31%';
+		// this.style.transform = 'rotate(' + 90 + 'deg)';
+		// lhandle1x += 1;
 		controlLocation();
 	} else {
-		this.style.transformOrigin = '31% 31%';
-		this.style.transform = 'rotate(' + 0 + 'deg)';
-		lhandle1x += 1;
+		// this.style.transformOrigin = '31% 31%';
+		// this.style.transform = 'rotate(' + 0 + 'deg)';
+		// lhandle1x += 1;
 		controlLocation();
 	}
 
@@ -215,10 +215,11 @@ var lhandle3 = document.getElementById('lhandle3');
 var lhandle3x = 0; //标识位 0为LOCK 1为UNLOCK
 var x = 0;
 lhandle3.onclick = function () {
-	if (lhandle3x % 2 == 0) {
+	lhandle3x += 1;console.log('local的')
+	if (lhandle3x%2 == 1) {
 		this.style.transformOrigin = '31% 31%';
 		this.style.transform = 'rotate(' + 90 + 'deg)';
-		lhandle3x += 1;
+		// lhandle3x += 1;
 		// startMove(this, 'opacity', 0);
 		console.log('lhandle3x', lhandle3x);
 		wx = 1;
@@ -228,7 +229,7 @@ lhandle3.onclick = function () {
 	} else {
 		this.style.transformOrigin = '31% 31%';
 		this.style.transform = 'rotate(' + 0 + 'deg)';
-		lhandle3x += 1;
+		// lhandle3x += 1;
 		console.log('lhandle3x', lhandle3x);
 		wx = 0;
 		console.log('wx', wx);
@@ -299,7 +300,9 @@ var lbuttonStop = document.getElementById('lbuttonStop');
 // {
 // 	clearInterval(time);//如果按下时间不到1000毫秒便弹起，
 // }
+var l2dsio = 0
 lbuttonStart.onmousedown = function () {
+	l2dsio = 1
 	lbuttonStart.style.backgroundColor = "green";
 	
 	if (value16x % 2 == 1 && value3x % 2 == 1 && value122x % 2 == 1 && value116x % 2 == 1 && valueMainx % 2 == 1 && lhandle1x % 2 == 1) {
@@ -311,6 +314,7 @@ lbuttonStart.onmousedown = function () {
 	
 }
 lbuttonStart.onmouseup = function () {
+	l2dsio = 2
 	lbuttonStart.style.backgroundColor = "grey";
 	if(rmp < 15){
 		// alert("空气起动失败！");
@@ -404,7 +408,7 @@ lwheel1Left.onclick = function () {
 		impactwheelx = 0;
 	}
 
-	lprintPancel1(lwheelx1x);
+	// lprintPancel1(lwheelx1x);
 	console.log('lwheelx1x', lwheelx1x)
 }
 lwheel1Right.onclick = function () {
@@ -427,7 +431,7 @@ lwheel1Right.onclick = function () {
 		impactwheelx = 0;
 		console.log('imx', impactwheelx);
 	}
-	lprintPancel1(lwheelx1x);
+	// lprintPancel1(lwheelx1x);
 	console.log('lwheelx1x', lwheelx1x)
 }
 

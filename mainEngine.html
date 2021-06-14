@@ -2173,6 +2173,342 @@
 				lw1ctx.fill();
 			}
 			})
+
+			let l2dbtn1 = document.getElementById('lhandle1')
+			l2dbtn1.addEventListener('click',function(){
+				console.log('点击二维机旁切换手柄')
+				socket.emit('l2dbtn1click',lhandle1x)
+			})
+			socket.on('l2dbtn1click',function(e1){
+				if (e1 % 2 == 0) {
+					l2dbtn1.style.transformOrigin = '31% 31%';
+					l2dbtn1.style.transform = 'rotate(' + 90 + 'deg)';
+					lhandle1x += 1;
+					controlLocation();
+				} else {
+					l2dbtn1.style.transformOrigin = '31% 31%';
+					l2dbtn1.style.transform = 'rotate(' + 0 + 'deg)';
+					lhandle1x += 1;
+					controlLocation();
+				}
+			})
+			let l2dbtn2 = document.getElementById('lwheel1Left')
+			l2dbtn2.addEventListener('click',function(){
+				console.log('点击二维机旁压紧手轮左侧')
+				socket.emit('l2dbtn2click',lwheelx1x)
+			})
+			socket.on('l2dbtn2click',function(e1){
+				lwheelx1 += 45;
+				lwheel1.style.transform = 'rotate(' + lwheelx1 + 'deg)';
+				// e1 -= 1;console.log('这个左侧',e1)
+				if (e1 <= 0) {
+					e1 = 0;
+				}
+				if (e1 <= 2) {
+					document.getElementById('lhandwheelDis').style.border = '1px solid red'
+					document.getElementById('lhandwheelCon').style.border = ''
+					startMove(document.getElementById('impactwheel'), 'opacity', 100);
+					impactwheelx = 1;
+					console.log('imx', impactwheelx);
+				} else {
+					document.getElementById('lhandwheelDis').style.border = ''
+					document.getElementById('lhandwheelCon').style.border = '1px solid red'
+					startMove(document.getElementById('impactwheel'), 'opacity', 0);
+					impactwheelx = 0;
+				}
+
+				lprintPancel1(e1);
+			})
+			let l2dbtn3 = document.getElementById('lwheel1Right')
+			l2dbtn3.addEventListener('click',function(){
+				console.log('点击二维机旁压紧手轮右侧')
+				socket.emit('l2dbtn3click',lwheelx1x)
+			})
+			socket.on('l2dbtn3click',function(e1){
+				lwheelx1 -= 45;
+				lwheel1.style.transform = 'rotate(' + lwheelx1 + 'deg)';
+				// e1 += 1;
+				if (e1 >= 5) {
+					e1 = 5;
+				}
+				if (e1 <= 2) {
+					document.getElementById('lhandwheelDis').style.border = '1px solid red'
+					// document.getElementById('lhandwheelDis').style.color='yellow'
+					document.getElementById('lhandwheelCon').style.border = ''
+					startMove(document.getElementById('impactwheel'), 'opacity', 1);
+					impactwheelx = 1;
+				} else {
+					document.getElementById('lhandwheelDis').style.border = ''
+					document.getElementById('lhandwheelCon').style.border = '1px solid red'
+					startMove(document.getElementById('impactwheel'), 'opacity', 0);
+					impactwheelx = 0;
+					console.log('imx', impactwheelx);
+				}
+				lprintPancel1(e1);
+			})
+
+			let l2dbtn4 = document.getElementById('lhandle3')
+			l2dbtn4.addEventListener('click',function(){
+				console.log('点击二维机旁锁紧手柄')
+				socket.emit('l2dbtn4click',lhandle3x)
+			})
+			socket.on('l2dbtn4click',function(e1){
+				console.log('socket的')
+				if (e1%2 == 1) {
+					l2dbtn4.style.transformOrigin = '31% 31%';
+					l2dbtn4.style.transform = 'rotate(' + 90 + 'deg)';
+					// e1+=1
+				// startMove(this, 'opacity', 0);
+				console.log('lhandle3x', lhandle3x);
+				wx = 1;
+				yy = 1;
+				console.log('wx', wx);
+				startMove(document.getElementById('wheelswitch'), 'opacity', 100);
+			} else {
+				l2dbtn4.style.transformOrigin = '31% 31%';
+				l2dbtn4.style.transform = 'rotate(' + 0 + 'deg)';
+				// e1 += 1;
+				console.log('lhandle3x', lhandle3x);
+				wx = 0;
+				console.log('wx', wx);
+				startMove(document.getElementById('wheelswitch'), 'opacity', 0);
+			}
+			})
+
+			let l2dbtn5 = document.getElementById('lwheel2Left')
+			l2dbtn5.addEventListener('click',function(){
+				console.log('点击二维机旁油门左侧')
+				socket.emit('l2dbtn5click',lwheelx2x,lhandle3x)
+			})
+			socket.on('l2dbtn5click',function(e1,e2){
+				 if (e2 % 2 == 1) {
+
+				
+					lwheelx2 -= 45;
+					lwheel2.style.transform = 'rotate(' + lwheelx2 + 'deg)';
+					// e1 -= 1;
+					if (e1 <= 0) {
+						e1 = 0;
+					}
+					if (e1 < 4) {
+						z = 0;
+						$('#wheelstart').css('display', 'none');
+						$('#wheeloil1').css('display', 'none');
+						$('#wheeloil1_5').css('display', 'none');
+						$('#wheeloil2').css('display', 'none');
+						$('#wheeloil3').css('display', 'none');
+						$('#wheeloil4').css('display', 'none');
+					}
+					if (e1 == 4) {
+						z = 1;
+						$('#wheelstart').css('display', 'block');
+						$('#wheeloil1').css('display', 'none');
+						$('#wheeloil1_5').css('display', 'none');
+						$('#wheeloil2').css('display', 'none');
+						$('#wheeloil3').css('display', 'none');
+						$('#wheeloil4').css('display', 'none');
+					}
+					if (e1 == 5) {
+						z = 2;
+						$('#wheelstart').css('display', 'none');
+						$('#wheeloil1').css('display', 'block');
+						$('#wheeloil1_5').css('display', 'none');
+						$('#wheeloil2').css('display', 'none');
+						$('#wheeloil3').css('display', 'none');
+						$('#wheeloil4').css('display', 'none');
+					}
+					if (e1 == 7) {
+						z = 3;
+						$('#wheelstart').css('display', 'none');
+						$('#wheeloil1').css('display', 'none');
+						$('#wheeloil1_5').css('display', 'block');
+						$('#wheeloil2').css('display', 'none');
+						$('#wheeloil3').css('display', 'none');
+						$('#wheeloil4').css('display', 'none');
+					}
+					if (e1 == 8) {
+						z = 4;
+						$('#wheelstart').css('display', 'none');
+						$('#wheeloil1').css('display', 'none');
+						$('#wheeloil1_5').css('display', 'none');
+						$('#wheeloil2').css('display', 'block');
+						$('#wheeloil3').css('display', 'none');
+						$('#wheeloil4').css('display', 'none');
+					}
+					if (e1 == 9) {
+						z = 5;
+						$('#wheelstart').css('display', 'none');
+						$('#wheeloil1').css('display', 'none');
+						$('#wheeloil1_5').css('display', 'none');
+						$('#wheeloil2').css('display', 'none');
+						$('#wheeloil3').css('display', 'block');
+						$('#wheeloil4').css('display', 'none');
+					}
+					if (e1 == 11) {
+						z = 6;
+						$('#wheelstart').css('display', 'none');
+						$('#wheeloil1').css('display', 'none');
+						$('#wheeloil1_5').css('display', 'none');
+						$('#wheeloil2').css('display', 'none');
+						$('#wheeloil3').css('display', 'none');
+						$('#wheeloil4').css('display', 'block');
+					}
+					lprintPancel2(e1);
+					lrmp -= 7.5;
+					lrmp = parseInt(lrmp);
+					if (lrmp <= 0) {
+						lrmp = 0;
+					}
+				}
+			})
+
+			let l2dbtn6 = document.getElementById('lwheel2Right')
+			l2dbtn6.addEventListener('click',function(){
+				console.log('点击二维机旁油门右侧')
+				socket.emit('l2dbtn6click',lwheelx2x,lhandle3x)
+			})
+			socket.on('l2dbtn6click',function(e1,e2){//同时传两个参数就好了 传一个试了半天都不行
+				 if (e2 % 2 == 1) {
+
+				
+					console.log('我没病',e1,lwheelx2x)
+					lwheelx2 += 45;
+					lwheel2.style.transform = 'rotate(' + lwheelx2 + 'deg)';
+					// e1 += 1;
+					if (e1 >= 11) {
+						e1 = 11;
+					}
+					if (e1 < 4) {
+						z = 0;
+						$('#wheelstart').css('display', 'none');
+						$('#wheeloil1').css('display', 'none');
+						$('#wheeloil1_5').css('display', 'none');
+						$('#wheeloil2').css('display', 'none');
+						$('#wheeloil3').css('display', 'none');
+						$('#wheeloil4').css('display', 'none');
+					}
+					if (e1 == 4) {
+						z = 1;
+						$('#wheelstart').css('display', 'block');
+						$('#wheeloil1').css('display', 'none');
+						$('#wheeloil1_5').css('display', 'none');
+						$('#wheeloil2').css('display', 'none');
+						$('#wheeloil3').css('display', 'none');
+						$('#wheeloil4').css('display', 'none');
+
+						$('#panel_s').css('display', 'block');
+						$('#panel').css('display', 'none');
+						$('#panel_1').css('display', 'none');
+						$('#panel_2').css('display', 'none');
+						$('#panel_3').css('display', 'none');
+						$('#panel_4').css('display', 'none');
+						$('#panel_5').css('display', 'none');
+					}
+					if (e1 == 5) {
+						z = 2;
+						$('#wheelstart').css('display', 'none');
+						$('#wheeloil1').css('display', 'block');
+						$('#wheeloil1_5').css('display', 'none');
+						$('#wheeloil2').css('display', 'none');
+						$('#wheeloil3').css('display', 'none');
+						$('#wheeloil4').css('display', 'none');
+
+						$('#panel_s').css('display', 'none');
+						$('#panel').css('display', 'none');
+						$('#panel_1').css('display', 'block');
+						$('#panel_2').css('display', 'none');
+						$('#panel_3').css('display', 'none');
+						$('#panel_4').css('display', 'none');
+						$('#panel_5').css('display', 'none');
+					}
+					if (e1 == 7) {
+						z = 3;
+						$('#wheelstart').css('display', 'none');
+						$('#wheeloil1').css('display', 'none');
+						$('#wheeloil1_5').css('display', 'block');
+						$('#wheeloil2').css('display', 'none');
+						$('#wheeloil3').css('display', 'none');
+						$('#wheeloil4').css('display', 'none');
+
+						$('#panel_s').css('display', 'none');
+						$('#panel').css('display', 'none');
+						$('#panel_1').css('display', 'none');
+						$('#panel_2').css('display', 'block');
+						$('#panel_3').css('display', 'none');
+						$('#panel_4').css('display', 'none');
+						$('#panel_5').css('display', 'none');
+					}
+					if (e1 == 8) {
+						z = 4;
+						$('#wheelstart').css('display', 'none');
+						$('#wheeloil1').css('display', 'none');
+						$('#wheeloil1_5').css('display', 'none');
+						$('#wheeloil2').css('display', 'block');
+						$('#wheeloil3').css('display', 'none');
+						$('#wheeloil4').css('display', 'none');
+
+						$('#panel_s').css('display', 'none');
+						$('#panel').css('display', 'none');
+						$('#panel_1').css('display', 'none');
+						$('#panel_2').css('display', 'none');
+						$('#panel_3').css('display', 'block');
+						$('#panel_4').css('display', 'none');
+						$('#panel_5').css('display', 'none');
+					}
+					if (e1 == 9) {
+						z = 5;
+						$('#wheelstart').css('display', 'none');
+						$('#wheeloil1').css('display', 'none');
+						$('#wheeloil1_5').css('display', 'none');
+						$('#wheeloil2').css('display', 'none');
+						$('#wheeloil3').css('display', 'block');
+						$('#wheeloil4').css('display', 'none');
+
+						$('#panel_s').css('display', 'none');
+						$('#panel').css('display', 'none');
+						$('#panel_1').css('display', 'none');
+						$('#panel_2').css('display', 'none');
+						$('#panel_3').css('display', 'none');
+						$('#panel_4').css('display', 'block');
+						$('#panel_5').css('display', 'none');
+					}
+					if (e1 == 11) {
+						z = 6;
+						$('#wheelstart').css('display', 'none');
+						$('#wheeloil1').css('display', 'none');
+						$('#wheeloil1_5').css('display', 'none');
+						$('#wheeloil2').css('display', 'none');
+						$('#wheeloil3').css('display', 'none');
+						$('#wheeloil4').css('display', 'block');
+
+						$('#panel_s').css('display', 'none');
+						$('#panel').css('display', 'none');
+						$('#panel_1').css('display', 'none');
+						$('#panel_2').css('display', 'none');
+						$('#panel_3').css('display', 'none');
+						$('#panel_4').css('display', 'none');
+						$('#panel_5').css('display', 'block');
+
+
+					}
+					lprintPancel2(e1);
+					lrmp += 7.5;
+					lrmp = parseInt(lrmp);
+					if (lrmp >= 110) {
+						lrmp = 110;
+					}
+				}
+			})
+
+			let l2dbtnStart = document.getElementById('lbuttonStart')
+			l2dbtnStart.addEventListener('mousedown',function(){
+				console.log('点击二维机旁起动按钮')
+				socket.emit('l2dbtnStartclick',l2dsio)
+			})
+			socket.on('l2dbtnStartclick',function(e1){
+				
+			})
+
 		</script>
 			<script type="text/javascript" src="js/calculate.js"></script>
 

@@ -90,6 +90,40 @@ io.on('connection', (socket) => {
         io.emit('lbtn4click',e1);
       })
 
+      socket.on('l2dbtn1click',(e1)=>{
+        
+        io.emit('l2dbtn1click',e1);
+      })
+
+      socket.on('l2dbtn2click',(e1)=>{
+        
+        io.emit('l2dbtn2click',e1);
+      })
+
+      socket.on('l2dbtn3click',(e1)=>{
+        
+        io.emit('l2dbtn3click',e1);
+      })
+
+      socket.on('l2dbtn4click',(e1)=>{
+        
+        io.emit('l2dbtn4click',e1);
+      })
+
+      socket.on('l2dbtn5click',(e1,e2)=>{
+        
+        io.emit('l2dbtn5click',e1,e2);
+      })
+
+      socket.on('l2dbtn6click',(e1,e2)=>{
+        
+        io.emit('l2dbtn6click',e1,e2);
+      })
+
+      socket.on('l2dbtnStartclick',(e1)=>{
+        
+        io.emit('l2dbtnStartclick',e1);
+      })
   });
 
 
