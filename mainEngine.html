@@ -2035,6 +2035,21 @@
 				}
 			})
 		
+			var lstopbtn = document.getElementById('pstop')//机旁起动按钮按下
+			lstopbtn.addEventListener('mousedown',function(){
+				console.log('机旁stop')
+				socket.emit('pstopmousedown',yd,ydx,rmp,rmpx,brmp,trmp,lrmp)
+			})
+			socket.on('pstopmousedown',function(e1,e2,e3,e4,e5,e6,e7){
+				yd=e1
+				ydx=e2
+				rmp=e3
+				rmpx=e4
+				brmp=e5
+				trmp=e6
+				lrmp=e7
+			})
+
 			var lbtn1 = document.getElementById('touming3')
 			lbtn1.addEventListener('click',function(){
 				console.log('切换扳手')
@@ -2502,10 +2517,42 @@
 
 			let l2dbtnStart = document.getElementById('lbuttonStart')
 			l2dbtnStart.addEventListener('mousedown',function(){
-				console.log('点击二维机旁起动按钮')
+				console.log('按住二维机旁起动按钮')
 				socket.emit('l2dbtnStartclick',l2dsio)
 			})
 			socket.on('l2dbtnStartclick',function(e1){
+				if(e1==1){console.log('我按下了')
+					l2dbtnStart.style.backgroundColor = "green";
+				console.log('lhandle1x',lhandle1x)
+					if (value16x % 2 == 1 && value3x % 2 == 1 && value122x % 2 == 1 && value116x % 2 == 1 && valueMainx % 2 == 1 && lhandle1x % 2 == 1) {
+							airstart -= 1;console.log('good')
+						// LED()
+						schematicX = 1;
+					}
+				}
+							
+
+			})
+
+			let l2dbtnStartup = document.getElementById('lbuttonStart')
+			l2dbtnStartup.addEventListener('mouseup',function(){
+				console.log('松开二维机旁起动按钮')
+				socket.emit('l2dbtnStartup',l2dsio)
+			})
+			socket.on('l2dbtnStartup',function(e1){
+				if(e1==2){
+					console.log('我松开了')
+					l2dbtnStart.style.backgroundColor = "grey";
+					if(rmp < 15){
+						// alert("空气起动失败！");
+						airstart = 1;
+						yd=0;
+					}
+					else{
+						// alert("空气起动成功！");
+						airstart = 2;
+					}
+				}
 				
 			})
 

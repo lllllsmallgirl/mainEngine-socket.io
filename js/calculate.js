@@ -157,9 +157,11 @@ function calculate() {
 		if(airstart==1){
 			console.log('当前为空气启动')
 			ydx=30;
+
 		}else if(airstart==2 && lwheelx1x < 3){
 			ydx=lrmp;
-			yd=lrmp;
+			yd=lrmp;			
+
 		}else{
 			ydx = 0;
 		}		

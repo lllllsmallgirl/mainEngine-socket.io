@@ -301,7 +301,36 @@ var lbuttonStop = document.getElementById('lbuttonStop');
 // 	clearInterval(time);//如果按下时间不到1000毫秒便弹起，
 // }
 var l2dsio = 0
-lbuttonStart.onmousedown = function () {
+// lbuttonStart.onmousedown = function () {
+// 	l2dsio = 1
+// 	lbuttonStart.style.backgroundColor = "green";
+	
+// 	if (value16x % 2 == 1 && value3x % 2 == 1 && value122x % 2 == 1 && value116x % 2 == 1 && valueMainx % 2 == 1 && lhandle1x % 2 == 1) {
+// 			airstart = 2;
+// 		 // LED()
+// 		 schematicX = 1;
+// 	}
+// 		console.log('airstart', lrmp)
+	
+// }
+
+// lbuttonStart.onmouseup = function () {
+// 	l2dsio =2
+// 	lbuttonStart.style.backgroundColor = "grey";
+// 	if(rmp < 15){
+// 		// alert("空气起动失败！");
+// 		airstart = 1;
+// 		yd=0;
+// 	}
+// 	else{
+// 		// alert("空气起动成功！");
+// 		airstart = 2;
+// 	}
+// 	// airstart = 2;
+	
+// 	console.log('airstop', lrmpx);
+// }
+$('#lbuttonStart').on('mousedown', function(){
 	l2dsio = 1
 	lbuttonStart.style.backgroundColor = "green";
 	
@@ -311,10 +340,9 @@ lbuttonStart.onmousedown = function () {
 		 schematicX = 1;
 	}
 		console.log('airstart', lrmp)
-	
-}
-lbuttonStart.onmouseup = function () {
-	l2dsio = 2
+})
+$('#lbuttonStart').on('mouseup',function(){
+	l2dsio =2
 	lbuttonStart.style.backgroundColor = "grey";
 	if(rmp < 15){
 		// alert("空气起动失败！");
@@ -328,7 +356,7 @@ lbuttonStart.onmouseup = function () {
 	// airstart = 2;
 	
 	console.log('airstop', lrmpx);
-}
+})
 var lsio = 0
 $('#pstart').on('mousedown', function () {
 	lsio = 1;
@@ -365,6 +393,7 @@ $('#pstop').on('mousedown', function () {
 	brmp = 0;
 	trmp = 0;
 	lrmp = 0;
+	airstart = 0
 })
 lbuttonStop.onmousedown = function () {
 	lbuttonStop.style.backgroundColor = "#B40404";

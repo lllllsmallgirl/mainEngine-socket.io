@@ -36,17 +36,17 @@ io.on('connection', (socket) => {
   })
 
   socket.on('conbeforeclick',(e1)=>{
-    console.log('sio',e1);
+    // console.log('sio',e1);
     io.emit('conbeforeclick',e1);
 })
 
       socket.on('conReadyCclick',(e1)=>{
-        console.log('sio',e1);
+        // console.log('sio',e1);
         io.emit('conReadyCclick',e1);
       })
 
       socket.on('conOnSeaclick',(e1)=>{
-        console.log('sio',e1);
+        // console.log('sio',e1);
         io.emit('conOnSeaclick',e1);
       })
 
@@ -63,6 +63,11 @@ io.on('connection', (socket) => {
       socket.on('pstartclick',(e1)=>{
         
         io.emit('pstartclick',e1);
+      })
+
+      socket.on('pstopmousedown',(e1,e2,e3,e4,e5,e6,e7)=>{
+        
+        io.emit('pstopmousedown',e1,e2,e3,e4,e5,e6,e7);
       })
 
       socket.on('pstartup',(e1)=>{
@@ -123,6 +128,11 @@ io.on('connection', (socket) => {
       socket.on('l2dbtnStartclick',(e1)=>{
         
         io.emit('l2dbtnStartclick',e1);
+      })
+
+      socket.on('l2dbtnStartup',(e1)=>{
+        
+        io.emit('l2dbtnStartup',e1);
       })
   });
 
