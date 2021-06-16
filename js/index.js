@@ -115,24 +115,59 @@ io.on('connection', (socket) => {
         io.emit('l2dbtn4click',e1);
       })
 
-      socket.on('l2dbtn5click',(e1,e2)=>{
+      socket.on('l2dbtn5click',(e1,e2,e3)=>{
         
-        io.emit('l2dbtn5click',e1,e2);
+        io.emit('l2dbtn5click',e1,e2,e3);
       })
 
-      socket.on('l2dbtn6click',(e1,e2)=>{
+      socket.on('l2dbtn6click',(e1,e2,e3)=>{
         
-        io.emit('l2dbtn6click',e1,e2);
+        io.emit('l2dbtn6click',e1,e2,e3);
       })
 
-      socket.on('l2dbtnStartclick',(e1)=>{
+      socket.on('l2dbtnStartclick',(e1,e2)=>{
         
-        io.emit('l2dbtnStartclick',e1);
+        io.emit('l2dbtnStartclick',e1,e2);
       })
 
       socket.on('l2dbtnStartup',(e1)=>{
         
         io.emit('l2dbtnStartup',e1);
+      })
+
+      socket.on('l2dbtnstopmousedown',(e1,e2,e3,e4,e5,e6,e7)=>{
+        
+        io.emit('l2dbtnstopmousedown',e1,e2,e3,e4,e5,e6,e7);
+      })
+
+      socket.on('valve1click',(e1)=>{
+        
+        io.emit('valve1click',e1);
+      })
+
+      socket.on('valve2click',(e1)=>{
+        
+        io.emit('valve2click',e1);
+      })
+
+      socket.on('valve3click',(e1)=>{
+        
+        io.emit('valve3click',e1);
+      })
+
+      socket.on('valve4click',(e1)=>{
+        
+        io.emit('valve4click',e1);
+      })
+
+      socket.on('valve5click',(e1)=>{
+        
+        io.emit('valve5click',e1);
+      })
+
+      socket.on('valve6click',(e1)=>{
+        
+        io.emit('valve6click',e1);
       })
   });
 

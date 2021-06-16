@@ -156,18 +156,19 @@ function calculate() {
 
 		if(airstart==1){
 			console.log('当前为空气启动')
-			ydx=30;
+			ydx=0;
 
-		}else if(airstart==2 && lwheelx1x < 3){
-			ydx=lrmp;
+		} 
+		else if(airstart==2 && lwheelx1x < 3 && lwheelx2x > 3){
+			ydx=lrmp;console.log('wo yunxing le')
 			yd=lrmp;			
 
 		}else{
 			ydx = 0;
 		}		
-		if(airstart==2 && ydx==0){
-			airstart=3
-		}
+		// if(airstart==2 && ydx==0){
+		// 	airstart=3
+		// }
 		console.log('当前为机旁控制，airstart为：',airstart);
 	}
 

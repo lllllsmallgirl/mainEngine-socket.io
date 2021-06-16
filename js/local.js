@@ -358,7 +358,7 @@ $('#lbuttonStart').on('mouseup',function(){
 	console.log('airstop', lrmpx);
 })
 var lsio = 0
-$('#pstart').on('mousedown', function () {
+$('#pstart').on('mousedown', function () { //二次启动(按了stop）需要将油门调为0！！！
 	lsio = 1;
 	startMove(this, 'opacity', 100);
 	if (value16x % 2 == 1 && value3x % 2 == 1 && value122x % 2 == 1 && value116x % 2 == 1 && valueMainx % 2 == 1 && lhandle1x % 2 == 1) {
@@ -404,9 +404,10 @@ lbuttonStop.onmousedown = function () {
 	brmp = 0;
 	trmp = 0;
 	lrmp = 0;
+	airstart = 0
 }
 lbuttonStop.onmouseup = function () {
-	lbuttonStop.style.backgroundColor = "#grey";
+	lbuttonStop.style.backgroundColor = "grey";
 }
 
 var lwheel1Left = document.getElementById('lwheel1Left');

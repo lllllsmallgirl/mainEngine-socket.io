@@ -2035,7 +2035,7 @@
 				}
 			})
 		
-			var lstopbtn = document.getElementById('pstop')//机旁起动按钮按下
+			var lstopbtn = document.getElementById('pstop')//机旁stop按钮按下
 			lstopbtn.addEventListener('mousedown',function(){
 				console.log('机旁stop')
 				socket.emit('pstopmousedown',yd,ydx,rmp,rmpx,brmp,trmp,lrmp)
@@ -2293,9 +2293,9 @@
 			let l2dbtn5 = document.getElementById('lwheel2Left')
 			l2dbtn5.addEventListener('click',function(){
 				console.log('点击二维机旁油门左侧')
-				socket.emit('l2dbtn5click',lwheelx2x,lhandle3x)
+				socket.emit('l2dbtn5click',lwheelx2x,lhandle3x,lrmp)
 			})
-			socket.on('l2dbtn5click',function(e1,e2){
+			socket.on('l2dbtn5click',function(e1,e2,e3){
 				 if (e2 % 2 == 1) {
 
 				
@@ -2369,20 +2369,20 @@
 						$('#wheeloil4').css('display', 'block');
 					}
 					lprintPancel2(e1);
-					lrmp -= 7.5;
+					lrmp = e3;
 					lrmp = parseInt(lrmp);
-					if (lrmp <= 0) {
-						lrmp = 0;
-					}
+					// if (lrmp <= 0) {
+					// 	lrmp = 0;
+					// }
 				}
 			})
 
 			let l2dbtn6 = document.getElementById('lwheel2Right')
 			l2dbtn6.addEventListener('click',function(){
 				console.log('点击二维机旁油门右侧')
-				socket.emit('l2dbtn6click',lwheelx2x,lhandle3x)
+				socket.emit('l2dbtn6click',lwheelx2x,lhandle3x,lrmp)
 			})
-			socket.on('l2dbtn6click',function(e1,e2){//同时传两个参数就好了 传一个试了半天都不行
+			socket.on('l2dbtn6click',function(e1,e2,e3){//同时传两个参数就好了 传一个试了半天都不行
 				 if (e2 % 2 == 1) {
 
 				
@@ -2507,29 +2507,30 @@
 
 					}
 					lprintPancel2(e1);
-					lrmp += 7.5;
+					lrmp = e3;
 					lrmp = parseInt(lrmp);
-					if (lrmp >= 110) {
-						lrmp = 110;
-					}
+					// if (lrmp >= 110) {
+					// 	lrmp = 110;
+					// }
 				}
 			})
 
 			let l2dbtnStart = document.getElementById('lbuttonStart')
 			l2dbtnStart.addEventListener('mousedown',function(){
 				console.log('按住二维机旁起动按钮')
-				socket.emit('l2dbtnStartclick',l2dsio)
+				socket.emit('l2dbtnStartclick',l2dsio,lrmp)
 			})
-			socket.on('l2dbtnStartclick',function(e1){
+			socket.on('l2dbtnStartclick',function(e1,e2){
 				if(e1==1){console.log('我按下了')
 					l2dbtnStart.style.backgroundColor = "green";
 				console.log('lhandle1x',lhandle1x)
-					if (value16x % 2 == 1 && value3x % 2 == 1 && value122x % 2 == 1 && value116x % 2 == 1 && valueMainx % 2 == 1 && lhandle1x % 2 == 1) {
-							airstart -= 1;console.log('good')
+							airstart = 2;console.log('good')
 						// LED()
+						ydx=e2
+						yd=e2
 						schematicX = 1;
 					}
-				}
+				
 							
 
 			})
@@ -2554,6 +2555,75 @@
 					}
 				}
 				
+			})
+
+			let l2dbtnstop = document.getElementById('lbuttonStop')
+			l2dbtnstop.addEventListener('mousedown',function(){
+				console.log('按下stop按钮')
+				socket.emit('l2dbtnstopmousedown',yd,ydx,rmp,rmpx,brmp,trmp,lrmp)
+			})
+			socket.on('l2dbtnstopmousedown',function(e1,e2,e3,e4,e5,e6,e7){
+				yd=e1
+				ydx=e2
+				rmp=e3
+				rmpx=e4
+				brmp=e5
+				trmp=e6
+				lrmp=e7
+			})
+
+			let valve1 = document.getElementById('valve122Comfirm')
+			valve1.addEventListener('click',function(){
+				console.log('点击安全阀')
+				socket.emit('valve1click',value122x)
+			})
+			socket.on('valve1click',function(e1){
+				value122x = e1
+			})
+
+			let valve2 = document.getElementById('valveMainComfirm')
+			valve2.addEventListener('click',function(){
+				console.log('点击主起动阀')
+				socket.emit('valve2click',valueMainx)
+			})
+			socket.on('valve2click',function(e1){
+				valueMainx = e1
+			})
+
+			let valve3 = document.getElementById('valve118Comfirm')
+			valve3.addEventListener('click',function(){
+				console.log('点击空气分配器控制阀')
+				socket.emit('valve3click',value118x)
+			})
+			socket.on('valve3click',function(e1){
+				value118x = e1
+			})
+
+			let valve4 = document.getElementById('valve16Comfirm')
+			valve4.addEventListener('click',function(){
+				console.log('点击起动空气控制阀')
+				socket.emit('valve4click',value16x)
+			})
+			socket.on('valve4click',function(e1){
+				value16x = e1
+			})
+
+			let valve5 = document.getElementById('valve3Comfirm')
+			valve5.addEventListener('click',function(){
+				console.log('点击进排气空气阀')
+				socket.emit('valve5click',value3x)
+			})
+			socket.on('valve5click',function(e1){
+				value3x = e1
+			})
+
+			let valve6 = document.getElementById('valve116Comfirm')
+			valve6.addEventListener('click',function(){
+				console.log('点击主起动阀')
+				socket.emit('valve6click',value116x)
+			})
+			socket.on('valve6click',function(e1){
+				value116x = e1
 			})
 
 		</script>
