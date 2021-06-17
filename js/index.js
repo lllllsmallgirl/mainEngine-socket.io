@@ -169,6 +169,26 @@ io.on('connection', (socket) => {
         
         io.emit('valve6click',e1);
       })
+
+      socket.on('stecrclick',(e1)=>{
+        
+        io.emit('stecrclick',e1);
+      })
+
+      socket.on('sbecrclick',(e1)=>{
+        
+        io.emit('sbecrclick',e1);
+      })
+
+      socket.on('slecrclick',(e1)=>{
+        
+        io.emit('slecrclick',e1);
+      })
+
+      socket.on('splecrclick',(e1)=>{
+        
+        io.emit('splecrclick',e1);
+      })
   });
 
 

@@ -880,10 +880,26 @@ document.getElementById('lecr').onclick = function () {
 			document.getElementById('becr').style.borderColor = 'green';
 			document.getElementById('tecr').style.borderColor = 'green';
 			document.getElementById('lecr').style.borderColor = 'green';
+			document.getElementById('plecr').style.borderColor = 'green';
+
 			ecrlocation = 0;
 		}
 	}
 }
+document.getElementById('plecr').onclick = function () {
+	if (ecrlocation == 1) {
+		if (lhandle1x % 2 == 1) {
+			//控制位置在机旁
+			document.getElementById('becr').style.borderColor = 'green';
+			document.getElementById('tecr').style.borderColor = 'green';
+			document.getElementById('lecr').style.borderColor = 'green';
+			document.getElementById('plecr').style.borderColor = 'green';
+
+			ecrlocation = 0;
+		}
+	}
+}
+
 document.getElementById('becr').onclick = function () {
 	if (ecrlocation == 1) {
 		if (lhandle1x % 2 == 0 && thandlex % 2 == 0) {

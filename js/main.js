@@ -355,6 +355,7 @@ $('#pswitch3').on('click',function(){
 var lbtn1sio = 0
 $('#touming3').on('click',function(){
 	if(y%2==1){
+		controlLocation();
 		lbtn1sio = 1
 		$('#pswitch4').css('display', 'block');
 	
@@ -377,7 +378,13 @@ $('#touming3').on('click',function(){
 			document.getElementById('plbcr').style.borderColor = 'white';
 			document.getElementById('plecr').style.borderColor = 'white';
 			document.getElementById('plloc').style.borderColor = '#FFC200';
+			document.getElementById('tbridge').style.borderColor = 'white';
+			document.getElementById('tecr').style.borderColor = 'white';
+			document.getElementById('tlocal').style.borderColor = '#FFC200';
 
+			document.getElementById('bbridge').style.borderColor = 'white';
+			document.getElementById('becr').style.borderColor = 'white';
+			document.getElementById('blocal').style.borderColor = '#FFC200';
 			document.getElementById('lemergencyControlLed').style.backgroundColor = '#FF0000';
 			document.getElementById('lbridgeControlLed').style.backgroundColor = '#085A13';
 			// document.getElementById('lcontrolRoomControlLed').style.backgroundColor = ' #085A13';
@@ -406,20 +413,55 @@ $('#touming3').on('click',function(){
 			document.getElementById('lbcr').style.borderColor = 'white';
 			document.getElementById('lecr').style.borderColor = 'white';
 			document.getElementById('lloc').style.borderColor = '#FFC200';
+			document.getElementById('tbridge').style.borderColor = 'white';
+			document.getElementById('tecr').style.borderColor = 'white';
+			document.getElementById('tlocal').style.borderColor = '#FFC200';
+			document.getElementById('tbridgeLed').style.backgroundColor = 'white';
+			document.getElementById('ttecrLed').style.backgroundColor = 'white';
+			document.getElementById('tlocalLed').style.backgroundColor = '#FFC200';
+
+			document.getElementById('bbridge').style.borderColor = 'white';
+			document.getElementById('becr').style.borderColor = 'white';
+			document.getElementById('blocal').style.borderColor = '#FFC200';
+			document.getElementById('bbridgeLed').style.backgroundColor = 'white';
+			document.getElementById('becrLed').style.backgroundColor = 'white';
+			document.getElementById('blocalLed').style.backgroundColor = '#FFC200';
+
 
 	}
 
 
 })
 $('#touming4').on('click', function () {
+	controlLocation();
 	if(y%2==1){
+		
 		lbtn1sio = 2
 		$('#pswitch4').css('display', 'none');
 		document.getElementById('plbcr').style.borderColor = '#FFC200';
 		document.getElementById('plecr').style.borderColor = 'white';
 		document.getElementById('plloc').style.borderColor = 'white';
 		document.getElementById('pllocled').style.backgroundColor = 'white';
-
+		if(thandlex % 2 == 1){//集控室控制
+			document.getElementById('plbcr').style.borderColor = 'white';
+			document.getElementById('plecr').style.borderColor = '#FFC200';
+			document.getElementById('plloc').style.borderColor = 'white';
+			document.getElementById('lbcr').style.borderColor ='white' ;
+			document.getElementById('lecr').style.borderColor = '#FFC200';
+			document.getElementById('lloc').style.borderColor = 'white';
+			document.getElementById('tbridgeLed').style.backgroundColor = 'white';
+			document.getElementById('ttecrLed').style.backgroundColor = '#FFC200';
+			document.getElementById('tlocalLed').style.backgroundColor = 'white';
+			document.getElementById('tbridge').style.borderColor = 'white';
+			document.getElementById('tecr').style.borderColor = '#FFC200';
+			document.getElementById('tlocal').style.borderColor = 'white';
+			document.getElementById('bbridgeLed').style.backgroundColor = 'white';
+			document.getElementById('btecrLed').style.backgroundColor = '#FFC200';
+			document.getElementById('blocalLed').style.backgroundColor = 'white';
+			document.getElementById('bbridge').style.borderColor = 'white';
+			document.getElementById('becr').style.borderColor = '#FFC200';
+			document.getElementById('blocal').style.borderColor = 'white';
+		}
 		document.getElementById('lhandle1').style.transformOrigin = '31% 31%';
 		document.getElementById('lhandle1').style.transform = 'rotate(' + 0 + 'deg)';
 		// lhandle1x += 1;	

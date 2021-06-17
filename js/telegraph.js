@@ -310,7 +310,8 @@ thandle.onclick = function () {
 		// 	document.getElementById('bDeadband').style.backgroundColor = 'red'
 		// 	document.getElementById('cDeadband').style.backgroundColor = "red"
 		// }
-	} else { //由驾控台改到集控室
+	}
+	else { //由驾控台改到集控室
 		this.style.transformOrigin = '31% 31%';
 		this.style.transform = 'rotate(' + 0 + 'deg)';
 		document.getElementById("bseqManualbcr").style.backgroundColor = "yellow";
