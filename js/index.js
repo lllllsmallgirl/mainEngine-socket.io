@@ -1,4 +1,19 @@
 // 浏览器=》服务器=》浏览器
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+    host:'39.97.105.230',
+    user:'root',
+    password:'84670681',
+    database:'class219'
+});
+connection.connect((err) => {
+    if(err){
+        console.log('---:'+err);
+        return;
+    }
+    console.log('连接成功')
+});
+
 var app = require('express')();
 var http = require('http').createServer(app);
 const io = require('socket.io')(http);
@@ -20,7 +35,17 @@ io.on('connection', (socket) => {
     // });
 
     socket.on('thandleclick',(tx)=>{
-        
+        var addsql = 'insert into data(ID,Name,Value) values(?,?,?)';
+        var addsqlParams = ['1','thandlex',String(tx)];
+
+        connection.query(addsql,addsqlParams,(err,rs)=>{
+            if(err){
+                console.log(err.message);
+                return;
+            }
+            console.log('insert data',rs);
+        });
+
         
         io.emit('thandleclick',tx);
     });
