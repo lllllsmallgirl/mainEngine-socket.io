@@ -17,9 +17,7 @@
 	<link rel="stylesheet" href="css/diagram.css" type="text/css" />
 	<link rel="stylesheet" href="css/governor.css" type="text/css" />
 	<link rel="stylesheet" href="css/regulator.css" type="text/css" />
-	<link rel="stylesheet" href="css/alarm.css" type="text/css" />
 
-	<script src="js/vue.js"></script>
 </head>
 
 
@@ -30,7 +28,7 @@
 		</div>
 		<div id="meau">
 			<ul id="menuUl">
-				<li id="acondition">系统设置</li>
+				<li id="acondition">工况选择</li>
 				<li id="ahomepage">结构总览</li>
 				<li id="abridge">驾驶台</li>
 				<li id="acontrolRoom">集控室</li>
@@ -442,50 +440,8 @@
 							style="margin: 0px 20px auto 20px;cursor: pointer;">HOME</div>
 					</div>
 				</div>
-					<div id="safesysbtn">
-						<img src="reg/safety1.png" id="safety" alt="">
-						<img src="reg/safe/lt2.png" id="l2" class="cancellight" alt="">
-						<img src="reg/safe/lt3.png" id="l3" class="cancellight" alt="">
-						<img src="reg/safe/lt4.png" id="l4" class="cancellight" alt="">
-						<img src="reg/safe/lt8.png" id="l8" class="cancellight" alt="">
-						<img src="reg/safe/lt9.png" id="l9" class="cancellight" alt="">
-						<img src="reg/safe/lt10.png" id="l10" class="cancellight" alt="">
-						<img src="reg/safe/lt11.png" id="l11" class="cancellight" alt="">
-						<img src="reg/safe/lt12.png" id="l12" class="cancellight" alt="">
-						<img src="reg/safe/lt13.png" id="l13" class="cancellight" alt="">
-						<img src="reg/safe/lt14.png" id="l14" class="cancellight" alt="">
-						<img src="reg/safe/lt15.png" id="l15" class="cancellight" alt="">
-						<img src="reg/safe/lt16.png" id="l16" class="cancellight" alt="">
-						<img src="reg/safe/lt17.png" id="l17" class="cancellight" alt="">
-						<img src="reg/safe/lt18.png" id="l18" class="cancellight" alt="">
-						<img src="reg/safe/lt19.png" id="l19" class="cancellight" alt="">
-						<img src="reg/safe/lt20.png" id="l20" class="cancellight" alt="">
-						<img src="reg/safe/lt21.png" id="l21" class="cancellight" alt="">
-						<img src="reg/light2.png" id="lright1" alt="">
-						<img src="reg/light2.png" id="lright2" alt="">
-						<img src="reg/light2.png" id="lright3" alt="">
-						<img src="reg/light2.png" id="lright4" alt="">
-						<img src="reg/alarmlight.png" id="alarmlight2" class="alarmlight" alt="">
-						<img src="reg/alarmlight.png" id="alarmlight3" class="alarmlight" alt="">
-						<img src="reg/alarmlight.png" id="alarmlight4" class="alarmlight" alt="">
-						<img src="reg/alarmlight.png" id="alarmlight8" class="alarmlight" alt="">
-						<img src="reg/alarmlight.png" id="alarmlight9" class="alarmlight" alt="">
-						<img src="reg/alarmlight.png" id="alarmlight10" class="alarmlight" alt="">
-						<img src="reg/alarmlight.png" id="alarmlight11" class="alarmlight" alt="">
-						<img src="reg/alarmlight.png" id="alarmlight12" class="alarmlight" alt="">
-						<img src="reg/alarmlight.png" id="alarmlight13" class="alarmlight" alt="">
-						<img src="reg/alarmlight.png" id="alarmlight14" class="alarmlight" alt="">
-						<img src="reg/alarmlight.png" id="alarmlight15" class="alarmlight" alt="">
-						<img src="reg/alarmlight.png" id="alarmlight16" class="alarmlight" alt="">
-						<img src="reg/alarmlight.png" id="alarmlight17" class="alarmlight" alt="">
-						<img src="reg/alarmlight.png" id="alarmlight18" class="alarmlight" alt="">
-						<img src="reg/alarmlight.png" id="alarmlight19" class="alarmlight" alt="">
-						<img src="reg/alarmlight.png" id="alarmlight20" class="alarmlight" alt="">
 					
-						<img src="reg/safe/37.png" id="btn37" alt="">
-						<img src="reg/safe/38.png" id="btn38" alt="">
-					</div>
-
+				<img src="reg/safety.png" id="safety" alt="">
 				<div id="cSafetyBox">
 
 					<div id="cSafetyHome">
@@ -515,7 +471,7 @@
 						<li>EMERGENCY STOP</li>
 					</div>
 					<div id="alarmBOX2">
-						<div style="color: yellow;font-weight: bold;margin-bottom: -1px;font-size: 33px;text-align: center;">OTHER ALARMS</div>
+						<div style="color: yellow;font-weight: bold;margin-bottom: 10px;font-size: 33px;text-align: center;">OTHER ALARMS</div>
 						<li>START FAILURE</li>
 						<li>CONTROL ROOM PANEL FAILURE</li>
 						<li>START BLOCK</li>
@@ -569,7 +525,8 @@
 						<li>Start air distributor blocked</li>
 						<li>Main start valve blocked</li>
 						<li>Turning gear engaged</li>
-						<li>Governor disconnected</li>
+						<li>Goverbor disconnected</li>
+						<br />
 						<br />
 						<div style="color: yellow;font-size: 33px;text-align: center;">FWE LOOP ABNORMAL</div>
 						<li>Main start valve blocked</li>
@@ -1212,7 +1169,7 @@
 
 			<!--          输入输出曲线               -->
 			<div id="diagram">
-				<div id="line-title1-vue">{{message}}</div>
+				<div id="line-title1">油门刻度</div>
 				<div id="flot-placeholder1"></div>
 				<div id="line-title2">主机转速</div>
 				<div id="flot-placeholder2"></div>
@@ -1333,53 +1290,22 @@
 				<li id="conBefore">原始工况</li>
 				<li id="conReadyC">备车完毕</li>
 				<li id="conOnSea">主机运行</li>
-				<li id="conProblem">故障设置</li>
-			</div>
-			<div id="problem">
-				<div id="probtn">
-					<button id="proConfirm">确认设置</button>
-					<button id="proCancel">取消故障</button>
-				</div>
-				<div id="problembox">
-					<div id="problembox1">
-						<label style="width: 100%;"><div><input type="checkbox" id="box" class="box" >主机滑油进口压力低</div></label>
-						<label style="width: 100%;"><div><input type="checkbox" id="box" class="box" >凸轮轴滑油低压</div></label>
-						<label style="width: 100%;"><div><input type="checkbox" class="box" >全船失电</div></label>
-						<label style="width: 100%;"><div><input type="checkbox" class="box" >主机滑油进口压力低</div></label>
-					</div>
-					<div id="problembox2">
-						<label style="width: 100%;"><div><input type="checkbox" class="box" >凸轮轴滑油进口压力低</div></label>
-						<label style="width: 100%;"><div><input type="checkbox" class="box" >透平滑油进口压力低</div></label>
-						<label style="width: 100%;"><div><input type="checkbox" class="box" >活塞冷却水进口低压</div></label>
-						<label style="width: 100%;"><div><input type="checkbox" class="box" >活塞冷却水出口温度高</div></label>
-					</div>
-					<div id="problembox3">
-						<label style="width: 100%;"><div><input type="checkbox" class="box" >活塞冷却水无流量</div></label>
-						<label style="width: 100%;"><div><input type="checkbox" class="box" >汽缸冷却水无流量</div></label>
-						<label style="width: 100%;"><div><input type="checkbox" class="box" >缸套冷却水进口低压</div></label>
-						<label style="width: 100%;"><div><input type="checkbox" class="box" >汽缸冷却水出口温度高</div></label>
-					</div>
-					<div id="problembox4">
-						<label style="width: 100%;"><div><input type="checkbox" class="box" >气缸出口排气/偏差高温</div></label>
-						<label style="width: 100%;"><div><input type="checkbox" class="box" >扫气空气高温</div></label>
-						<label style="width: 100%;"><div><input type="checkbox" class="box" >主机曲柄箱油雾高</div></label>
-						<label style="width: 100%;"><div><input type="checkbox" class="box" >主机推力轴承高温</div></label>
-					</div>
-				</div>
-
 			</div>
 		</div>
 		<div id="footer">
 			<img src="img/footerWhite.png" width="100%" height="100%" />
 		</div>
 
-	</div>
+	</div>	
+
+
+
+
 	<script type="text/javascript" src="js/common.js"></script>
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/jquery.flot.axislabels.js"></script>
 	<script type="text/javascript" src="js/jquery.flot.js"></script>
 	<script type="text/javascript" src="js/jquery.flot.symbol.js"></script>
-	<script type="text/javascript" src="js/calculate.js"></script>
 	<script type="text/javascript" src="js/schematicDiagram.js"></script>
 	<script type="text/javascript" src="js/bridge.js"></script>
 	<script type="text/javascript" src="js/controlRoom.js"></script>
@@ -1389,9 +1315,10 @@
 	<script type="text/javascript" src="js/pid.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 	<script type="text/javascript" src="js/regulator.js"></script>
-	<script type="text/javascript" src="js/alarm.js"></script>
 
 
+	
+	
 	<!--隐藏3D部分动态模型-->
 	<!-- <script type="text/javascript" src="js/threeD.js"></script> -->
 	<script type="text/javascript" src="js/diagram.js"></script>
@@ -1467,19 +1394,12 @@
 	
 		}
 	</script>
-	<script>
-		const testvue = {
-			data(){
-				return{
-					message:"油门刻度"
-				}
-			}
-		}
-		Vue.createApp(testvue).mount('#line-title1-vue')
-	</script>
-			<script src="/socket.io/socket.io.js"></script>   
+		<!-- socket(要放到其他js的下面) -->
+		<script src="/socket.io/socket.io.js"></script>   
 
-			<script type="text/javascript" src="js/socket.js"></script>
+		<script type="text/javascript" src="js/socket.js"></script>
+			<script type="text/javascript" src="js/calculate.js"></script>
+
 </body>
 
 </html>
