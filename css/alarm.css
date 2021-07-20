@@ -1,0 +1,360 @@
+#problem{
+    border: 5px solid;
+    border-radius: 37px;
+    background-color: aliceblue;
+    width: 1162px;
+    height: 396px;
+    position: absolute;
+    top: 79px;
+    left: 58px;
+    font-size: 20px;
+    display: none;
+}
+#problembox{
+    display: flex;justify-content: space-around; 
+    width: 1162px;
+    height: 324px;
+    position: absolute;
+    top: -3px;
+    left: -10px;
+    font-size: 20px;
+}
+#problembox1{
+    margin-bottom: 50px;
+    margin-top: 25px;
+    display: flex;justify-content: space-around; 
+    flex-direction:column;
+}
+#problembox2{
+    margin-bottom: 50px;
+    margin-top: 25px;
+    display: flex;justify-content: space-around; 
+    flex-direction:column;
+}
+#problembox3{
+    margin-bottom: 50px;
+    margin-top: 25px;
+    display: flex;justify-content: space-around; 
+    flex-direction:column;
+}
+#problembox4{
+    margin-bottom: 50px;
+    margin-top: 25px;
+    display: flex;justify-content: space-around; 
+    flex-direction:column;
+}
+.box{
+    height: 18px;
+    width: 41px;
+    vertical-align:middle; margin-top:6px;
+    cursor: pointer;
+}
+#probtn{
+    display: flex;justify-content: center; 
+    margin-top: 326px;
+}
+#proConfirm{
+    width: 124px;
+    height: 38px;
+    left: 500px;
+    top: 500px;
+    margin-right: 100px;
+    cursor: pointer;
+    font-size: 22px;
+    text-align: center;
+}
+#proCancel{
+    width: 124px;
+    height: 38px;
+    left: 500px;
+    top: 500px;
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 22px;
+    text-align: center;
+}
+#l2{
+    position: absolute;
+    left: 122px;
+    top: 143px;
+    height: 51px;
+    opacity: 0;
+    cursor: pointer;
+}
+#l3{
+    position: absolute;
+    left: 122px;
+    top: 193px;
+    height: 51px;
+    opacity: 0;
+    cursor: pointer;
+}
+#l4{
+    position: absolute;
+    left: 122px;
+    top: 242px;
+    height: 51px;
+    opacity: 0;
+    cursor: pointer;
+}
+#l8{
+    position: absolute;
+    left: 405px;
+    top: 92px;
+    height: 53px;
+    opacity: 0;
+    cursor: pointer;
+}
+#l9{
+    position: absolute;
+    left: 405px;
+    top: 146px;
+    height: 49px;
+    opacity: 0;
+    cursor: pointer;}
+#l10{
+    position: absolute;
+    left: 406px;
+    top: 195px;
+    height: 50px;
+    opacity: 0;
+    cursor: pointer;
+}
+#l11{
+    position: absolute;
+    left: 405px;
+    top: 244px;
+    height: 50px;
+    opacity: 0;
+    cursor: pointer;
+}
+#l12{
+    position: absolute;
+    left: 406px;
+    top: 294px;
+    height: 50px;
+    opacity: 0;
+    cursor: pointer;
+}
+#l13{
+    position: absolute;
+    left: 406px;
+    top: 344px;
+    height: 50px;
+    opacity: 0;
+    cursor: pointer;}
+#l14{
+    position: absolute;
+    left: 405px;
+    top: 394px;
+    height: 53px;
+    opacity: 0;
+    cursor: pointer;}
+#l15{
+    position: absolute;
+    left: 690px;
+    top: 94px;
+    height: 51px;
+    opacity: 0;
+    cursor: pointer;}
+#l16{
+    position: absolute;
+    left: 689px;
+    top: 144px;
+    height: 50px;
+    opacity: 0;
+    cursor: pointer;}
+#l17{
+    position: absolute;
+    top: 194px;
+    left: 689px;
+    height: 50px;
+    opacity: 0;
+    cursor: pointer;}
+#l18{
+    position: absolute;
+    top: 244px;
+    left: 689px;
+    height: 50px;
+    opacity: 0;
+    cursor: pointer;}
+#l19{
+    position: absolute;
+    top: 295px;
+    left: 690px;
+    height: 50px;
+    opacity: 0;
+    cursor: pointer;}
+#l20{
+    position: absolute;
+    top: 344px;
+    left: 690px;
+    height: 51px;
+    opacity: 0;
+    cursor: pointer;}
+#l21{
+    position: absolute;
+    top: 393px;
+    left: 689px;
+    height: 53px;
+    opacity: 0;
+    cursor: pointer;}
+#lright1{
+    position: absolute;
+    left: 976px;
+    top: 141px;
+    height: 19px;
+    display: none;
+}
+#lright2{
+    position: absolute;
+    left: 976px;
+    top: 160px;
+    height: 19px;
+    display: none;
+}
+#lright3{
+    position: absolute;
+    left: 976px;
+    top: 107px;
+    height: 19px;
+    display: none;
+}
+#lright4{
+    position: absolute;
+    left: 976px;
+    top: 124px;
+    height: 19px;
+    display: none;
+}
+#alarmlight2{
+    position: absolute;
+    top: 152px;
+    left: 177px;
+    height: 34px;
+    display: none;
+}
+#alarmlight3{
+    position: absolute;
+    top: 201px;
+    left: 177px;
+    height: 34px;
+    display: none;
+}
+#alarmlight4{
+    position: absolute;
+    top: 252px;
+    left: 177px;
+    height: 34px;
+    display: none;
+}
+#alarmlight8{
+    position: absolute;
+    top: 103px;
+    left: 461px;
+    height: 34px;
+    display: none;
+}
+#alarmlight9{
+    position: absolute;
+    top: 153px;
+    left: 461px;
+    height: 34px;
+    display: none;
+}
+#alarmlight10{
+    position: absolute;
+    top: 202px;
+    left: 461px;
+    height: 34px;
+    display: none;
+}
+#alarmlight11{
+    position: absolute;
+    top: 253px;
+    left: 461px;
+    height: 34px;
+    display: none;
+}
+#alarmlight12{
+    position: absolute;
+    top: 302px;
+    left: 461px;
+    height: 34px;
+    display: none;
+}
+#alarmlight13{
+    position: absolute;
+    top: 352px;
+    left: 461px;
+    height: 34px;
+    display: none;
+}
+#alarmlight14{
+    position: absolute;
+    top: 402px;
+    left: 461px;
+    height: 34px;
+    display: none;
+}
+#alarmlight15{
+    position: absolute;
+    top: 103px;
+    left: 746px;
+    height: 34px;
+    display: none;
+}
+#alarmlight16{
+    position: absolute;
+    top: 153px;
+    left: 746px;
+    height: 34px;
+    display: none;
+}
+#alarmlight17{
+    position: absolute;
+    top: 202px;
+    left: 746px;
+    height: 34px;
+    display: none;
+}
+#alarmlight18{
+    position: absolute;
+    top: 253px;
+    left: 746px;
+    height: 34px;
+    display: none;
+}
+#alarmlight19{
+    position: absolute;
+    top: 302px;
+    left: 746px;
+    height: 34px;
+    display: none;
+}
+#alarmlight20{
+    position: absolute;
+    top: 352px;
+    left: 746px;
+    height: 34px;
+    display: none;
+}
+
+#btn37{
+    position: absolute;
+    left: 624px;
+    top: 490px;
+    height: 59px;
+    z-index: 1;
+    opacity: 0;
+    cursor: pointer;
+}
+#btn38{
+    position: absolute;
+    left: 682px;
+    top: 490px;
+    height: 59px;
+    z-index: 1;
+    opacity: 0;
+    cursor: pointer;
+}

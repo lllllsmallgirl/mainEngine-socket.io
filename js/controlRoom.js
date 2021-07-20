@@ -83,7 +83,7 @@ ccpctx.fillText("Local Manual Control", 560, 450);
 
 
 document.getElementById('cSafetySys').onclick = function(){
-
+	$('#safesysbtn').css('display','block')
 		$('#safety').css('opacity',1)
 		$('#cSafetyHome').css('display','block')
 		// $('#cAlarm').css('opacity',0)
@@ -101,6 +101,7 @@ document.getElementById('cSafetySys').onclick = function(){
 document.getElementById('cSafetyHomeButton').onclick = function(){
 	$('#cSafetyHome').css('display','none')
 	$('#safety').css('opacity',0)
+	$('#safesysbtn').css('display','none')
 }
 
 document.getElementById('cAlarm').onclick = function(){
@@ -108,7 +109,7 @@ document.getElementById('cAlarm').onclick = function(){
 	$('#cAlarmHome').css('display','block')
 
 }
-document.getElementById('cAlarmHome').onclick = function(){
+document.getElementById('cAlarmHomeButton').onclick = function(){
 	$('#cSafetyHome').css('display','none')
 	$('#cAlarmBox').css('display','none')
 

@@ -42,6 +42,7 @@ var menuli = menu.getElementsByTagName("li");
 
 //画面切换函数
 ahomepage.onclick = function () {
+	aconditionx = 0
 	homepage.style.display = "block";
 	bridge.style.display = "none";
 	controlRoom.style.display = "none";
@@ -62,6 +63,7 @@ ahomepage.onclick = function () {
 }
 
 abridge.onclick = function () {
+	aconditionx = 0
 	homepage.style.display = "none";
 	bridge.style.display = "block";
 	controlRoom.style.display = "none";
@@ -82,6 +84,7 @@ abridge.onclick = function () {
 	this.style.backgroundColor = " #9badaf"
 }
 acontrolRoom.onclick = function () {
+	aconditionx = 0
 	homepage.style.display = "none";
 	bridge.style.display = "none";
 	controlRoom.style.display = "block";
@@ -118,6 +121,7 @@ acontrolRoom.onclick = function () {
 // 	this.style.color = 'yellow';
 // }
 alocal.onclick = function () {
+	aconditionx = 0
 	homepage.style.display = "none";
 	bridge.style.display = "none";
 	controlRoom.style.display = "none";
@@ -352,11 +356,8 @@ $('#pswitch3').on('click',function(){
 		startMove(this, 'opacity', 0);
 	}
 })
-var lbtn1sio = 0
 $('#touming3').on('click',function(){
 	if(y%2==1){
-		controlLocation();
-		lbtn1sio = 1
 		$('#pswitch4').css('display', 'block');
 	
 			document.getElementById('glemergencyControlLed').style.backgroundColor = '#FF0000';
@@ -378,13 +379,7 @@ $('#touming3').on('click',function(){
 			document.getElementById('plbcr').style.borderColor = 'white';
 			document.getElementById('plecr').style.borderColor = 'white';
 			document.getElementById('plloc').style.borderColor = '#FFC200';
-			document.getElementById('tbridge').style.borderColor = 'white';
-			document.getElementById('tecr').style.borderColor = 'white';
-			document.getElementById('tlocal').style.borderColor = '#FFC200';
 
-			document.getElementById('bbridge').style.borderColor = 'white';
-			document.getElementById('becr').style.borderColor = 'white';
-			document.getElementById('blocal').style.borderColor = '#FFC200';
 			document.getElementById('lemergencyControlLed').style.backgroundColor = '#FF0000';
 			document.getElementById('lbridgeControlLed').style.backgroundColor = '#085A13';
 			// document.getElementById('lcontrolRoomControlLed').style.backgroundColor = ' #085A13';
@@ -392,7 +387,7 @@ $('#touming3').on('click',function(){
 
 			document.getElementById('lhandle1').style.transformOrigin = '31% 31%';
 			document.getElementById('lhandle1').style.transform = 'rotate(' + 90 + 'deg)';
-			// lhandle1x += 1;
+			lhandle1x += 1;
 			// controlLocation();
 
 			document.getElementById('plcontrolRoomControlLed').style.backgroundColor = ' #085A13';
@@ -413,58 +408,22 @@ $('#touming3').on('click',function(){
 			document.getElementById('lbcr').style.borderColor = 'white';
 			document.getElementById('lecr').style.borderColor = 'white';
 			document.getElementById('lloc').style.borderColor = '#FFC200';
-			document.getElementById('tbridge').style.borderColor = 'white';
-			document.getElementById('tecr').style.borderColor = 'white';
-			document.getElementById('tlocal').style.borderColor = '#FFC200';
-			document.getElementById('tbridgeLed').style.backgroundColor = 'white';
-			document.getElementById('ttecrLed').style.backgroundColor = 'white';
-			document.getElementById('tlocalLed').style.backgroundColor = '#FFC200';
-
-			document.getElementById('bbridge').style.borderColor = 'white';
-			document.getElementById('becr').style.borderColor = 'white';
-			document.getElementById('blocal').style.borderColor = '#FFC200';
-			document.getElementById('bbridgeLed').style.backgroundColor = 'white';
-			document.getElementById('becrLed').style.backgroundColor = 'white';
-			document.getElementById('blocalLed').style.backgroundColor = '#FFC200';
-
 
 	}
 
 
 })
 $('#touming4').on('click', function () {
-	controlLocation();
 	if(y%2==1){
-		
-		lbtn1sio = 2
 		$('#pswitch4').css('display', 'none');
 		document.getElementById('plbcr').style.borderColor = '#FFC200';
 		document.getElementById('plecr').style.borderColor = 'white';
 		document.getElementById('plloc').style.borderColor = 'white';
 		document.getElementById('pllocled').style.backgroundColor = 'white';
-		if(thandlex % 2 == 1){//集控室控制
-			document.getElementById('plbcr').style.borderColor = 'white';
-			document.getElementById('plecr').style.borderColor = '#FFC200';
-			document.getElementById('plloc').style.borderColor = 'white';
-			document.getElementById('lbcr').style.borderColor ='white' ;
-			document.getElementById('lecr').style.borderColor = '#FFC200';
-			document.getElementById('lloc').style.borderColor = 'white';
-			document.getElementById('tbridgeLed').style.backgroundColor = 'white';
-			document.getElementById('ttecrLed').style.backgroundColor = '#FFC200';
-			document.getElementById('tlocalLed').style.backgroundColor = 'white';
-			document.getElementById('tbridge').style.borderColor = 'white';
-			document.getElementById('tecr').style.borderColor = '#FFC200';
-			document.getElementById('tlocal').style.borderColor = 'white';
-			document.getElementById('bbridgeLed').style.backgroundColor = 'white';
-			document.getElementById('btecrLed').style.backgroundColor = '#FFC200';
-			document.getElementById('blocalLed').style.backgroundColor = 'white';
-			document.getElementById('bbridge').style.borderColor = 'white';
-			document.getElementById('becr').style.borderColor = '#FFC200';
-			document.getElementById('blocal').style.borderColor = 'white';
-		}
+
 		document.getElementById('lhandle1').style.transformOrigin = '31% 31%';
 		document.getElementById('lhandle1').style.transform = 'rotate(' + 0 + 'deg)';
-		// lhandle1x += 1;	
+		lhandle1x += 1;	
 	}
 	if(y%2==0){//平衡参数landle1x，使其连续
 		lhandle1x+=1;
@@ -485,7 +444,7 @@ document.getElementById('wheelswitch').onclick = function () {
 		console.log('lhandle3x', lhandle3x);
 		document.getElementById('lhandle3').style.transformOrigin = '31% 31%';
 		document.getElementById('lhandle3').style.transform = 'rotate(' + 90 + 'deg)';
-		// yy += 1;
+		yy += 1;
 	}
 
 	if (wx % 2 == 0) {
@@ -502,7 +461,7 @@ document.getElementById('wheelswitch').onclick = function () {
 		// 	   $('#lhandle3').css('transform','rotate(' + 0 + 'deg)');
 
 		//    }
-		// yy -= 1;
+		yy -= 1;
 	}
 
 }
@@ -591,10 +550,9 @@ document.getElementById('impactwheel').onclick = function () {
 // 	lprintPancel1(lwheelx1x);
 // 	console.log('lwheelx1x', lwheelx1x)
 // }
-var sio = 0 ;
+
 document.getElementById('conBefore').onclick = function () { //原始状况
-	sio = 1;
-	wx = 0;ydx=0;
+	wx = 0;ydx=0;aconditionx+=1
 	console.log('wx', wx);
 	impactwheelx = 0;
 	console.log('imx', impactwheelx);
@@ -1244,6 +1202,7 @@ lm_2d.onclick = function () {
 
 
 aschematicDiagram.onclick = function () {
+	aconditionx = 0
 	homepage.style.display = "none";
 	bridge.style.display = "none";
 	controlRoom.style.display = "none";
@@ -1264,6 +1223,7 @@ aschematicDiagram.onclick = function () {
 	this.style.backgroundColor = " #9badaf"
 }
 athreeD.onclick = function () {
+	aconditionx = 0
 	homepage.style.display = "none";
 	bridge.style.display = "none";
 	controlRoom.style.display = "none";
@@ -1285,6 +1245,7 @@ athreeD.onclick = function () {
 
 }
 atelegraph.onclick = function () {
+	aconditionx = 0
 	homepage.style.display = "none";
 	bridge.style.display = "none";
 	controlRoom.style.display = "none";
@@ -1306,6 +1267,7 @@ atelegraph.onclick = function () {
 }
 
 adiagram.onclick = function () {
+	aconditionx = 0
 	homepage.style.display = "none";
 	bridge.style.display = "none";
 	controlRoom.style.display = "none";
@@ -1327,6 +1289,7 @@ adiagram.onclick = function () {
 }
 
 agovernor.onclick = function () {
+	aconditionx = 0
 	homepage.style.display = "none";
 	bridge.style.display = "none";
 	controlRoom.style.display = "none";
@@ -1346,18 +1309,19 @@ agovernor.onclick = function () {
 	this.style.color = 'yellow';
 	this.style.backgroundColor = " #9badaf"
 }
-
+var aconditionx = 0
 // var conditionX=0;//0代表未显示，1代表显示
 acondition.onclick = function () {
-	// if(conditionX%2==0){
-	// 	condition.style.display="block";
-	// 	conditionX+=1;
-	// }else{
-	// 	condition.style.display="none";
-	// 	conditionX+=1;
-	// }
+if(aconditionx%2 == 0){
 	condition.style.display = "block";
+	aconditionx += 1
+ }else{
+	condition.style.display = "none";
+	aconditionx += 1
 }
+	
+}
+
 
 //初始化，显示校船图片
 var astart = function () {
@@ -1495,7 +1459,7 @@ for (var i = 0; i < hPiced.length; i++) {
 //工况切换
 
 document.getElementById('conReadyC').onclick = function () { //备车完毕
-	sio = 2;
+	aconditionx+=1
 	value16x = 1;
 	value122x = 1;
 	value3x = 1;
@@ -1641,7 +1605,7 @@ function onSea() { //航行状态
 //初始状态即为主机运行
 
 document.getElementById('conOnSea').onclick = function () {
-	sio = 3;
+	aconditionx+=1
 	value16x = 1;
 	value122x = 1;
 	value3x = 1;
