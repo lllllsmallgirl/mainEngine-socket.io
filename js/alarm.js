@@ -519,6 +519,10 @@ for(let i = 3 ; i < cancellights.length; i++){
     cancellights[i].onclick = function(){
         // clearInterval(safecancel2)
         // clearInterval(safecancel)
+        document.getElementById('SHDC').style.color = 'white'
+        document.getElementById('SHDA').style.color = 'white'
+        document.getElementById('SLDC').style.color = 'white'
+        document.getElementById('SLDA').style.color = 'white'
 
         if(boxes[i].checked == true ){
             // clearInterval(safecancel2)        
