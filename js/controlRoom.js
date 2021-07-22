@@ -84,6 +84,7 @@ ccpctx.fillText("Local Manual Control", 560, 450);
 
 document.getElementById('cSafetySys').onclick = function(){
 	$('#safesysbtn').css('display','block')
+	$('#safesysbtn').css('opacity',1)
 		$('#safety').css('opacity',1)
 		$('#cSafetyHome').css('display','block')
 		// $('#cAlarm').css('opacity',0)

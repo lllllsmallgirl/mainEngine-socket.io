@@ -1,6 +1,6 @@
 #problem{
     border: 5px solid;
-    border-radius: 37px;
+    border-radius: 27px;
     background-color: aliceblue;
     width: 1162px;
     height: 396px;
@@ -9,6 +9,7 @@
     left: 58px;
     font-size: 20px;
     display: none;
+    z-index: 3;
 }
 #problembox{
     display: flex;justify-content: space-around; 
@@ -54,7 +55,7 @@
     margin-top: 326px;
 }
 #proConfirm{
-    width: 124px;
+    width: 120px;
     height: 38px;
     left: 500px;
     top: 500px;
@@ -62,9 +63,10 @@
     cursor: pointer;
     font-size: 22px;
     text-align: center;
+    border-radius: 10px;
 }
 #proCancel{
-    width: 124px;
+    width: 120px;
     height: 38px;
     left: 500px;
     top: 500px;
@@ -72,6 +74,7 @@
     cursor: pointer;
     font-size: 22px;
     text-align: center;
+    border-radius: 10px;
 }
 #l2{
     position: absolute;
@@ -80,6 +83,7 @@
     height: 51px;
     opacity: 0;
     cursor: pointer;
+    z-index: 1;
 }
 #l3{
     position: absolute;
@@ -88,6 +92,7 @@
     height: 51px;
     opacity: 0;
     cursor: pointer;
+    z-index: 1;
 }
 #l4{
     position: absolute;
@@ -96,6 +101,7 @@
     height: 51px;
     opacity: 0;
     cursor: pointer;
+    z-index: 1;
 }
 #l8{
     position: absolute;
@@ -104,6 +110,7 @@
     height: 53px;
     opacity: 0;
     cursor: pointer;
+    z-index: 1;
 }
 #l9{
     position: absolute;
@@ -111,7 +118,8 @@
     top: 146px;
     height: 49px;
     opacity: 0;
-    cursor: pointer;}
+    cursor: pointer;
+    z-index: 1;}
 #l10{
     position: absolute;
     left: 406px;
@@ -119,6 +127,7 @@
     height: 50px;
     opacity: 0;
     cursor: pointer;
+    z-index: 1;
 }
 #l11{
     position: absolute;
@@ -127,6 +136,7 @@
     height: 50px;
     opacity: 0;
     cursor: pointer;
+    z-index: 1;
 }
 #l12{
     position: absolute;
@@ -135,6 +145,7 @@
     height: 50px;
     opacity: 0;
     cursor: pointer;
+    z-index: 1;
 }
 #l13{
     position: absolute;
@@ -142,69 +153,81 @@
     top: 344px;
     height: 50px;
     opacity: 0;
-    cursor: pointer;}
+    cursor: pointer;
+    z-index: 1;}
 #l14{
     position: absolute;
     left: 405px;
     top: 394px;
     height: 53px;
     opacity: 0;
-    cursor: pointer;}
+    cursor: pointer;
+    z-index: -1;}
 #l15{
     position: absolute;
     left: 690px;
     top: 94px;
     height: 51px;
     opacity: 0;
-    cursor: pointer;}
+    cursor: pointer;
+    z-index: 1;}
 #l16{
     position: absolute;
     left: 689px;
     top: 144px;
     height: 50px;
     opacity: 0;
-    cursor: pointer;}
+    cursor: pointer;
+    z-index: 1;
+}
 #l17{
     position: absolute;
     top: 194px;
     left: 689px;
     height: 50px;
     opacity: 0;
-    cursor: pointer;}
+    cursor: pointer;
+    z-index: 1;
+}
 #l18{
     position: absolute;
     top: 244px;
     left: 689px;
     height: 50px;
     opacity: 0;
-    cursor: pointer;}
+    cursor: pointer;
+    z-index: 1;}
 #l19{
     position: absolute;
     top: 295px;
     left: 690px;
     height: 50px;
     opacity: 0;
-    cursor: pointer;}
+    cursor: pointer;
+    z-index: 1;}
 #l20{
     position: absolute;
     top: 344px;
     left: 690px;
     height: 51px;
     opacity: 0;
-    cursor: pointer;}
+    cursor: pointer;
+    z-index: 1;}
 #l21{
     position: absolute;
     top: 393px;
     left: 689px;
     height: 53px;
     opacity: 0;
-    cursor: pointer;}
+    cursor: pointer;
+    z-index: 1;}
 #lright1{
     position: absolute;
     left: 976px;
     top: 141px;
     height: 19px;
     display: none;
+    z-index: 1;
 }
 #lright2{
     position: absolute;
@@ -212,6 +235,7 @@
     top: 160px;
     height: 19px;
     display: none;
+    z-index: 1;
 }
 #lright3{
     position: absolute;
@@ -219,6 +243,7 @@
     top: 107px;
     height: 19px;
     display: none;
+    z-index: 1;
 }
 #lright4{
     position: absolute;
@@ -226,6 +251,7 @@
     top: 124px;
     height: 19px;
     display: none;
+    z-index: 1;
 }
 #alarmlight2{
     position: absolute;
@@ -233,6 +259,7 @@
     left: 177px;
     height: 34px;
     display: none;
+    z-index: 1;
 }
 #alarmlight3{
     position: absolute;
@@ -240,6 +267,7 @@
     left: 177px;
     height: 34px;
     display: none;
+    z-index: 1;
 }
 #alarmlight4{
     position: absolute;
@@ -247,6 +275,7 @@
     left: 177px;
     height: 34px;
     display: none;
+    z-index: 1;
 }
 #alarmlight8{
     position: absolute;
@@ -254,6 +283,7 @@
     left: 461px;
     height: 34px;
     display: none;
+    z-index: 1;
 }
 #alarmlight9{
     position: absolute;
@@ -261,6 +291,7 @@
     left: 461px;
     height: 34px;
     display: none;
+    z-index: 1;
 }
 #alarmlight10{
     position: absolute;
@@ -268,6 +299,7 @@
     left: 461px;
     height: 34px;
     display: none;
+    z-index: 1;
 }
 #alarmlight11{
     position: absolute;
@@ -275,6 +307,7 @@
     left: 461px;
     height: 34px;
     display: none;
+    z-index: 1;
 }
 #alarmlight12{
     position: absolute;
@@ -282,6 +315,7 @@
     left: 461px;
     height: 34px;
     display: none;
+    z-index: 1;
 }
 #alarmlight13{
     position: absolute;
@@ -289,6 +323,7 @@
     left: 461px;
     height: 34px;
     display: none;
+    z-index: 1;
 }
 #alarmlight14{
     position: absolute;
@@ -296,6 +331,7 @@
     left: 461px;
     height: 34px;
     display: none;
+    z-index: 1;
 }
 #alarmlight15{
     position: absolute;
@@ -303,6 +339,7 @@
     left: 746px;
     height: 34px;
     display: none;
+    z-index: 1;
 }
 #alarmlight16{
     position: absolute;
@@ -310,6 +347,7 @@
     left: 746px;
     height: 34px;
     display: none;
+    z-index: 1;
 }
 #alarmlight17{
     position: absolute;
@@ -317,6 +355,7 @@
     left: 746px;
     height: 34px;
     display: none;
+    z-index: 1;
 }
 #alarmlight18{
     position: absolute;
@@ -324,6 +363,7 @@
     left: 746px;
     height: 34px;
     display: none;
+    z-index: 1;
 }
 #alarmlight19{
     position: absolute;
@@ -331,6 +371,7 @@
     left: 746px;
     height: 34px;
     display: none;
+    z-index: 1;
 }
 #alarmlight20{
     position: absolute;
@@ -338,6 +379,7 @@
     left: 746px;
     height: 34px;
     display: none;
+    z-index: 1;
 }
 
 #btn37{

@@ -346,11 +346,13 @@ $('#lbuttonStart').on('mouseup',function(){
 	lbuttonStart.style.backgroundColor = "grey";
 	if(rmp < 15){
 		// alert("空气起动失败！");
+		document.getElementById('startfailure').style.color = 'red'
 		airstart = 1;
 		yd=0;
 	}
 	else{
 		// alert("空气起动成功！");
+		document.getElementById('startfailure').style.color = 'white'
 		airstart = 2;
 	}
 	// airstart = 2;
@@ -374,11 +376,13 @@ $('#pstart').on('mouseup', function () {
 	startMove(this, 'opacity', 0);
 	if(rmp < 15){
 		// alert("空气起动失败！");
+		document.getElementById('startfailure').style.color = 'white'
 		airstart = 1;
 		yd=0;
 	}
 	else{
 		// alert("空气起动成功！");
+		document.getElementById('startfailure').style.color = 'white'
 		airstart = 2;
 	}
 	console.log('airstart',airstart);console.log('ydx',ydx);

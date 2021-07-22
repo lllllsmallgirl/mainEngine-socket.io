@@ -15,13 +15,17 @@ var proConfirmx = 0
 var safecancel = null
 var safecancel2 = null
 var settimeout = null
-var settimeout2 = null    //一定要先定义成空，这样btn38才能clearInterval！！！！
+var settimeout2 = null 
+var jiansu = null  
+var jiansu2 = null   //一定要先定义成空，这样btn38才能clearInterval！！！！
 document.getElementById('proConfirm').onclick = function(){
     for(let i = 0 ; i < boxes.length ; i++){
         lights[i].style.display = 'none'
     }
     document.getElementById('lright3').style.display = 'none'
     document.getElementById('lright4').style.display = 'none'//先清屏
+    document.getElementById('SHDA').style.color = 'white'
+    document.getElementById('SLDA').style.color = 'white'
     proConfirmx+=1
    var lr1=1 //shutdown的故障
     // clearInterval(safecancel)
@@ -30,6 +34,7 @@ document.getElementById('proConfirm').onclick = function(){
         
         if(lr1%2==1 && (boxes[0].checked == true || boxes[1].checked == true || boxes[2].checked == true)){
             document.getElementById('lright1').style.display = 'block'
+            document.getElementById('SHDC').style.color = 'red'
             // console.log('111')
             for(let i = 0;i<3;i++){
                 if(boxes[i].checked == true){
@@ -83,6 +88,8 @@ document.getElementById('proConfirm').onclick = function(){
     settimeout = setTimeout(()=>{
         clearInterval(safecancel)
         document.getElementById('lright1').style.display = 'none'
+        
+
 
         document.getElementById('l2').style.opacity = '0'
         document.getElementById('l3').style.opacity = '0'
@@ -104,15 +111,27 @@ document.getElementById('proConfirm').onclick = function(){
 
         if(boxes[0].checked == true || boxes[1].checked == true || boxes[2].checked == true){
             document.getElementById('lright3').style.display = 'block'
+            document.getElementById('SHDA').style.color = 'red'//alarm界面
+            document.getElementById('SHDC').style.color = 'white'
+
             for(let i = 0;i<3;i++){
                 if(boxes[i].checked == true){
                     lights[i].style.display = 'block'
                 }
             }
+                    yd = 0;
+                    ydx = 0;
+                    rmp = 0;
+                    rmpx = 0;
+                    brmp = 0;
+                    trmp = 0;
+                    lrmp = 0;
         }else{
             document.getElementById('lright3').style.display = 'none'
         }
         
+        
+
 
     },8000)
 
@@ -121,6 +140,7 @@ document.getElementById('proConfirm').onclick = function(){
      safecancel2=setInterval(function(){
         if(lr2%2==1 && (boxes[3].checked == true || boxes[4].checked == true || boxes[5].checked == true || boxes[6].checked == true || boxes[7].checked == true || boxes[8].checked == true || boxes[9].checked == true || boxes[10].checked == true || boxes[11].checked == true || boxes[12].checked == true || boxes[13].checked == true || boxes[14].checked == true || boxes[15].checked == true)){
             document.getElementById('lright2').style.display = 'block'
+            document.getElementById('SLDC').style.color = 'red'
             for(let i = 3;i<boxes.length;i++){
                 if(boxes[i].checked == true){
                     lights[i].style.display = 'block'
@@ -194,11 +214,34 @@ document.getElementById('proConfirm').onclick = function(){
 
         if(boxes[3].checked == true || boxes[4].checked == true || boxes[5].checked == true || boxes[6].checked == true || boxes[7].checked == true || boxes[8].checked == true || boxes[9].checked == true || boxes[10].checked == true || boxes[11].checked == true || boxes[12].checked == true || boxes[13].checked == true || boxes[14].checked == true || boxes[15].checked == true){
             document.getElementById('lright4').style.display = 'block'
+            document.getElementById('SLDA').style.color = 'red'
+            document.getElementById('SLDC').style.color = 'white'
             for(let i = 3;i<boxes.length;i++){
                 if(boxes[i].checked == true){
                     lights[i].style.display = 'block'
                 }
             }
+            if(btn38x !== 1){
+            var k2 = 0.8
+            jiansu2 = setInterval(()=>{
+                yd = yd - 0.2 * k2
+                ydx = ydx - 0.2 * k2
+                if(ydx<0){
+                    ydx=0
+                }
+                rmp -= 0.2 * k2
+                rmpx -=0.2 * k2;
+                brmp -=0.2 * k2;
+                trmp -=0.2 * k2;
+                lrmp -=0.2 * k2;
+                k2 += 0.6
+            },800)
+            setTimeout(()=>{
+                clearInterval(jiansu2)
+            },30000)
+        }else{
+            btn38x = 0
+        }
         }else{
             document.getElementById('lright4').style.display = 'none'
         }
@@ -330,6 +373,10 @@ document.getElementById('proConfirm').onclick = function(){
 
 document.getElementById('proCancel').onclick = function(){
     document.getElementById('problem').style.display = 'none'
+    document.getElementById('SHDC').style.color = 'white'
+    document.getElementById('SHDA').style.color = 'white'
+    document.getElementById('SLDC').style.color = 'white'
+    document.getElementById('SLDA').style.color = 'white'
     // document.getElementsById('box').checked = false
  
             for (let i = 0; i < boxes.length; i++) {
@@ -372,7 +419,7 @@ document.getElementById('btn37').onmouseup = function(){
 var btn38x = 0
 document.getElementById('btn38').onmousedown = function(){
     document.getElementById('btn38').style.opacity = 1
-    btn38x = 1//有问题  
+   //有问题  
     clearInterval(safecancel2)
     clearInterval(safecancel)
 
@@ -404,11 +451,41 @@ document.getElementById('btn38').onmousedown = function(){
 
     if(boxes[0].checked == true || boxes[1].checked == true || boxes[2].checked == true){
         document.getElementById('lright3').style.display = 'block'
+        // document.getElementById('SHDC').style.color = 'white'
+        // document.getElementById('SHDA').style.color = 'red'
+        yd = 0;
+        ydx = 0;
+        rmp = 0;
+        rmpx = 0;
+        brmp = 0;
+        trmp = 0;
+        lrmp = 0;
     }else{
         document.getElementById('lright3').style.display = 'none'
     }
     if(boxes[3].checked == true || boxes[4].checked == true || boxes[5].checked == true || boxes[6].checked == true || boxes[7].checked == true || boxes[8].checked == true || boxes[9].checked == true || boxes[10].checked == true || boxes[11].checked == true || boxes[12].checked == true || boxes[13].checked == true || boxes[14].checked == true || boxes[15].checked == true){
         document.getElementById('lright4').style.display = 'block'
+        // document.getElementById('SLDC').style.color = 'white'
+        // document.getElementById('SLDA').style.color = 'red'
+        btn38x = 1
+        var k = 0.8
+        jiansu = setInterval(()=>{
+            yd = yd - 0.2 * k
+            ydx = ydx - 0.2 * k
+            if(ydx<0){
+                ydx=0
+            }
+            rmp -= 0.2 * k
+            rmpx -=0.2 * k;
+            brmp -=0.2 * k;
+            trmp -=0.2 * k;
+            lrmp -=0.2 * k;
+            k += 0.6
+        },800)
+        setTimeout(()=>{
+            clearInterval(jiansu)
+        },15000)
+        
     }else{
         document.getElementById('lright4').style.display = 'none'
     }

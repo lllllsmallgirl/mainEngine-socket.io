@@ -41,6 +41,7 @@ li {
 	position: relative;
 	background-color: #000080;
 	border-bottom: 35px solid #D8D8D8;
+	/* z-index: 1; */
 }
 
 #cCanvas {

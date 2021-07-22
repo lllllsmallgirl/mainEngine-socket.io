@@ -507,16 +507,16 @@
 						<div style="color: yellow;font-weight: bold;margin-bottom: 20px;font-size: 33px;text-align: center;">SAFETY FUNCTION</div>
 						<li>SHD NONE CANCEL</li>
 						<li>SLD NONE CANCEL</li>
-						<li>SHD CANCELABLE</li>
-						<li>SLD CANCELABLE</li>
-						<li>SHD ACTIVE</li>
-						<li>SLD ACTIVE</li>
+						<li id="SHDC">SHD CANCELABLE</li>
+						<li id="SLDC">SLD CANCELABLE</li>
+						<li id="SHDA">SHD ACTIVE</li>
+						<li id="SLDA">SLD ACTIVE</li>
 						<li>OVER SPEED</li>
 						<li>EMERGENCY STOP</li>
 					</div>
 					<div id="alarmBOX2">
 						<div style="color: yellow;font-weight: bold;margin-bottom: -1px;font-size: 33px;text-align: center;">OTHER ALARMS</div>
-						<li>START FAILURE</li>
+						<li id="startfailure">START FAILURE</li>
 						<li>CONTROL ROOM PANEL FAILURE</li>
 						<li>START BLOCK</li>
 						<li>SAFETY SYSTEM FAILURE</li>
@@ -1212,7 +1212,7 @@
 
 			<!--          输入输出曲线               -->
 			<div id="diagram">
-				<div id="line-title1-vue">{{message}}</div>
+				<div id="line-title1">油门刻度</div>
 				<div id="flot-placeholder1"></div>
 				<div id="line-title2">主机转速</div>
 				<div id="flot-placeholder2"></div>
