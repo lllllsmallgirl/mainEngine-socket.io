@@ -162,7 +162,7 @@
     height: 53px;
     opacity: 0;
     cursor: pointer;
-    z-index: -1;}
+    z-index: 1;}
 #l15{
     position: absolute;
     left: 690px;
