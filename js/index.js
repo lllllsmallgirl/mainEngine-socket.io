@@ -17,11 +17,12 @@ connection.connect((err) => {
 var app = require('express')();
 var http = require('http').createServer(app);
 const io = require('socket.io')(http);
+var path = require('path');
 
-app.use('/',require('express').static('/Users/zm/Documents/GitHub/mainEngine-socket.io'));
+app.use('/',require('express').static(path.join(__dirname, '../')));
 
 app.get('/', (req, res) => {
-    res.sendFile( '/Users/zm/Documents/GitHub/mainEngine-socket.io/mainEngine.html'); //文件转移了 路径也要改！！！
+    res.sendFile( path.join(__dirname, '../', 'mainEngine.html')); //文件转移了 路径也要改！！！
     // res.sendFile(__dirname + '/img/ii.PNG');
     // console.log("Request for " + req.url + " received.");
   });
