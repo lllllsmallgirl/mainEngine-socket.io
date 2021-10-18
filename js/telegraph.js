@@ -33,8 +33,8 @@ ttelegraph1lever.onmousedown = function (ev) {
 		}
 
 		if (t >= -200 && t < -180) {
-			telled=0;
-			telLEDclear(briled,telled);
+			telled = 0;
+			telLEDclear(briled, telled);
 			ttext1.innerHTML = 'Nav.Full';
 			sdc2tx.drawImage(picMap, 1, 520, 57, 62, 320, 524, 72, 70); //方向车钟ahead位置
 			sdc2tx.drawImage(picMap, 610, 145, 10, 18, 749, 726, 10, 20); //方向车钟start阀门通路
@@ -45,8 +45,8 @@ ttelegraph1lever.onmousedown = function (ev) {
 			//方向车钟stop两位三通阀门关闭，方向车钟ahead两位三通阀门通路，方向车钟start两位三通阀门通路，方向车钟astern两位三通阀门关闭
 		}
 		if (t >= -180 && t < -140) {
-			telled=1;
-			telLEDclear(briled,telled);
+			telled = 1;
+			telLEDclear(briled, telled);
 			ttext1.innerHTML = 'Full';
 			sdc2tx.drawImage(picMap, 1, 520, 57, 62, 320, 524, 72, 70); //方向车钟ahead位置
 			sdc2tx.drawImage(picMap, 610, 145, 10, 18, 749, 726, 10, 20); //方向车钟start阀门通路
@@ -57,8 +57,8 @@ ttelegraph1lever.onmousedown = function (ev) {
 			//方向车钟stop两位三通阀门关闭，方向车钟ahead两位三通阀门通路，方向车钟start两位三通阀门通路，方向车钟astern两位三通阀门关闭
 		}
 		if (t >= -140 && t < -100) {
-			telled=2;
-			telLEDclear(briled,telled);
+			telled = 2;
+			telLEDclear(briled, telled);
 			ttext1.innerHTML = 'Half';
 			sdc2tx.drawImage(picMap, 1, 520, 57, 62, 320, 524, 72, 70); //方向车钟ahead位置
 			sdc2tx.drawImage(picMap, 610, 145, 10, 18, 749, 726, 10, 20); //方向车钟start阀门通路
@@ -69,8 +69,8 @@ ttelegraph1lever.onmousedown = function (ev) {
 			//方向车钟stop两位三通阀门关闭，方向车钟ahead两位三通阀门通路，方向车钟start两位三通阀门通路，方向车钟astern两位三通阀门关闭
 		}
 		if (t >= -100 && t < -60) {
-			telled=3;
-			telLEDclear(briled,telled);
+			telled = 3;
+			telLEDclear(briled, telled);
 			ttext1.innerHTML = 'Slow';
 			sdc2tx.drawImage(picMap, 1, 520, 57, 62, 320, 524, 72, 70); //方向车钟ahead位置
 			sdc2tx.drawImage(picMap, 610, 145, 10, 18, 749, 726, 10, 20); //方向车钟start阀门通路
@@ -81,8 +81,8 @@ ttelegraph1lever.onmousedown = function (ev) {
 			//方向车钟stop两位三通阀门关闭，方向车钟ahead两位三通阀门通路，方向车钟start两位三通阀门通路，方向车钟astern两位三通阀门关闭
 		}
 		if (t >= -60 && t < -20) {
-			telled=4;
-			telLEDclear(briled,telled);
+			telled = 4;
+			telLEDclear(briled, telled);
 			ttext1.innerHTML = 'Dead Slow';
 			sdc2tx.drawImage(picMap, 1, 520, 57, 62, 320, 524, 72, 70); //方向车钟ahead位置
 			sdc2tx.drawImage(picMap, 610, 145, 10, 18, 749, 726, 10, 20); //方向车钟start阀门通路
@@ -94,8 +94,8 @@ ttelegraph1lever.onmousedown = function (ev) {
 
 		}
 		if (t >= -20 && t < 20) {
-			telled=5;
-			telLEDclear(briled,telled);
+			telled = 5;
+			telLEDclear(briled, telled);
 			ttext1.innerHTML = 'Stop';
 
 			sdc2tx.drawImage(picMap, 60, 520, 57, 62, 320, 524, 72, 70); //方向车钟stop位置
@@ -107,8 +107,8 @@ ttelegraph1lever.onmousedown = function (ev) {
 			//方向车钟stop两位三通阀门通路，方向车钟ahead两位三通阀门关闭，方向车钟start两位三通阀门关闭，方向车钟astern两位三通阀门关闭	
 		}
 		if (t >= 20 && t < 60) {
-			telled=6;
-			telLEDclear(briled,locled);
+			telled = 6;
+			telLEDclear(briled, locled);
 			ttled1[6].style.background = '#00FF00';
 			ttled2[6].style.background = '#00FF00';
 			btled1[6].style.background = 'red';
@@ -124,8 +124,8 @@ ttelegraph1lever.onmousedown = function (ev) {
 			//方向车钟stop两位三通阀门关闭，方向车钟ahead两位三通阀门关闭，方向车钟astern两位三通阀门通路，方向车钟start两位三通阀门通路
 		}
 		if (t >= 60 && t < 100) {
-			telled=7;
-			telLEDclear(briled,locled);
+			telled = 7;
+			telLEDclear(briled, locled);
 			ttled1[7].style.background = '#00FF00';
 			ttled2[7].style.background = '#00FF00';
 			btled1[7].style.background = 'red';
@@ -140,8 +140,8 @@ ttelegraph1lever.onmousedown = function (ev) {
 			//方向车钟stop两位三通阀门关闭，方向车钟ahead两位三通阀门关闭，方向车钟astern两位三通阀门通路，方向车钟start两位三通阀门通路
 		}
 		if (t >= 100 && t < 140) {
-			telled=8;
-			telLEDclear(briled,locled);
+			telled = 8;
+			telLEDclear(briled, locled);
 			ttled1[8].style.background = '#00FF00';
 			ttled2[8].style.background = '#00FF00';
 			btled1[8].style.background = 'red';
@@ -156,8 +156,8 @@ ttelegraph1lever.onmousedown = function (ev) {
 			//方向车钟stop两位三通阀门关闭，方向车钟ahead两位三通阀门关闭，方向车钟astern两位三通阀门通路，方向车钟start两位三通阀门通路
 		}
 		if (t >= 140 && t < 180) {
-			telled=9;
-			telLEDclear(briled,locled);
+			telled = 9;
+			telLEDclear(briled, locled);
 			ttled1[9].style.background = '#00FF00';
 			ttled2[9].style.background = '#00FF00';
 			btled1[9].style.background = 'red';
@@ -172,8 +172,8 @@ ttelegraph1lever.onmousedown = function (ev) {
 			//方向车钟stop两位三通阀门关闭，方向车钟ahead两位三通阀门关闭，方向车钟astern两位三通阀门通路，方向车钟start两位三通阀门通路
 		}
 		if (t >= 180 && t < 200) {
-			telled=10;
-			telLEDclear(briled,locled);
+			telled = 10;
+			telLEDclear(briled, locled);
 			ttled1[10].style.background = '#00FF00';
 			ttled2[10].style.background = '#00FF00';
 			btled1[10].style.background = 'red';
@@ -212,7 +212,7 @@ ttelegraph2lever.onmousedown = function (ev) {
 	document.onmousemove = function (ev) {
 		var oEvent = ev || event;
 
-		 tb = oEvent.clientY - disY;
+		tb = oEvent.clientY - disY;
 
 		if (tb < -225) {
 			tb = -225;
@@ -227,25 +227,25 @@ ttelegraph2lever.onmousedown = function (ev) {
 				//驾驶台控制
 				var a = 0;
 				if (tb >= -225 && tb < -40) {
-					a = parseInt(60-(tb + 40) * 40 / 185);
+					a = parseInt(60 - (tb + 40) * 40 / 185);
 					ttelegraph2watch.innerHTML = a;
 					speedLevelChange(a);
 					schematicX = 1; //气动逻辑为状态1：气动逻辑完成
 				};
 				if (tb >= -40 && tb < -20) {
 					ttelegraph2watch.innerHTML = 'START';
-					a=60;
+					a = 60;
 					schematicX = 2; //气动逻辑为状态2：开始空气起动
-					sdc2tx.drawImage(picMap, 306, 521, 123, 89, 72, 488, 155, 100); //速度车钟start位置
+					sdc2tx.drawImage(picMap, 306, 521, 123, 88, 69, 481, 155, 100); //速度车钟start位置
 				};
 				if (tb >= -20 && tb < 30) {
 					ttelegraph2watch.innerHTML = 'STOP';
 					schematicX = 1; //气动逻辑为状态1：气动逻辑完成
-					sdc2tx.drawImage(picMap, 180, 521, 123, 89, 73, 488, 155, 100); //速度车钟stop位置
+					sdc2tx.drawImage(picMap, 180, 521, 123, 88, 69, 481, 155, 100); //速度车钟stop位置
 				};
 				if (tb >= 30 && tb < 50) {
 					ttelegraph2watch.innerHTML = 'START';
-					sdc2tx.drawImage(picMap, 306, 521, 123, 89, 72, 488, 155, 100); //速度车钟start位置
+					sdc2tx.drawImage(picMap, 306, 521, 123, 88, 69, 481, 155, 100); //速度车钟start位置
 				};
 				if (tb >= 50 && tb < 250) {
 					a = parseInt(-(tb - 50) * 78 / 180);
@@ -300,23 +300,33 @@ var thandle = document.getElementById('thandle');
 var thandlex = 0; //杠杆手柄左右标志位，0为bridge
 thandle.onclick = function () {
 	if (thandlex % 2 == 1) { //由集控室改到驾控台
+		document.getElementById('cseqBridge').style.backgroundColor = 'green'
+		document.getElementById('cseqManualbcr').style.backgroundColor = '#c3c3c3'
 		this.style.transformOrigin = '31% 31%';
 		this.style.transform = 'rotate(' + 90 + 'deg)';
 		document.getElementById("bseqBridge").style.backgroundColor = "yellow";
 		document.getElementById("bseqManualbcr").style.backgroundColor = "grey";
 		thandlex += 1;
 		controlLocation();
+		//气动操作驾驶台控制
+		document.getElementById('bridgecontrol').style.display = 'block'
 		// if (document.getElementById('tbridge').style.borderColor != 'green') { //违规操作，没有按照步骤进行请求
 		// 	document.getElementById('bDeadband').style.backgroundColor = 'red'
 		// 	document.getElementById('cDeadband').style.backgroundColor = "red"
 		// }
 	}
 	else { //由驾控台改到集控室
+		document.getElementById('cseqBridge').style.backgroundColor = '#c3c3c3'
+		document.getElementById('cseqManualbcr').style.backgroundColor = 'green'
+
 		this.style.transformOrigin = '31% 31%';
 		this.style.transform = 'rotate(' + 0 + 'deg)';
 		document.getElementById("bseqManualbcr").style.backgroundColor = "yellow";
 		document.getElementById("bseqBridge").style.backgroundColor = "grey";
 		thandlex += 1;
+		//气动操作集控室控制
+		document.getElementById('bridgecontrol').style.display = 'none'
+
 
 		// if (document.getElementById('tecr').style.borderColor != 'green') { //违规操作，没有按照步骤进行请求
 		// 	document.getElementById('bDeadband').style.backgroundColor = 'red'
@@ -362,7 +372,7 @@ temergencyStop.onclick = function () {
 		clearInterval(cancel)
 		tcancelSHD.style.borderColor = "white"
 		if (tcancelSHDx == 0) {
-			lshutdownLed.style.backgroundColor=' #FF0000';
+			lshutdownLed.style.backgroundColor = ' #FF0000';
 			yd = 0;
 			ydx = 0;
 			rmp = 0;

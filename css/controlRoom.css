@@ -41,7 +41,7 @@ li {
 	position: relative;
 	background-color: #000080;
 	border-bottom: 35px solid #D8D8D8;
-	/* z-index: 1; */
+	/* z-index: 2; */
 }
 
 #cCanvas {
@@ -145,32 +145,53 @@ li {
 	width: 300px;
 	height: 460px;
 	border: 5px solid white;
-	padding: 8px 0px 0px 33px;
+	/* padding: 5px 0px 0px 33px; */
 	border-radius: 25px;
 	position: absolute;
 	top: 30px;
-	left: 20px;
+	left: 260px;
 	color: white;
 	font-family: serif;
-	font-size: 30px;
+	font-size: 28px;
 	text-align: left;
-	cursor: pointer;
+	/* cursor: pointer; */
 }
+
+#cLimitersRPM li::before {
+	content: "●";
+}
+#cLimitersRPM li{
+	margin-bottom: 5px;
+	margin-top: 12px;
+	margin-left: 17px;
+
+}
+
 
 #cLimitersFUEL {
 	width: 300px;
 	height: 460px;
 	border: 5px solid white;
-	padding: 8px 0px 0px 33px;
+	/* padding: 5px 0px 0px 33px; */
 	border-radius: 25px;
 	position: absolute;
 	top: 30px;
-	left: 420px;
+	left: 700px;
 	color: white;
 	font-family: serif;
-	font-size: 30px;
+	font-size: 28px;
 	text-align: left;
-	cursor: pointer;
+	/* cursor: pointer; */
+}
+
+#cLimitersFUEL li::before{
+	content: "●";
+}
+
+#cLimitersFUEL li{
+	margin-bottom: 5px;
+	margin-top: 15px;
+	margin-left: 17px;
 }
 
 #cLimitersHome {
@@ -193,6 +214,15 @@ li {
 	display: none;
 }
 #cAlarmBox{
+	width: 1280px;
+	height: 520px;
+	position: absolute;
+	top: 44px;
+	background-color: #000000;
+	display: none;
+}
+
+#bAlarmBox{
 	width: 1280px;
 	height: 520px;
 	position: absolute;
@@ -234,7 +264,7 @@ li {
     left: 159px;
     color: white;
     font-family: serif;
-    font-size: 30px;
+    font-size: 26px;
 
 }
 
@@ -249,7 +279,7 @@ li {
     left: 686px;
     color: white;
     font-family: serif;
-    font-size: 28px;
+    font-size: 26px;
 
 }
 

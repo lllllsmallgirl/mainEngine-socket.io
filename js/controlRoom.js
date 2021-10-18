@@ -25,16 +25,16 @@ cctx.fillText("FUEL INDEX", 620, 300);
 //limiter
 var cLimitersMenu = document.getElementById('cLimitersMenu');
 var cLimiters = document.getElementById('cLimiters');
-cLimiters.onclick = function() {
+cLimiters.onclick = function () {
 	cLimitersMenu.style.display = "block";
 }
 var cLimitersHomeButton = document.getElementById("cLimitersHomeButton");
-cLimitersHomeButton.onclick = function() {
+cLimitersHomeButton.onclick = function () {
 	cLimitersMenu.style.display = "none";
 }
 
 var cMenuLi = bLimitersMenu.getElementsByTagName('li');
-cMenuLi[7].onclick = function() {
+cMenuLi[7].onclick = function () {
 	pidBox.style.display = "block";
 }
 
@@ -42,28 +42,28 @@ cMenuLi[7].onclick = function() {
 //菜单弹出及隐藏
 var cEngineStateBox = document.getElementById('cEngineStateBox');
 var cEngineState = document.getElementById('cEngineState');
-cEngineState.onclick = function() {
-		cEngineStateBox.style.display = "block";
+cEngineState.onclick = function () {
+	cEngineStateBox.style.display = "block";
 }
-document.getElementById('cEngineStateHomeButton').onclick=function(){
+document.getElementById('cEngineStateHomeButton').onclick = function () {
 	cEngineStateBox.style.display = "none";
 }
 
 /*时序图*/
 var cSeqDiagram = document.getElementById("cSeqDiagram");
 var cseqBox = document.getElementById("cseq");
-cSeqDiagram.onclick = function() {
+cSeqDiagram.onclick = function () {
 	cseqBox.style.display = "block";
 }
 var cseqHomeButton = document.getElementById("cseqHomeButton");
-cseqHomeButton.onclick = function() {
+cseqHomeButton.onclick = function () {
 	cseqBox.style.display = "none";
 }
 
-document.getElementById('cControlPos').onclick = function() {
+document.getElementById('cControlPos').onclick = function () {
 	document.getElementById('ccontrolPosBox').style.display = 'block';
 }
-document.getElementById('ccpHomeButton').onclick = function() {
+document.getElementById('ccpHomeButton').onclick = function () {
 	document.getElementById('ccontrolPosBox').style.display = 'none';
 }
 
@@ -81,37 +81,56 @@ ccpctx.fillText("ECR Manual Control", 700, 370);
 ccpctx.fillText("Local Manual Control", 560, 450);
 
 
-
-document.getElementById('cSafetySys').onclick = function(){
-	$('#safesysbtn').css('display','block')
-	$('#safesysbtn').css('opacity',1)
-		$('#safety').css('opacity',1)
-		$('#cSafetyHome').css('display','block')
-		// $('#cAlarm').css('opacity',0)
-		// $('#cLimiters').css('opacity',0)
-		// $('#cControlPos').css('opacity',0)
-		// $('#cMiscMenu').css('opacity',0)
-		// $('#cFineTuning').css('opacity',0)
-		// $('#cSafetySys').css('opacity',0)
-		// $('#cEngineState').css('opacity',0)
-		// $('#cEngineMode').css('opacity',0)
-		// $('#cEngineState').css('opacity',0)
-		// $('#cSeqDiagram').css('opacity',0)
-	
-}
-document.getElementById('cSafetyHomeButton').onclick = function(){
-	$('#cSafetyHome').css('display','none')
-	$('#safety').css('opacity',0)
-	$('#safesysbtn').css('display','none')
-}
-
-document.getElementById('cAlarm').onclick = function(){
-	$('#cAlarmBox').css('display','block')
-	$('#cAlarmHome').css('display','block')
+var clicksafesys = 0
+document.getElementById('cSafetySys').onclick = function () {
+	clicksafesys = 1
+	$('#safety').css('display', 'block')
+	$('#safesysbtn').css('display', 'block')
+	$('#safesysbtn').css('opacity', 1)
+	$('#safety').css('opacity', 1)
+	$('#cSafetyHome').css('display', 'block')
+	// $('#cAlarm').css('opacity',0)
+	// $('#cLimiters').css('opacity',0)
+	// $('#cControlPos').css('opacity',0)
+	// $('#cMiscMenu').css('opacity',0)
+	// $('#cFineTuning').css('opacity',0)
+	// $('#cSafetySys').css('opacity',0)
+	// $('#cEngineState').css('opacity',0)
+	// $('#cEngineMode').css('opacity',0)
+	// $('#cEngineState').css('opacity',0)
+	// $('#cSeqDiagram').css('opacity',0)
 
 }
-document.getElementById('cAlarmHomeButton').onclick = function(){
-	$('#cSafetyHome').css('display','none')
-	$('#cAlarmBox').css('display','none')
+document.getElementById('cSafetyHomeButton').onclick = function () {
+	clicksafesys = 0
+	$('#cSafetyHome').css('display', 'none')
+	$('#safety').css('opacity', 0)
+	$('#safesysbtn').css('display', 'none')
+}
+
+// document.getElementById('cAlarm').onclick = function () {
+// 	$('#cAlarmBox').css('display', 'block')
+// 	$('#cAlarmHome').css('display', 'block')
+
+// }
+document.getElementById('bAlarm').onclick = function () {
+	$('#bAlarmBox').css('display', 'block')
+	$('#cAlarmHome').css('display', 'block')
 
 }
+document.getElementById('cAlarmHomeButton').onclick = function () {
+	$('#cSafetyHome').css('display', 'none')
+	$('#bAlarmBox').css('display', 'none')
+
+}
+
+// if (ydx > 0) {
+// 	document.getElementById('cseqAheadcmd').style.backgroundColor = 'green'
+// 	document.getElementById('cseqEngineRuningAhead').style.backgroundColor = 'green'
+// }
+// if (ydx == 0) {
+// 	document.getElementById('cseqAheadcmd').style.backgroundColor = '#c3c3c3'
+// 	// document.getElementById('cseqEngineRuningAhead').style.backgroundColor = '#c3c3c3'
+
+
+// }

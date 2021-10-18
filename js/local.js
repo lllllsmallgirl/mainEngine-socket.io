@@ -215,8 +215,8 @@ var lhandle3 = document.getElementById('lhandle3');
 var lhandle3x = 0; //标识位 0为LOCK 1为UNLOCK
 var x = 0;
 lhandle3.onclick = function () {
-	lhandle3x += 1;console.log('local的')
-	if (lhandle3x%2 == 1) {
+	lhandle3x += 1; console.log('local的')
+	if (lhandle3x % 2 == 1) {
 		this.style.transformOrigin = '31% 31%';
 		this.style.transform = 'rotate(' + 90 + 'deg)';
 		// lhandle3x += 1;
@@ -275,7 +275,7 @@ var lbuttonStart = document.getElementById('lbuttonStart');
 var lbuttonStop = document.getElementById('lbuttonStop');
 
 // var timeStart,timeEnd,time;//申明全局变量
-            
+
 // function getTimeNow()//获取此刻时间
 // {
 // 	var now=new Date();
@@ -304,14 +304,14 @@ var l2dsio = 0
 // lbuttonStart.onmousedown = function () {
 // 	l2dsio = 1
 // 	lbuttonStart.style.backgroundColor = "green";
-	
+
 // 	if (value16x % 2 == 1 && value3x % 2 == 1 && value122x % 2 == 1 && value116x % 2 == 1 && valueMainx % 2 == 1 && lhandle1x % 2 == 1) {
 // 			airstart = 2;
 // 		 // LED()
 // 		 schematicX = 1;
 // 	}
 // 		console.log('airstart', lrmp)
-	
+
 // }
 
 // lbuttonStart.onmouseup = function () {
@@ -327,36 +327,36 @@ var l2dsio = 0
 // 		airstart = 2;
 // 	}
 // 	// airstart = 2;
-	
+
 // 	console.log('airstop', lrmpx);
 // }
-$('#lbuttonStart').on('mousedown', function(){
+$('#lbuttonStart').on('mousedown', function () {
 	l2dsio = 1
 	lbuttonStart.style.backgroundColor = "green";
-	
+
 	if (value16x % 2 == 1 && value3x % 2 == 1 && value122x % 2 == 1 && value116x % 2 == 1 && valueMainx % 2 == 1 && lhandle1x % 2 == 1) {
-			airstart = 2;
-		 // LED()
-		 schematicX = 1;
+		airstart = 2;
+		// LED()
+		schematicX = 1;
 	}
-		console.log('airstart', lrmp)
+	console.log('airstart', lrmp)
 })
-$('#lbuttonStart').on('mouseup',function(){
-	l2dsio =2
+$('#lbuttonStart').on('mouseup', function () {
+	l2dsio = 2
 	lbuttonStart.style.backgroundColor = "grey";
-	if(rmp < 15){
+	if (rmp < 15) {
 		// alert("空气起动失败！");
 		document.getElementById('startfailure').style.color = 'red'
 		airstart = 1;
-		yd=0;
+		yd = 0;
 	}
-	else{
+	else {
 		// alert("空气起动成功！");
 		document.getElementById('startfailure').style.color = 'white'
 		airstart = 2;
 	}
 	// airstart = 2;
-	
+
 	console.log('airstop', lrmpx);
 })
 var lsio = 0
@@ -367,6 +367,7 @@ $('#pstart').on('mousedown', function () { //二次启动(按了stop）需要将
 		airstart = 2;
 		//LED()
 		schematicX = 1;
+		document.getElementById('cm1Starting').style.color = '#00FF00'
 
 		// console.log('airstart', lrmp)
 	}
@@ -374,19 +375,23 @@ $('#pstart').on('mousedown', function () { //二次启动(按了stop）需要将
 $('#pstart').on('mouseup', function () {
 	lsio = 2
 	startMove(this, 'opacity', 0);
-	if(rmp < 15){
+	document.getElementById('cm1Starting').style.color = 'white'
+	if (rmp < 15) {
 		// alert("空气起动失败！");
-		document.getElementById('startfailure').style.color = 'white'
+		document.getElementById('startfailure').style.color = 'red'
+		document.getElementById('cseqStartFail').style.backgroundColor = 'red'
 		airstart = 1;
-		yd=0;
+		yd = 0;
 	}
-	else{
+	else {
 		// alert("空气起动成功！");
 		document.getElementById('startfailure').style.color = 'white'
+		document.getElementById('cseqStartFail').style.backgroundColor = '#c3c3c3'
+
 		airstart = 2;
 	}
-	console.log('airstart',airstart);console.log('ydx',ydx);
-	// console.log('airstop', lrmpx);
+	console.log('airstart', airstart); console.log('ydx', ydx);
+	// console.log('airsredtop', lrmpx);
 })
 
 $('#pstop').on('mousedown', function () {
@@ -721,7 +726,7 @@ var plspeedsLed = plspeeds.getElementsByClassName('plspeedButtonLed');
 // 		plspeedsLed[i1].style.backgroundColor = 'white';
 // 	}
 // }
-function plclearSpeedLed(briled,locled) {
+function plclearSpeedLed(briled, locled) {
 	for (var i = 0; i < 5; i++) {
 		btled1[i].style.background = '#006400';
 		btled2[i].style.background = '#006400';

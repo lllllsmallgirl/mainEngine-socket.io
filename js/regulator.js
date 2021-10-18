@@ -11,7 +11,7 @@ var lock = 0
 var codesave = 0 //opcode变换时候的变量:0表示opcode0图片显示； 1表示opcode1图片显示； 4表示save按钮功能变为保存value
 var saveop = 4 //保存opcode之后的变量： 0表示当前是opcode0模式；1表示当前是opcode1模式；4表示up1按钮功能变为切换opcode模式
 var secfuc = 0 //左面两个上下键的第二功能
-var Kp_v=Kp,Ki_v=Ki,Kd_v=Kd
+var Kp_v = Kp, Ki_v = Ki, Kd_v = Kd
 
 var reg_value = document.getElementById('reg_value');
 // reg_value.innerHTML = parseInt(reg_value)
@@ -185,15 +185,15 @@ document.getElementById('up2').onmousedown = function () {
             reg_value.innerHTML = ydlim;
         }
     }
-    if (lock % 2 == 1 && saveop == 1){
-        if(reg_num==43){
-            Kd_v+=1
+    if (lock % 2 == 1 && saveop == 1) {
+        if (reg_num == 43) {
+            Kd_v += 1
         }
-        if(reg_num==48){
-            Kp_v+=1
+        if (reg_num == 48) {
+            Kp_v += 1
         }
-        if(reg_num==49){
-            Ki_v+=1
+        if (reg_num == 49) {
+            Ki_v += 1
         }
     }
 }
@@ -264,11 +264,11 @@ document.getElementById('save').onmousedown = function () {
         document.getElementById('reg_num').innerHTML = parseInt(reg_num);
         // document.getElementById('reg_value').innerHTML = parseInt(reg_value);
         saveop = 1
-        codesave=4
+        codesave = 4
     }
     else if (codesave == 0) {
         saveop = 0
-        codesave=4
+        codesave = 4
         $('#opcode1').css("opacity", 0)
         $('#opcode0').css("opacity", 0)
         $('#reg_value').css('opacity', 1)
@@ -276,12 +276,22 @@ document.getElementById('save').onmousedown = function () {
 
 
     }
-     if(codesave==4){
+    if (codesave == 4) {
+        if (rmpxlim !== 80) {
+            document.getElementById('bManualRMPLimit').style.color = '#00ff00'
+        } else {
+            document.getElementById('bManualRMPLimit').style.color = 'white'
+        }
+        if (ydlim !== 92) {
+            document.getElementById('bManualFuelLimit').style.color = '#00ff00'
+        } else {
+            document.getElementById('bManualFuelLimit').style.color = 'white'
+        }
         sydlim = ydlim;
         srmpxlim = rmpxlim;
-        Kp=Kp_v
-        Ki=Ki_v
-        Kd=Kd_v
+        Kp = Kp_v
+        Ki = Ki_v
+        Kd = Kd_v
     }
 }
 document.getElementById('save').onmouseup = function () {
@@ -333,26 +343,26 @@ function reg_update() {
     else if (reg_num == 10) {
         reg_value.innerHTML = 0;
     }
-    else if(reg_num == 43){
+    else if (reg_num == 43) {
         reg_value.innerHTML = Kd_v
     }
-    else if(reg_num == 48){
+    else if (reg_num == 48) {
         reg_value.innerHTML = Kp_v
     }
-    else if(reg_num == 49){
+    else if (reg_num == 49) {
         reg_value.innerHTML = Ki_v
-    }else{
+    } else {
         reg_value.innerHTML = 0
     }
     //  setTimeout(reg_update,500);
-    
-    if(act_num==2){
-        document.getElementById('act_value').innerHTML=parseInt(yd1)
+
+    if (act_num == 2) {
+        document.getElementById('act_value').innerHTML = parseInt(yd1)
     }
-    else if(act_num==3){
-        document.getElementById('act_value').innerHTML=parseInt(yd)
-    }else{
-        document.getElementById('act_value').innerHTML=0
+    else if (act_num == 3) {
+        document.getElementById('act_value').innerHTML = parseInt(yd)
+    } else {
+        document.getElementById('act_value').innerHTML = 0
     }
 }
 
@@ -385,7 +395,7 @@ document.getElementById('lock').onmousedown = function () {
         $('#opcode1').css('opacity', 0)
         $('#reg_value').css('opacity', 1)
 
-        reg_num=1
+        reg_num = 1
         setInterval(reg_update, 500)
         document.getElementById('reg_num').innerHTML = parseInt(reg_num);
         // document.getElementById('reg_value').innerHTML = parseInt(reg_value) ;
@@ -397,7 +407,7 @@ document.getElementById('lock').onmousedown = function () {
     }
 }
 
-var act_num = 1, act_value=0
+var act_num = 1, act_value = 0
 document.getElementById('act_num').innerHTML = parseInt(act_num);
 document.getElementById('act_value').innerHTML = parseInt(act_value);
 
@@ -407,11 +417,11 @@ document.getElementById('up3').onmousedown = function () {
     if (act_num >= 10) {
         act_num = 10
     }
-    if(act_num==2){
-        act_value=parseInt(yd1)
+    if (act_num == 2) {
+        act_value = parseInt(yd1)
     }
-    if(act_num==3){
-        act_value=parseInt(yd)
+    if (act_num == 3) {
+        act_value = parseInt(yd)
     }
     document.getElementById('act_num').innerHTML = parseInt(act_num);
     // document.getElementById('act_value').innerHTML = parseInt(act_value);
@@ -426,13 +436,13 @@ document.getElementById('down3').onmousedown = function () {
     if (act_num <= 1) {
         act_num = 1
     }
-    if(act_num==2){
-        act_value=parseInt(yd1)
+    if (act_num == 2) {
+        act_value = parseInt(yd1)
     }
-    if(act_num==3){
-        act_value=parseInt(yd)
-    }else{
-        act_value=0
+    if (act_num == 3) {
+        act_value = parseInt(yd)
+    } else {
+        act_value = 0
     }
     document.getElementById('act_num').innerHTML = parseInt(act_num);
     // document.getElementById('act_value').innerHTML = parseInt(act_value);

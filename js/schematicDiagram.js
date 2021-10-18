@@ -20,30 +20,30 @@ var values = document.getElementById('values');
 var value16 = document.getElementById('value16'); //阀门16
 var value16txt = document.getElementById('value16txt'); //阀门16介绍框
 var value16x = 0; //阀门16的计数器，用于判断显示哪张底图
-var value16confirmBox=document.getElementById('value16confirmBox')
-var valve16ComfirmTxt=document.getElementById('valve16ComfirmTxt')
-var valve16Comfirm=document.getElementById('valve16Comfirm')
-var valve16Cancel=document.getElementById('valve16Cancel')
+var value16confirmBox = document.getElementById('value16confirmBox')
+var valve16ComfirmTxt = document.getElementById('valve16ComfirmTxt')
+var valve16Comfirm = document.getElementById('valve16Comfirm')
+var valve16Cancel = document.getElementById('valve16Cancel')
 var schematicDiagramPicture = document.getElementById("schematicDiagramPicture");
-value16.onclick=function(){
-	if(value16x%2==1){
-		value16confirmBox.style.display='block'
-		valve16ComfirmTxt.innerHTML="是否关闭空气控制阀"
-	}else{
-		value16confirmBox.style.display='block'
-		valve16ComfirmTxt.innerHTML="是否起动空气控制阀"
+value16.onclick = function () {
+	if (value16x % 2 == 1) {
+		value16confirmBox.style.display = 'block'
+		valve16ComfirmTxt.innerHTML = "是否关闭空气控制阀"
+	} else {
+		value16confirmBox.style.display = 'block'
+		valve16ComfirmTxt.innerHTML = "是否起动空气控制阀"
 	}
 }
-valve16Comfirm.onclick=function(){
+valve16Comfirm.onclick = function () {
 	value16x += 1;
-	value16confirmBox.style.display='none'
+	value16confirmBox.style.display = 'none'
 }
-valve16Cancel.onclick=function(){
-	value16confirmBox.style.display='none'
+valve16Cancel.onclick = function () {
+	value16confirmBox.style.display = 'none'
 }
 
 
-let schematicX=0;//0代表初始状态，未完成；1代表起动逻辑完成但是没有起动；2代表空气起动状态；
+let schematicX = 0;//0代表初始状态，未完成；1代表起动逻辑完成但是没有起动；2代表空气起动状态；
 
 function valueCheck() {
 	if (value16x % 2 == 1) {
@@ -54,12 +54,12 @@ function valueCheck() {
 		value16txt.innerHTML = "点击起动空气控制阀";
 	}
 	// sdc2tx.drawImage(picblock2,0,0,91,51,904,68,92,46)
-	if(valueMainx%2==1 ){
-		valueMaintxt.innerHTML="点击关闭主起动阀"
-		sdc2tx.drawImage(picblock2,0,0,91,51,904,68,92,46)
-	}else{
-		valueMaintxt.innerHTML="点击打开主起动阀"
-		sdc2tx.clearRect(904,68,92,46)
+	if (valueMainx % 2 == 1) {
+		valueMaintxt.innerHTML = "点击关闭主起动阀"
+		sdc2tx.drawImage(picblock2, 0, 0, 91, 51, 904, 68, 92, 46)
+	} else {
+		valueMaintxt.innerHTML = "点击打开主起动阀"
+		sdc2tx.clearRect(904, 68, 92, 46)
 	}
 
 	if (value122x % 2 == 1) {
@@ -202,7 +202,7 @@ function valueCheck() {
 		cock2682txt.innerHTML = "点击关闭";
 		sdc2tx.drawImage(picMap, 614, 342, 12, 11, 131, 332, 16, 14); //2682开
 	}
-	if (value16x % 2 == 1 && value3x % 2 == 1 && value122x % 2 == 1 && value116x % 2 == 1 && value118x % 2 == 1 &&schematicX==2 &&valueMainx%2==1) {
+	if (value16x % 2 == 1 && value3x % 2 == 1 && value122x % 2 == 1 && value116x % 2 == 1 && value118x % 2 == 1 && schematicX == 2 && valueMainx % 2 == 1) {
 		schematicDiagramPicture.src = "img/02.png";
 	}
 
@@ -221,25 +221,25 @@ var sdc2tx = sdc2.getContext("2d");
 var value122 = document.getElementById('value122'); //阀门122
 var value122txt = document.getElementById('value122txt'); //阀门122介绍框
 var value122x = 0; //阀门16的计数器，用于判断显示哪张底图
-var value122confirmBox=document.getElementById('value122confirmBox')
-var valve122ComfirmTxt=document.getElementById('valve122ComfirmTxt')
-var valve122Comfirm=document.getElementById('valve122Comfirm')
-var valve122Cancel=document.getElementById('valve122Cancel')
-value122.onclick=function(){
-	if(value122x%2==1){
-		value122confirmBox.style.display='block'
-		valve122ComfirmTxt.innerHTML="是否关闭安全阀"
-	}else{
-		value122confirmBox.style.display='block'
-		valve122ComfirmTxt.innerHTML="是否起动安全阀"
+var value122confirmBox = document.getElementById('value122confirmBox')
+var valve122ComfirmTxt = document.getElementById('valve122ComfirmTxt')
+var valve122Comfirm = document.getElementById('valve122Comfirm')
+var valve122Cancel = document.getElementById('valve122Cancel')
+value122.onclick = function () {
+	if (value122x % 2 == 1) {
+		value122confirmBox.style.display = 'block'
+		valve122ComfirmTxt.innerHTML = "是否关闭安全阀"
+	} else {
+		value122confirmBox.style.display = 'block'
+		valve122ComfirmTxt.innerHTML = "是否起动安全阀"
 	}
 }
-valve122Comfirm.onclick=function(){
+valve122Comfirm.onclick = function () {
 	value122x += 1;
-	value122confirmBox.style.display='none'
+	value122confirmBox.style.display = 'none'
 }
-valve122Cancel.onclick=function(){
-	value122confirmBox.style.display='none'
+valve122Cancel.onclick = function () {
+	value122confirmBox.style.display = 'none'
 }
 
 
@@ -253,25 +253,25 @@ value122.onmouseout = function () {
 var value3 = document.getElementById('value3'); //阀门3
 var value3txt = document.getElementById('value3txt'); //阀门3介绍框
 var value3x = 0; //阀门3的计数器，用于判断显示哪张底图
-var value3confirmBox=document.getElementById('value3confirmBox')
-var valve3ComfirmTxt=document.getElementById('valve3ComfirmTxt')
-var valve3Comfirm=document.getElementById('valve3Comfirm')
-var valve3Cancel=document.getElementById('valve3Cancel')
-value3.onclick=function(){
-	if(value3x%2==1){
-		value3confirmBox.style.display='block'
-		valve3ComfirmTxt.innerHTML="是否关闭进排气空气阀"
-	}else{
-		value3confirmBox.style.display='block'
-		valve3ComfirmTxt.innerHTML="是否起动进排气空气阀"
+var value3confirmBox = document.getElementById('value3confirmBox')
+var valve3ComfirmTxt = document.getElementById('valve3ComfirmTxt')
+var valve3Comfirm = document.getElementById('valve3Comfirm')
+var valve3Cancel = document.getElementById('valve3Cancel')
+value3.onclick = function () {
+	if (value3x % 2 == 1) {
+		value3confirmBox.style.display = 'block'
+		valve3ComfirmTxt.innerHTML = "是否关闭进排气空气阀"
+	} else {
+		value3confirmBox.style.display = 'block'
+		valve3ComfirmTxt.innerHTML = "是否起动进排气空气阀"
 	}
 }
-valve3Comfirm.onclick=function(){
+valve3Comfirm.onclick = function () {
 	value3x += 1;
-	value3confirmBox.style.display='none'
+	value3confirmBox.style.display = 'none'
 }
-valve3Cancel.onclick=function(){
-	value3confirmBox.style.display='none'
+valve3Cancel.onclick = function () {
+	value3confirmBox.style.display = 'none'
 }
 value3.onmouseover = function () {
 	value3txt.style.display = 'block';
@@ -283,25 +283,25 @@ value3.onmouseout = function () {
 var valueMain = document.getElementById('valueMain'); //主起动阀
 var valueMaintxt = document.getElementById('valueMaintxt'); //主起动阀介绍框
 var valueMainx = 0; //主起动阀的计数器，用于判断显示哪张底图
-var valveMainconfirmBox=document.getElementById('valveMainconfirmBox')
-var valveMainComfirmTxt=document.getElementById('valveMainComfirmTxt')
-var valveMainComfirm=document.getElementById('valveMainComfirm')
-var valveMainCancel=document.getElementById('valveMainCancel')
-valueMain.onclick=function(){
-	if(valueMainx%2==1){
-		valveMainconfirmBox.style.display='block'
-		valveMainComfirmTxt.innerHTML="是否关闭主起动阀"
-	}else{
-		valveMainconfirmBox.style.display='block'
-		valveMainComfirmTxt.innerHTML="是否打开主起动阀"
+var valveMainconfirmBox = document.getElementById('valveMainconfirmBox')
+var valveMainComfirmTxt = document.getElementById('valveMainComfirmTxt')
+var valveMainComfirm = document.getElementById('valveMainComfirm')
+var valveMainCancel = document.getElementById('valveMainCancel')
+valueMain.onclick = function () {
+	if (valueMainx % 2 == 1) {
+		valveMainconfirmBox.style.display = 'block'
+		valveMainComfirmTxt.innerHTML = "是否关闭主起动阀"
+	} else {
+		valveMainconfirmBox.style.display = 'block'
+		valveMainComfirmTxt.innerHTML = "是否打开主起动阀"
 	}
 }
-valveMainComfirm.onclick=function(){
+valveMainComfirm.onclick = function () {
 	valueMainx += 1;
-	valveMainconfirmBox.style.display='none'
+	valveMainconfirmBox.style.display = 'none'
 }
-valveMainCancel.onclick=function(){
-	valveMainconfirmBox.style.display='none'
+valveMainCancel.onclick = function () {
+	valveMainconfirmBox.style.display = 'none'
 }
 valueMain.onmouseover = function () {
 	valueMaintxt.style.display = 'block';
@@ -319,30 +319,30 @@ document.getElementById('tlTurningGearEngagedLed').style.backgroundColor = '#FF0
 var value116 = document.getElementById('value116'); //阀门116
 var value116txt = document.getElementById('value116txt'); //阀门116介绍框
 var value116x = 0; //阀门116的计数器，用于判断显示哪张底图
-var value116confirmBox=document.getElementById('value116confirmBox')
-var valve116ComfirmTxt=document.getElementById('valve116ComfirmTxt')
-var valve116Comfirm=document.getElementById('valve116Comfirm')
-var valve116Cancel=document.getElementById('valve116Cancel')
-value116.onclick=function(){
-	if(value116x%2==1){
-		value116confirmBox.style.display='block'
-		valve116ComfirmTxt.innerHTML="是否合上盘车机"
-	}else{
-		value116confirmBox.style.display='block'
-		valve116ComfirmTxt.innerHTML="是否脱开盘车机"
+var value116confirmBox = document.getElementById('value116confirmBox')
+var valve116ComfirmTxt = document.getElementById('valve116ComfirmTxt')
+var valve116Comfirm = document.getElementById('valve116Comfirm')
+var valve116Cancel = document.getElementById('valve116Cancel')
+value116.onclick = function () {
+	if (value116x % 2 == 1) {
+		value116confirmBox.style.display = 'block'
+		valve116ComfirmTxt.innerHTML = "是否合上盘车机"
+	} else {
+		value116confirmBox.style.display = 'block'
+		valve116ComfirmTxt.innerHTML = "是否脱开盘车机"
 	}
 }
-valve116Comfirm.onclick=function(){
+valve116Comfirm.onclick = function () {
 	value116x += 1;
-	value116confirmBox.style.display='none'
+	value116confirmBox.style.display = 'none'
 	document.getElementById('lTurningGearEngagedLed').style.backgroundColor = '#800000';//ZM：盘车机灯
 	document.getElementById('plTurningGearEngagedLed').style.backgroundColor = '#800000';
 	document.getElementById('olTurningGearEngagedLed').style.backgroundColor = '#800000';
 	document.getElementById('glTurningGearEngagedLed').style.backgroundColor = '#800000';
 	document.getElementById('tlTurningGearEngagedLed').style.backgroundColor = '#800000';
 }
-valve116Cancel.onclick=function(){
-	value116confirmBox.style.display='none'
+valve116Cancel.onclick = function () {
+	value116confirmBox.style.display = 'none'
 }
 
 
@@ -356,25 +356,25 @@ value116.onmouseout = function () {
 var value118 = document.getElementById('value118'); //阀门118 空气分配器控制阀
 var value118txt = document.getElementById('value118txt'); //阀门118介绍框
 var value118x = 0; //阀门118的计数器，用于判断显示哪张底图
-var value118confirmBox=document.getElementById('value118confirmBox')
-var valve118ComfirmTxt=document.getElementById('valve118ComfirmTxt')
-var valve118Comfirm=document.getElementById('valve118Comfirm')
-var valve118Cancel=document.getElementById('valve118Cancel')
-value118.onclick=function(){
-	if(value118x%2==1){
-		value118confirmBox.style.display='block'
-		valve118ComfirmTxt.innerHTML="是否关闭空气分配器控制阀"
-	}else{
-		value118confirmBox.style.display='block'
-		valve118ComfirmTxt.innerHTML="是否起动空气分配器控制阀"
+var value118confirmBox = document.getElementById('value118confirmBox')
+var valve118ComfirmTxt = document.getElementById('valve118ComfirmTxt')
+var valve118Comfirm = document.getElementById('valve118Comfirm')
+var valve118Cancel = document.getElementById('valve118Cancel')
+value118.onclick = function () {
+	if (value118x % 2 == 1) {
+		value118confirmBox.style.display = 'block'
+		valve118ComfirmTxt.innerHTML = "是否关闭空气分配器控制阀"
+	} else {
+		value118confirmBox.style.display = 'block'
+		valve118ComfirmTxt.innerHTML = "是否起动空气分配器控制阀"
 	}
 }
-valve118Comfirm.onclick=function(){
+valve118Comfirm.onclick = function () {
 	value118x += 1;
-	value118confirmBox.style.display='none'
+	value118confirmBox.style.display = 'none'
 }
-valve118Cancel.onclick=function(){
-	value118confirmBox.style.display='none'
+valve118Cancel.onclick = function () {
+	value118confirmBox.style.display = 'none'
 }
 
 
@@ -526,26 +526,32 @@ function qidongbian() {
 //检查是否起动准备就绪
 function checkStart() {
 	//起动条件完成   0为关闭状态1位起动状态
-	if (value16x % 2 == 1 && value3x % 2 == 1 && value122x % 2 == 1 && value116x % 2 == 1 && value118x % 2 == 1&& valueMainx%2==1) {
+	if (value16x % 2 == 1 && value3x % 2 == 1 && value122x % 2 == 1 && value116x % 2 == 1 && value118x % 2 == 1 && valueMainx % 2 == 1) {
 		pointerRotate(31, 'bStartAirPressPointer');
 		document.getElementById('bStartAirPress').innerHTML = '27 bar';
 		pointerRotate(31, 'cStartAirPressPointer');
 		document.getElementById('cStartAirPress').innerHTML = '27 bar';
 
 
-		if(schematicX==0){
-			schematicX=1
+		if (schematicX == 0) {
+			schematicX = 1
 		}
-		if(schematicX==1){
+		if (schematicX == 1) {
 			schematicDiagramPicture.src = "img/01.png";
-			sdc2tx.clearRect( 667, 68, 380, 209);
+			sdc2tx.clearRect(667, 68, 380, 209);
+			document.getElementById('yunxing').style.display = 'block'
+			document.getElementById('ahead').style.display = 'block'
+
 		}
-		if(schematicX==2){
+		if (schematicX == 2) {
 			qidongbian()
+			document.getElementById('yunxing').style.display = 'none'
+			document.getElementById('ahead').style.display = 'none'
+
 		}
 
 		if (ydx > 0) {
-			rmpx = parseInt(rmp*1.4) ;
+			rmpx = parseInt(rmp * 1.4);
 			bstate.innerHTML = 'Running';
 			cState.innerHTML = 'Running';
 		} else {
@@ -554,7 +560,7 @@ function checkStart() {
 			cState.innerHTML = 'Stopping';
 
 		}
-		if(lwheelx1x>=3){
+		if (lwheelx1x >= 3) {
 			document.getElementById('bEngReady').innerHTML = 'Eng Ready';
 			document.getElementById('bEngReady').style.backgroundColor = '#01D867';
 			document.getElementById('cEngReady').innerHTML = 'Eng Ready';
@@ -581,7 +587,7 @@ function checkStart() {
 		bstate.innerHTML = 'Stopping';
 		cState.innerHTML = 'Stopping';
 
-		schematicX=0;//气动逻辑未完成
+		schematicX = 0;//气动逻辑未完成
 	}
 }
 
@@ -590,13 +596,13 @@ function controlLocation() {
 		if (thandlex % 2 == 0) {
 			//驾驶台控制
 			document.getElementById('pswitch4').style.display = 'none';
-			$('#touming4').on('click',function(){    //把事件放在函数里面！！！！
-				$('#pswitch4').css('display','none');
+			$('#touming4').on('click', function () {    //把事件放在函数里面！！！！
+				$('#pswitch4').css('display', 'none');
 				document.getElementById('glbridgeControlLed').style.backgroundColor = '#00FF00';
 				document.getElementById('glcontrolRoomControlLed').style.backgroundColor = ' #085A13';
 				document.getElementById('glemergencyControlLed').style.backgroundColor = '#800000';
-		
-				
+
+
 				document.getElementById('plbridgeControlLed').style.backgroundColor = '#00FF00';
 				document.getElementById('plcontrolRoomControlLed').style.backgroundColor = ' #085A13';
 				document.getElementById('plemergencyControlLed').style.backgroundColor = '#800000';
@@ -606,7 +612,7 @@ function controlLocation() {
 				document.getElementById('tlbridgeControlLed').style.backgroundColor = '#00FF00';
 				document.getElementById('tlcontrolRoomControlLed').style.backgroundColor = ' #085A13';
 				document.getElementById('tlemergencyControlLed').style.backgroundColor = '#800000';
-				
+
 				document.getElementById('lloc').style.borderColor = 'white';
 				document.getElementById('llocled').style.backgroundColor = 'white';
 				document.getElementById('lbcr').style.borderColor = '#FFC200';
@@ -662,7 +668,7 @@ function controlLocation() {
 			document.getElementById('plbridgeControlLed').style.backgroundColor = '#00FF00';
 			document.getElementById('olbridgeControlLed').style.backgroundColor = '#00FF00';
 			document.getElementById('tlbridgeControlLed').style.backgroundColor = '#00FF00';
-			
+
 			document.getElementById('lcontrolRoomControlLed').style.backgroundColor = ' #085A13';
 			document.getElementById('plcontrolRoomControlLed').style.backgroundColor = ' #085A13';
 			document.getElementById('olcontrolRoomControlLed').style.backgroundColor = ' #085A13';
@@ -678,12 +684,12 @@ function controlLocation() {
 		} else {
 			//集控室控制
 			document.getElementById('pswitch4').style.display = 'none';
-			$('#touming4').on('click',function(){
-				$('#pswitch4').css('display','none');
+			$('#touming4').on('click', function () {
+				$('#pswitch4').css('display', 'none');
 				document.getElementById('glbridgeControlLed').style.backgroundColor = '#085A13';
 				document.getElementById('glcontrolRoomControlLed').style.backgroundColor = ' #00FF00';
 				document.getElementById('glemergencyControlLed').style.backgroundColor = '#800000';
-		
+
 				document.getElementById('plbridgeControlLed').style.backgroundColor = '#085A13';
 				document.getElementById('plcontrolRoomControlLed').style.backgroundColor = ' #00FF00';
 				document.getElementById('plemergencyControlLed').style.backgroundColor = '#800000';
@@ -747,10 +753,10 @@ function controlLocation() {
 		}
 	} else {
 		//机旁控制
-		$('#touming4').on('click',function(){
+		$('#touming4').on('click', function () {
 			document.getElementById('lhandle1').style.transformOrigin = '31% 31%';
-		document.getElementById('lhandle1').style.transform = 'rotate(' + 0 + 'deg)';
-	
+			document.getElementById('lhandle1').style.transform = 'rotate(' + 0 + 'deg)';
+
 		})
 		document.getElementById('pswitch4').style.display = 'block';
 		document.getElementById('tbridgeLed').style.backgroundColor = 'white';

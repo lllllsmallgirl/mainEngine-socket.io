@@ -84,7 +84,16 @@ abridge.onclick = function () {
 	this.style.backgroundColor = " #9badaf"
 }
 acontrolRoom.onclick = function () {
-	$('#safesysbtn').css('opacity', 0)
+	if (clicksafesys == 0) {
+		// $('#safety').css('display', 'none')
+		$('#cSafetyHome').css('display', 'none')
+		$('#safety').css('opacity', 0)
+		$('#safesysbtn').css('display', 'none')
+	}
+	// else {
+	// 	$('#safety').css('display', 'block')
+	// }
+	// $('#safesysbtn').css('opacity', 0)
 	aconditionx = 0
 	homepage.style.display = "none";
 	bridge.style.display = "none";
@@ -534,7 +543,7 @@ document.getElementById('wheelswitch').onclick = function () {
 		console.log('lhandle3x', lhandle3x);
 		document.getElementById('lhandle3').style.transformOrigin = '31% 31%';
 		document.getElementById('lhandle3').style.transform = 'rotate(' + 90 + 'deg)';
-		// yy += 1;
+		yy += 1;
 	}
 
 	if (wx % 2 == 0) {
@@ -551,7 +560,7 @@ document.getElementById('wheelswitch').onclick = function () {
 		// 	   $('#lhandle3').css('transform','rotate(' + 0 + 'deg)');
 
 		//    }
-		// yy -= 1;
+		yy -= 1;
 	}
 
 }
@@ -655,6 +664,51 @@ document.getElementById('conBefore').onclick = function () { //原始状况
 	valueMainx = 0;
 	condition.style.display = 'none';
 	// conditionX+=1;
+	//气动操作车钟图
+	document.getElementById('yunxing').style.display = 'none'
+	document.getElementById('ahead').style.display = 'none'
+
+	schematicX = 0
+	// document.getElementById('schematicDiagramPicture').style.display = 'block'
+	document.getElementById('bridgecontrol').style.display = 'none'
+
+	//下面是取消故障的代码
+	document.getElementById('SHDC').style.color = 'white'
+	document.getElementById('SHDA').style.color = 'white'
+	document.getElementById('SLDC').style.color = 'white'
+	document.getElementById('SLDA').style.color = 'white'
+	// document.getElementsById('box').checked = false
+
+	for (let i = 0; i < boxes.length; i++) {
+		boxes[i].checked = false;
+	}
+	for (let i = 0; i < lights.length; i++) {
+		lights[i].style.display = 'none'
+	}
+	document.getElementById('l2').style.opacity = '0'
+	document.getElementById('l3').style.opacity = '0'
+	document.getElementById('l4').style.opacity = '0'
+	document.getElementById('l8').style.opacity = '0'
+	document.getElementById('l9').style.opacity = '0'
+	document.getElementById('l10').style.opacity = '0'
+	document.getElementById('l11').style.opacity = '0'
+	document.getElementById('l12').style.opacity = '0'
+	document.getElementById('l13').style.opacity = '0'
+	document.getElementById('l14').style.opacity = '0'
+	document.getElementById('l15').style.opacity = '0'
+	document.getElementById('l16').style.opacity = '0'
+	document.getElementById('l17').style.opacity = '0'
+	document.getElementById('l18').style.opacity = '0'
+	document.getElementById('l19').style.opacity = '0'
+	document.getElementById('l20').style.opacity = '0'
+	document.getElementById('l21').style.opacity = '0'
+
+	document.getElementById('lright3').style.display = 'none'
+	document.getElementById('lright4').style.display = 'none'
+
+	document.getElementById('cseqBridge').style.backgroundColor = '#c3c3c3'
+	document.getElementById('cseqManualbcr').style.backgroundColor = '#c3c3c3'
+
 	btelegraph1lever.style.top = '-335px';
 	z = 0;
 	$('#wheelstart').css('display', 'none');
@@ -738,7 +792,7 @@ var z = 0;
 var pwheelx1x = 0;
 
 $('#wheeltouming').on('click', function () {
-	if (yy == 1) {
+	if (yy == 1 && value16x % 2 == 1 && value3x % 2 == 1 && value122x % 2 == 1 && value116x % 2 == 1 && valueMainx % 2 == 1 && lhandle1x % 2 == 1) {
 		z += 1;
 		if (z == 1) {
 			$('#wheelstart').css('display', 'block');
@@ -861,7 +915,7 @@ $('#wheeltouming').on('click', function () {
 	}
 })
 $('#wheeltoumingleft').on('click', function () {
-	if (yy == 1) {
+	if (yy == 1 && value16x % 2 == 1 && value3x % 2 == 1 && value122x % 2 == 1 && value116x % 2 == 1 && valueMainx % 2 == 1 && lhandle1x % 2 == 1) {
 		z -= 1;
 		if (z == 1) {
 			$('#wheelstart').css('display', 'block');
@@ -1470,6 +1524,12 @@ hbridge.onclick = function () {
 
 }
 hcontrolRoom.onclick = function () {
+	if (clicksafesys == 0) {
+		// $('#safety').css('display', 'none')
+		$('#cSafetyHome').css('display', 'none')
+		$('#safety').css('opacity', 0)
+		$('#safesysbtn').css('display', 'none')
+	}
 	homepage.style.display = "none";
 	bridge.style.display = "none";
 	controlRoom.style.display = "block";
@@ -1576,6 +1636,48 @@ document.getElementById('conReadyC').onclick = function () { //备车完毕
 
 	lshutdownLed.style.backgroundColor = ' #800000';
 
+	document.getElementById('cseqBridge').style.backgroundColor = 'green'
+	document.getElementById('cseqManualbcr').style.backgroundColor = '#c3c3c3'
+
+	//气动里的车钟图
+	schematicX = 5
+	document.getElementById('yunxing').style.display = 'none'
+	document.getElementById('ahead').style.display = 'none'
+
+	//取消故障
+	document.getElementById('SHDC').style.color = 'white'
+	document.getElementById('SHDA').style.color = 'white'
+	document.getElementById('SLDC').style.color = 'white'
+	document.getElementById('SLDA').style.color = 'white'
+	// document.getElementsById('box').checked = false
+
+	for (let i = 0; i < boxes.length; i++) {
+		boxes[i].checked = false;
+	}
+	for (let i = 0; i < lights.length; i++) {
+		lights[i].style.display = 'none'
+	}
+	document.getElementById('l2').style.opacity = '0'
+	document.getElementById('l3').style.opacity = '0'
+	document.getElementById('l4').style.opacity = '0'
+	document.getElementById('l8').style.opacity = '0'
+	document.getElementById('l9').style.opacity = '0'
+	document.getElementById('l10').style.opacity = '0'
+	document.getElementById('l11').style.opacity = '0'
+	document.getElementById('l12').style.opacity = '0'
+	document.getElementById('l13').style.opacity = '0'
+	document.getElementById('l14').style.opacity = '0'
+	document.getElementById('l15').style.opacity = '0'
+	document.getElementById('l16').style.opacity = '0'
+	document.getElementById('l17').style.opacity = '0'
+	document.getElementById('l18').style.opacity = '0'
+	document.getElementById('l19').style.opacity = '0'
+	document.getElementById('l20').style.opacity = '0'
+	document.getElementById('l21').style.opacity = '0'
+
+	document.getElementById('lright3').style.display = 'none'
+	document.getElementById('lright4').style.display = 'none'
+
 	//调速器
 	$('#light1_1').css('opacity', 1);
 	$('#light1_2').css('opacity', 0);
@@ -1626,7 +1728,7 @@ document.getElementById('conReadyC').onclick = function () { //备车完毕
 
 	//	LED()
 	controlLocation();
-	schematicX = 1;
+	// schematicX = 1;
 	lwheelx1x = 5;
 	lprintPancel1(lwheelx1x);
 
@@ -1638,7 +1740,7 @@ document.getElementById('conReadyC').onclick = function () { //备车完毕
 	trmp = 0;
 	lrmp = 0;
 	//	LED()
-	schematicX = 1;
+	// schematicX = 1;
 
 	briled = 5;
 	telled = 5;
@@ -1659,6 +1761,12 @@ function onSea() { //航行状态
 	condition.style.display = 'none';
 	//车钟杠杆位置
 	btelegraph1lever.style.top = '-495px';
+
+	document.getElementById('cseqBridge').style.backgroundColor = 'green'
+	document.getElementById('cseqManualbcr').style.backgroundColor = '#c3c3c3'
+
+	document.getElementById('bridgecontrol').style.display = 'block'//气动操作驾驶台控制
+
 
 	//调速器
 	$('#light1_1').css('opacity', 1);
@@ -1721,6 +1829,46 @@ document.getElementById('conOnSea').onclick = function () {
 	//车令位置
 	//LED()
 	//briLEDclear()
+
+	document.getElementById('bridgecontrol').style.display = 'block'//气动操作驾驶台控制
+
+
+	document.getElementById('cseqBridge').style.backgroundColor = 'green'
+	document.getElementById('cseqManualbcr').style.backgroundColor = '#c3c3c3'
+
+	//取消故障
+	document.getElementById('SHDC').style.color = 'white'
+	document.getElementById('SHDA').style.color = 'white'
+	document.getElementById('SLDC').style.color = 'white'
+	document.getElementById('SLDA').style.color = 'white'
+	// document.getElementsById('box').checked = false
+
+	for (let i = 0; i < boxes.length; i++) {
+		boxes[i].checked = false;
+	}
+	for (let i = 0; i < lights.length; i++) {
+		lights[i].style.display = 'none'
+	}
+	document.getElementById('l2').style.opacity = '0'
+	document.getElementById('l3').style.opacity = '0'
+	document.getElementById('l4').style.opacity = '0'
+	document.getElementById('l8').style.opacity = '0'
+	document.getElementById('l9').style.opacity = '0'
+	document.getElementById('l10').style.opacity = '0'
+	document.getElementById('l11').style.opacity = '0'
+	document.getElementById('l12').style.opacity = '0'
+	document.getElementById('l13').style.opacity = '0'
+	document.getElementById('l14').style.opacity = '0'
+	document.getElementById('l15').style.opacity = '0'
+	document.getElementById('l16').style.opacity = '0'
+	document.getElementById('l17').style.opacity = '0'
+	document.getElementById('l18').style.opacity = '0'
+	document.getElementById('l19').style.opacity = '0'
+	document.getElementById('l20').style.opacity = '0'
+	document.getElementById('l21').style.opacity = '0'
+
+	document.getElementById('lright3').style.display = 'none'
+	document.getElementById('lright4').style.display = 'none'
 
 	//调速器
 	$('#light1_1').css('opacity', 1);

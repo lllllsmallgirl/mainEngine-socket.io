@@ -40,7 +40,7 @@ var btelegraph1lever = document.getElementById('btelegraph1lever'); //btelegraph
 var btext1 = document.getElementById('btelegraph1Text1');
 var disY = 0;
 var brmp = 0;
-var t=0
+var t = 0
 btelegraph1lever.onmousedown = function (ev) {
 	var oEvent = ev || event;
 	disY = oEvent.clientY - btelegraph1lever.offsetTop;
@@ -257,33 +257,71 @@ function engineNotReadyCheck() {
 	if (valueMainx % 2 == 0) { //主气动阀
 		bECRengines[1].style.color = 'red';
 		cECRengines[1].style.color = 'red';
+		document.getElementById('bENR').style.color = 'red'
 	} else {
 		bECRengines[1].style.color = 'white';
 		cECRengines[1].style.color = 'white';
+		document.getElementById('bENR').style.color = 'white'
+
 	}
 
 	if (value116x % 2 == 0) { //盘车机
 		bECRengines[2].style.color = 'red';
 		cECRengines[2].style.color = 'red';
+		// document.getElementById('bENR').style.color = 'red'
+
 	} else {
 		bECRengines[2].style.color = 'white';
 		cECRengines[2].style.color = 'white';
+		// document.getElementById('bENR').style.color = 'white'
+
 	}
 
 	if (value118x % 2 == 0) { //空气分配器
 		bECRengines[0].style.color = 'red';
 		cECRengines[0].style.color = 'red';
+		// document.getElementById('bENR').style.color = 'red'
+
 	} else {
 		bECRengines[0].style.color = 'white';
 		cECRengines[0].style.color = 'white';
+		// document.getElementById('bENR').style.color = 'white'
 	}
 	if (lwheelx1x > 2) {
 		bECRengines[3].style.color = 'red';
 		cECRengines[3].style.color = 'red';
+		// document.getElementById('bENR').style.color = 'red'
+
 	} else {
 		bECRengines[3].style.color = 'white';
 		cECRengines[3].style.color = 'white';
+		// document.getElementById('bENR').style.color = 'white'
+
 	}
+	if (value116x % 2 == 0 && value118x % 2 == 0 && valueMainx % 2 == 0) {//三个阀门任意一个没有关闭就变红
+		document.getElementById('bENR').style.color = 'red'
+		document.getElementById('cm1ReadyForStart').style.color = 'white'
+		document.getElementById('cm1Runing').style.color = 'white'
+		document.getElementById('cm1Stopping').style.color = 'red'
+
+	} else {
+		document.getElementById('bENR').style.color = 'white'
+		if (trmp == 0 && brmp == 0 && lrmp == 0) {
+			document.getElementById('cm1ReadyForStart').style.color = '#00FF00'
+			document.getElementById('cm1Runing').style.color = 'white'
+			document.getElementById('cm1Stopping').style.color = 'red'
+		}
+		else if (trmp > 0 || brmp > 0 || lrmp > 0) {
+			document.getElementById('cm1ReadyForStart').style.color = 'white'
+			document.getElementById('cm1Runing').style.color = '#00FF00'
+			document.getElementById('cm1Stopping').style.color = 'white'
+		}
+	}
+	// if (trmp == 0 && brmp == 0 && lrmp == 0) {
+	// 	document.getElementById('cm1Stopping') = 'red'
+	// } else {
+	// 	document.getElementById('cm1Stopping') = 'white'
+	// }
 }
 
 var bcancelLim = document.getElementById('bcancelLim'); //cancel lim按钮
