@@ -160,7 +160,7 @@ socket.on('conbeforeclick', function (e1) {
         trmp = 0;
         lrmp = 0;
         //	LED()
-        schematicX = 0;
+        // schematicX = 0;
 
         briled = 5;
         telled = 5;

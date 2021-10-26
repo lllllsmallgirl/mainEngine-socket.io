@@ -665,10 +665,13 @@ document.getElementById('conBefore').onclick = function () { //原始状况
 	condition.style.display = 'none';
 	// conditionX+=1;
 	//气动操作车钟图
+	sdc2tx.drawImage(picMap, 180, 521, 123, 88, 69, 481, 155, 100)
 	document.getElementById('yunxing').style.display = 'none'
 	document.getElementById('ahead').style.display = 'none'
 
-	schematicX = 0
+	// schematicX = 0 用下面的两行代码代替
+	schematicDiagramPicture.src = "img/01.png";
+	sdc2tx.clearRect(667, 68, 380, 209);
 	// document.getElementById('schematicDiagramPicture').style.display = 'block'
 	document.getElementById('bridgecontrol').style.display = 'none'
 
@@ -774,7 +777,7 @@ document.getElementById('conBefore').onclick = function () { //原始状况
 	trmp = 0;
 	lrmp = 0;
 	//	LED()
-	schematicX = 0;
+	// schematicX = 0;
 
 	briled = 5;
 	telled = 5;
@@ -1640,9 +1643,12 @@ document.getElementById('conReadyC').onclick = function () { //备车完毕
 	document.getElementById('cseqManualbcr').style.backgroundColor = '#c3c3c3'
 
 	//气动里的车钟图
-	schematicX = 5
+	schematicX = 0
 	document.getElementById('yunxing').style.display = 'none'
 	document.getElementById('ahead').style.display = 'none'
+
+	document.getElementById('bridgecontrol').style.display = 'block'
+
 
 	//取消故障
 	document.getElementById('SHDC').style.color = 'white'

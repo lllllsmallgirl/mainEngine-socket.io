@@ -202,9 +202,13 @@ function valueCheck() {
 		cock2682txt.innerHTML = "点击关闭";
 		sdc2tx.drawImage(picMap, 614, 342, 12, 11, 131, 332, 16, 14); //2682开
 	}
-	if (value16x % 2 == 1 && value3x % 2 == 1 && value122x % 2 == 1 && value116x % 2 == 1 && value118x % 2 == 1 && schematicX == 2 && valueMainx % 2 == 1) {
-		schematicDiagramPicture.src = "img/02.png";
-	}
+	// if (value16x % 2 == 1 && value3x % 2 == 1 && value122x % 2 == 1 && value116x % 2 == 1 && value118x % 2 == 1 && schematicX == 2 && valueMainx % 2 == 1) {
+	// 	schematicDiagramPicture.src = "img/02.png";
+	// 	schematicX = 5
+	// 	console.log('阀门全关了')
+	// 	document.getElementById('yunxing').style.display = 'none'
+	// 	document.getElementById('ahead').style.display = 'none'
+	// }
 
 }
 
@@ -531,10 +535,12 @@ function checkStart() {
 		document.getElementById('bStartAirPress').innerHTML = '27 bar';
 		pointerRotate(31, 'cStartAirPressPointer');
 		document.getElementById('cStartAirPress').innerHTML = '27 bar';
-
+		console.log('阀门全关好了')
 
 		if (schematicX == 0) {
-			schematicX = 1
+			// schematicX = 1
+			document.getElementById('yunxing').style.display = 'none'
+			document.getElementById('ahead').style.display = 'none'
 		}
 		if (schematicX == 1) {
 			schematicDiagramPicture.src = "img/01.png";
@@ -548,6 +554,9 @@ function checkStart() {
 			document.getElementById('yunxing').style.display = 'none'
 			document.getElementById('ahead').style.display = 'none'
 
+		}
+		if (schematicX == 5) {
+			qidongbian()
 		}
 
 		if (ydx > 0) {
